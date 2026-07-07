@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cates Recipe Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F5F2;
+    --card:#FFFFFF;
+    --ink:#1E2321;
+    --muted:#5C665F;
+    --line:#D9DED8;
+    --accent:#B93A2B;      /* gochugaru */
+    --accent-soft:#F6E4E0;
+    --lemon:#E9C64B;       /* meyer lemon */
+    --lemon-soft:#FAF3DC;
+    --readout:#12312A;     /* scale readout ink */
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Public Sans',system-ui,-apple-system,sans-serif;
+    font-size:16px;line-height:1.55;
+    padding-bottom:64px;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px}
+
+  /* ---------- header ---------- */
+  header{padding:44px 0 26px;border-bottom:2px solid var(--ink)}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-family:'Marcellus',serif;font-weight:400;font-size:clamp(34px,7vw,48px);line-height:1.08;margin:8px 0 10px}
+  .sub{color:var(--muted);font-size:14px}
+  .sub .mono{font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+
+  /* ---------- index ---------- */
+  #index{padding-top:22px}
+  .idx-note{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:18px 18px 16px;margin-bottom:12px;cursor:pointer;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:var(--accent)}
+  .card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .card h2{font-family:'Marcellus',serif;font-weight:400;font-size:21px;line-height:1.2;margin-bottom:5px}
+  .card .meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)}
+  .card .meta b{color:var(--readout);font-weight:600}
+  .tag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:2px 7px;margin-bottom:8px;font-weight:600}
+  .tag.lemon{color:#8A6A0E;background:var(--lemon-soft)}
+
+  /* ---------- recipe view ---------- */
+  .view{display:none}
+  .view.active{display:block}
+  .back{
+    display:inline-flex;align-items:center;gap:6px;margin:20px 0 4px;
+    background:none;border:none;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:6px 0;font-weight:500;
+  }
+  .back:hover{color:var(--accent)}
+  .r-title{font-family:'Marcellus',serif;font-weight:400;font-size:clamp(26px,6vw,36px);line-height:1.12;margin:6px 0 8px}
+  .r-desc{color:var(--muted);font-size:14.5px;margin-bottom:20px;max-width:56ch}
+
+  /* servings stepper */
+  .stepper{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:22px;
+  }
+  .stepper .lbl{font-size:13px;color:var(--muted)}
+  .stepper .ctrl{display:flex;align-items:center;gap:12px}
+  .stepper button{
+    width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);
+    font-size:22px;line-height:1;cursor:pointer;color:var(--ink);font-family:'Public Sans',sans-serif;
+  }
+  .stepper button:hover{background:var(--ink);color:var(--card)}
+  .stepper button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .stepper .count{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:22px;min-width:64px;text-align:center;color:var(--readout)}
+  .stepper .unit{display:block;font-size:10.5px;font-weight:400;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .scaled-flag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);font-weight:600;display:none}
+  .scaled-flag.show{display:inline}
+
+  /* ingredients */
+  h3.sec{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+  .ing{list-style:none}
+  .ing li{
+    display:flex;align-items:baseline;gap:12px;padding:9px 2px;border-bottom:1px dotted var(--line);font-size:15px;
+  }
+  .ing .amt{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;color:var(--readout);
+    min-width:86px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;
+  }
+  .ing .amt .u{font-weight:400;color:var(--muted);font-size:12.5px}
+
+  /* steps + timers */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;margin-bottom:10px}
+  .step .s-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:5px}
+  .step h4{font-size:15px;font-weight:700}
+  .step p{font-size:14.5px;color:#37403B}
+  .step p .inline-amt{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--readout);font-size:13.5px;white-space:nowrap}
+  .timer{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:10px;border-top:1px dashed var(--line)}
+  .timer .t-display{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:19px;color:var(--readout);min-width:74px;font-variant-numeric:tabular-nums}
+  .timer.done .t-display{color:var(--accent)}
+  .t-btn{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    border:1.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:6px;padding:7px 12px;cursor:pointer;
+  }
+  .t-btn:hover{background:var(--ink);color:var(--card)}
+  .t-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .t-btn.primary:hover{background:#9E2F22;border-color:#9E2F22}
+  .t-btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+  /* notes + copy */
+  .notes{background:var(--lemon-soft);border:1px solid #E8D9A6;border-radius:10px;padding:15px 16px;font-size:14px;color:#4A4229;margin-top:22px}
+  .notes b{color:#3B3417}
+  .copybar{margin-top:18px}
+  .copy-btn{
+    width:100%;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    border:1.5px solid var(--ink);background:var(--ink);color:var(--bg);border-radius:8px;padding:13px;cursor:pointer;
+  }
+  .copy-btn:hover{background:var(--accent);border-color:var(--accent)}
+  .copy-btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Final versions only</div>
+    <h1>The Cates Recipe Box</h1>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v2 — 8 recipes — July 2026</span></div>
+  </header>
+
+  <div id="index" class="view active">
+    <p class="idx-note">Tap a recipe. Adjust servings and every gram weight rescales. “Copy for Cronometer” copies the gram-first ingredient list at the current scale, ready for the AI paste box.</p>
+    <div id="cards"></div>
+    <footer>Drafts live in chat. Only declared finals enter the box. · Sweetener rule in force: no allulose.</footer>
+  </div>
+
+  <div id="recipe" class="view">
+    <button class="back" onclick="showIndex()">&#8592; Recipe box</button>
+    <div id="r-body"></div>
+  </div>
+</div>
+
+<script>
+const RECIPES = [
+  {
+    id:"tzatziki",
+    tag:"Signature",
+    title:"Signature Tzatziki",
+    subtitle:"Meyer lemon · horseradish · gochugaru oil",
+    desc:"Cool cucumber-dill base with horseradish bite and a bloomed gochugaru oil finish. Gram weights are calibrated starting points — weigh your actual batch when you lock it into Cronometer.",
+    servings:6, unit:"servings", meta:"6 servings · dip / sauce",
+    ingredients:[
+      {a:200,u:"g",n:"Persian cucumbers (about 2), grated or fine-diced"},
+      {a:4,u:"g",n:"kosher salt, for draining cucumbers"},
+      {a:400,u:"g",n:"full-fat Greek yogurt (5% Chobani)"},
+      {a:30,u:"g",n:"scallions, thinly sliced"},
+      {a:10,u:"g",n:"garlic, smashed to a paste"},
+      {a:30,u:"g",n:"Meyer lemon juice"},
+      {a:8,u:"g",n:"fresh dill, chopped"},
+      {a:15,u:"g",n:"prepared horseradish"},
+      {a:15,u:"g",n:"extra virgin olive oil, for the drizzle"},
+      {a:2,u:"g",n:"gochugaru"}
+    ],
+    steps:[
+      {t:"Salt and drain cucumbers", c:"Toss the cucumbers with the kosher salt, drain in a sieve 15–20 minutes, then squeeze dry.", timer:1200},
+      {t:"Bloom the garlic", c:"Smash the garlic and let it sit in the Meyer lemon juice for 5 minutes to mellow the raw edge.", timer:300},
+      {t:"Build the dip", c:"Fold together the yogurt, drained cucumbers, scallions, garlic-lemon bloom, dill, and horseradish. Season with coarse salt and black pepper."},
+      {t:"Bloom the gochugaru oil", c:"Warm the olive oil gently, stir in the gochugaru off heat, and let steep while the dip chills."},
+      {t:"Chill", c:"Chill so the flavors knit and the scallion mellows.", timer:1800},
+      {t:"Finish and serve", c:"Pool the gochugaru oil on top — not stirred in — with a final crack of pepper."}
+    ],
+    notes:"<b>Optional add-ins:</b> rough-mashed cooked lima beans folded in (~1:1 with yogurt by volume) and minced preserved lemon rind bloomed alongside the garlic — go light or skip the horseradish in that version. Fresh dill only; dried is a trap."
+  },
+  {
+    id:"butterscotch",
+    tag:"Creami · ~69g protein",
+    title:"Butterscotch Greek Yogurt & Pea Protein Pint",
+    subtitle:"Ninja Creami",
+    desc:"~69g protein per pint. Real sugar per the standing sweetener rule — the molasses and pudding mix carry most of the butterscotch character.",
+    servings:1, unit:"pint", meta:"1 pint · ~69g protein",
+    ingredients:[
+      {a:360,u:"g",n:"full-fat Chobani Greek yogurt"},
+      {a:360,u:"g",n:"Fairlife fat-free milk"},
+      {a:40,u:"g",n:"unflavored pea protein powder"},
+      {a:12,u:"g",n:"vanilla zero-sugar pudding mix"},
+      {a:6,u:"g",n:"blackstrap molasses"},
+      {a:10,u:"g",n:"granulated sugar"},
+      {a:2,u:"g",n:"vanilla extract"},
+      {a:1,u:"g",n:"salt"},
+      {a:3,u:"",n:"Reese's Thins (mix-in)"}
+    ],
+    steps:[
+      {t:"Blend the base", c:"Whisk everything except the mix-in until completely smooth — no dry pockets of protein powder."},
+      {t:"Freeze 24 hours", c:"Pour into the Creami pint to the max-fill line and freeze flat for 24 hours.", timer:86400},
+      {t:"Spin", c:"Spin on Lite Ice Cream. If crumbly, respin once (add a splash of milk if needed)."},
+      {t:"Mix-in", c:"Core a hole, add the chopped Reese's Thins, and run the Mix-In cycle."}
+    ],
+    notes:"Sweetener updated from 11g allulose to <b>10g real sugar</b> (+~40 kcal; protein unchanged). Taste the base before freezing — nudge sugar to 15g max if it reads flat. Update the saved Cronometer entry to match."
+  },
+  {
+    id:"chocolate",
+    tag:"Creami · ~69g protein",
+    title:"Chocolate Greek Yogurt & Pea Protein Pint",
+    subtitle:"Ninja Creami",
+    desc:"Same high-protein base, chocolate build. Real sugar per the standing sweetener rule — cocoa needs a touch more sweetness than the butterscotch.",
+    servings:1, unit:"pint", meta:"1 pint · ~69g protein",
+    ingredients:[
+      {a:360,u:"g",n:"full-fat Chobani Greek yogurt"},
+      {a:360,u:"g",n:"Fairlife fat-free milk"},
+      {a:40,u:"g",n:"unflavored pea protein powder"},
+      {a:12,u:"g",n:"vanilla zero-sugar pudding mix"},
+      {a:20,u:"g",n:"cocoa powder"},
+      {a:14,u:"g",n:"granulated sugar"},
+      {a:2,u:"g",n:"vanilla extract"},
+      {a:1,u:"g",n:"salt"}
+    ],
+    steps:[
+      {t:"Blend the base", c:"Whisk everything until completely smooth — cocoa clumps, so sift it in or blend."},
+      {t:"Freeze 24 hours", c:"Pour into the Creami pint to the max-fill line and freeze flat for 24 hours.", timer:86400},
+      {t:"Spin", c:"Spin on Lite Ice Cream. Respin once if crumbly."},
+      {t:"Mix-in (optional)", c:"Core and run the Mix-In cycle with your choice of add-in — log whatever you add."}
+    ],
+    notes:"Sweetener updated from 15g allulose to <b>14g real sugar</b> (+~55 kcal; protein unchanged). Update the saved Cronometer entry."
+  },
+  {
+    id:"shake-whey",
+    tag:"Evening shake · ~49g protein",
+    title:"Evening Protein Shake — Pineapple Whey",
+    subtitle:"The creamsicle",
+    desc:"~335 kcal, ~49g protein. No added flavoring needed — pineapple plus vanilla whey carries it. Closes the ~50g evening gap inside ~340 kcal; creatine-compatible in the blender.",
+    servings:1, unit:"shake", meta:"1 shake · ~335 kcal / ~49g protein",
+    ingredients:[
+      {a:200,u:"g",n:"Fairlife fat-free milk"},
+      {a:150,u:"g",n:"pineapple cottage cheese"},
+      {a:30,u:"g",n:"NOW Sports whey protein isolate, vanilla"}
+    ],
+    steps:[
+      {t:"Blend", c:"Blend 15–20 seconds until smooth.", timer:20}
+    ],
+    notes:"<b>Cronometer audit:</b> verify two matches after pasting — your cottage cheese brand (scan the tub's barcode if the parser grabs a generic) and the correct protein powder entry. <b>Which to reach for:</b> whey when it's in the container; it tastes better in this particular combo. Table 1 evening rotation."
+  },
+  {
+    id:"shake-pea",
+    tag:"Evening shake · ~47g protein",
+    title:"Evening Protein Shake — Pineapple Pea",
+    subtitle:"Needs flavor cover",
+    desc:"~340 kcal, ~47g protein. Pea runs slightly lower in protein per gram and noticeably earthier — the cinnamon and extra vanilla are doing real work here.",
+    servings:1, unit:"shake", meta:"1 shake · ~340 kcal / ~47g protein",
+    ingredients:[
+      {a:200,u:"g",n:"Fairlife fat-free milk"},
+      {a:150,u:"g",n:"pineapple cottage cheese"},
+      {a:30,u:"g",n:"Naked pea protein isolate, vanilla"},
+      {a:2,u:"g",n:"ground cinnamon"},
+      {a:3,u:"g",n:"vanilla extract"}
+    ],
+    steps:[
+      {t:"Blend", c:"Blend 20–30 seconds — blending time matters more with pea, or the chalkiness you've fought before comes back.", timer:30}
+    ],
+    notes:"The dairy completes pea's amino profile, so the two versions are <b>nutritionally equivalent for muscle retention</b> — whey just tastes better in this combo. Reach for pea when the whey runs out or you want the slower-drinking, thicker result. Same Cronometer audit: verify the cottage cheese and powder matches. Table 1 evening rotation."
+  },
+  {
+    id:"meatballs",
+    tag:"Dinner slot · 50g protein",
+    title:"High-Protein Turkey Meatballs",
+    subtitle:"Beef variant included",
+    desc:"~561 kcal / 50g protein per serving with verified real-brand marinara — sized for the dinner feeding. Grated onion is the anti-dryness secret.",
+    servings:4, unit:"servings", meta:"4 servings · ~561 kcal / 50g protein each",
+    ingredients:[
+      {a:900,u:"g",n:"93/7 lean ground turkey"},
+      {a:1,u:"",n:"large egg"},
+      {a:45,u:"g",n:"plain breadcrumbs or panko"},
+      {a:30,u:"g",n:"grated parmesan"},
+      {a:60,u:"g",n:"onion, grated"},
+      {a:9,u:"g",n:"garlic, minced (about 3 cloves)"},
+      {a:4,u:"g",n:"salt"},
+      {a:2,u:"g",n:"dried oregano"},
+      {a:1,u:"g",n:"black pepper"},
+      {a:2,u:"g",n:"fennel seed, crushed (optional)"},
+      {a:15,u:"g",n:"olive oil"},
+      {a:680,u:"g",n:"marinara sauce, no sugar added"}
+    ],
+    steps:[
+      {t:"Build the binder", c:"Combine the egg, breadcrumbs, parmesan, grated onion, garlic, salt, oregano, pepper, and fennel in a large bowl and mix into a paste."},
+      {t:"Gentle mix", c:"Add the turkey and mix gently just until combined — overworking makes them dense."},
+      {t:"Portion at 65g", c:"Portion into 65g meatballs (the scale beats eyeballing), place on an oiled sheet pan."},
+      {t:"Bake to temp", c:"Bake at 400°F until 165°F internal in the largest meatball — start checking at 18 minutes (15–16 for beef).", timer:1080},
+      {t:"Simmer in marinara", c:"Simmer the baked meatballs in the marinara for 10 minutes to finish and glaze.", timer:600}
+    ],
+    notes:"<b>Beef variant:</b> 90/10 ground beef, drop the fennel, optional 5g Worcestershire in the binder; check temp at 15–16 min (~590–600 kcal/serving). <b>Doubled 130g meatballs:</b> 375°F for 30–32 min (turkey) or 29–31 min (beef), pull at 160–162°F, rest 5 min. <b>Cronometer:</b> scan the marinara barcode — sauces vary most between brands. Sodium runs ~1,520mg/serving; no-salt-added marinara cuts ~500mg if labs ever call for it."
+  },
+  {
+    id:"vinaigrette",
+    tag:"Dressing",
+    title:"Preserved Lemon Vinaigrette",
+    subtitle:"For little gem greens",
+    desc:"Salty-sour preserved lemon dressing stretched with fresh acid for delicate greens. Base batch is ~72g, ~240 kcal total.",
+    servings:4, unit:"servings", meta:"4 servings · batch ~72g / ~240 kcal",
+    ingredients:[
+      {a:15,u:"g",n:"preserved lemon rind, rinsed and minced (pulp discarded)"},
+      {a:15,u:"g",n:"fresh lemon juice"},
+      {a:5,u:"g",n:"garlic, grated to a paste"},
+      {a:5,u:"g",n:"Dijon mustard"},
+      {a:27,u:"g",n:"extra virgin olive oil"},
+      {a:15,u:"g",n:"water"},
+      {a:0.5,u:"g",n:"black pepper"},
+      {a:300,u:"g",n:"little gem lettuce, leaves separated and washed"}
+    ],
+    steps:[
+      {t:"Rinse and mince preserved lemon", c:"Briefly rinse the preserved lemon wedge, scrape out and discard the pulp, and mince the rind fine."},
+      {t:"Build the base", c:"Whisk together the minced rind, lemon juice, garlic, and Dijon."},
+      {t:"Emulsify", c:"Slowly whisk in the olive oil in a thin stream, then whisk in the water to loosen and stretch the acid. Season with pepper."},
+      {t:"Taste before salting", c:"Taste before adding any salt — the preserved lemon carries most of the seasoning."},
+      {t:"Dress the greens", c:"Weigh the greens and toss with just enough dressing to lightly coat. Serve immediately."}
+    ],
+    notes:"<b>Weigh what you actually pour</b> — more clings to the leaves than you'd expect, so don't assume an even split when logging. Little gem heads run ~150g each. Dinner-party version stretches to a 1:1 oil-to-acid ratio. Keeps several days in the fridge and deepens overnight."
+  },
+  {
+    id:"lemonbars",
+    tag:"Dessert · reduced sugar",
+    title:"Recomp Lemon Bars",
+    subtitle:"Real sugar, cut to 135g",
+    desc:"Real sugar cut to 135g total against the classic ~225g — the tartness carries it. ~130 kcal / 2g protein per bar.",
+    servings:12, unit:"bars", meta:"12 bars · ~130 kcal each · 8×8 pan",
+    ingredients:[
+      {a:90,u:"g",n:"all-purpose flour (crust)"},
+      {a:50,u:"g",n:"butter, cold, cubed"},
+      {a:25,u:"g",n:"granulated sugar (crust)"},
+      {a:1,u:"pinch",n:"kosher salt"},
+      {a:150,u:"g",n:"large eggs (3 whole)"},
+      {a:110,u:"g",n:"granulated sugar (filling)"},
+      {a:120,u:"g",n:"fresh lemon juice (3–4 lemons)"},
+      {a:2,u:"",n:"lemons, zested (zest only, into the filling)"},
+      {a:20,u:"g",n:"all-purpose flour (filling)"},
+      {a:50,u:"g",n:"plain nonfat Greek yogurt"}
+    ],
+    steps:[
+      {t:"Make and press the crust", c:"Heat oven to 350°F. Line an 8×8 pan with parchment, overhang on two sides. Rub or pulse the crust flour, butter, crust sugar, and salt to damp sand, then press evenly into the pan floor."},
+      {t:"Par-bake the crust", c:"Bake until the edges are lightly golden.", timer:1080},
+      {t:"Whisk the filling", c:"Whisk the eggs with the filling sugar until smooth, then whisk in the lemon juice, zest, filling flour, and yogurt. The yogurt adds body so the reduced sugar doesn't read as thin."},
+      {t:"Bake the filling", c:"Reduce oven to 325°F. Pour the filling over the hot crust and bake to a just-set center with a slight jiggle — start checking at 18 minutes.", timer:1200},
+      {t:"Chill and slice", c:"Cool to room temperature, then chill fully before lifting out and slicing into 12 bars.", timer:7200}
+    ],
+    notes:"Skip the powdered sugar dusting (15–20 kcal a bar, mostly visual) — <b>fresh zest on top</b> instead. Real sugar gives normal browning and a proper firm set. Scaling above 12 bars means a bigger pan — 24 bars fits a 9×13. Fridge, 4–5 days. Cronometer: 12 servings, one tap per bar."
+  }
+];
+
+const scaleState = {};
+const timers = {};
+
+function fmt(n){
+  if(n === 0) return "0";
+  if(n < 10){ const r = Math.round(n*10)/10; return (r % 1 === 0) ? String(r) : r.toFixed(1); }
+  return String(Math.round(n));
+}
+
+function buildIndex(){
+  const c = document.getElementById("cards");
+  c.innerHTML = RECIPES.map(r => `
+    <div class="card" role="button" tabindex="0" onclick="showRecipe('${r.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRecipe('${r.id}')}">
+      <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'?'lemon':''}">${r.tag}</span>
+      <h2>${r.title}</h2>
+      <div class="meta">${r.meta}</div>
+    </div>`).join("");
+}
+
+function showIndex(){
+  stopAllTimers();
+  document.getElementById("recipe").classList.remove("active");
+  document.getElementById("index").classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function showRecipe(id){
+  const r = RECIPES.find(x => x.id === id);
+  if(!(id in scaleState)) scaleState[id] = r.servings;
+  const body = document.getElementById("r-body");
+  body.innerHTML = `
+    <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'?'lemon':''}">${r.tag}</span>
+    <h2 class="r-title">${r.title}</h2>
+    <p class="r-desc">${r.desc}</p>
+    <div class="stepper">
+      <div class="lbl">Scale the batch<br><span class="scaled-flag" id="flag-${id}">scaled from base</span></div>
+      <div class="ctrl">
+        <button aria-label="Decrease servings" onclick="adjust('${id}',-1)">&minus;</button>
+        <div class="count"><span id="count-${id}">${scaleState[id]}</span><span class="unit">${r.unit}</span></div>
+        <button aria-label="Increase servings" onclick="adjust('${id}',1)">+</button>
+      </div>
+    </div>
+    <h3 class="sec">Ingredients</h3>
+    <ul class="ing" id="ing-${id}"></ul>
+    <h3 class="sec">Method</h3>
+    <div id="steps-${id}"></div>
+    <div class="notes">${r.notes}</div>
+    <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v2</footer>
+  `;
+  renderIngredients(id);
+  renderSteps(id);
+  document.getElementById("index").classList.remove("active");
+  document.getElementById("recipe").classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function adjust(id, delta){
+  const r = RECIPES.find(x => x.id === id);
+  let next = scaleState[id] + delta * (r.servings >= 12 ? r.servings/2 : 1);
+  if(r.servings >= 12) next = Math.max(r.servings/2, Math.min(r.servings*4, next));
+  else next = Math.max(1, Math.min(24, next));
+  scaleState[id] = next;
+  document.getElementById("count-"+id).textContent = next;
+  document.getElementById("flag-"+id).classList.toggle("show", next !== r.servings);
+  renderIngredients(id);
+}
+
+function renderIngredients(id){
+  const r = RECIPES.find(x => x.id === id);
+  const k = scaleState[id] / r.servings;
+  document.getElementById("ing-"+id).innerHTML = r.ingredients.map(i => {
+    const amt = i.a * k;
+    const shown = i.u === "pinch" ? (k===1 ? "1" : fmt(amt)) : fmt(amt);
+    const unit = i.u ? ` <span class="u">${i.u}</span>` : "";
+    return `<li><span class="amt">${shown}${unit}</span><span>${i.n}</span></li>`;
+  }).join("");
+}
+
+function renderSteps(id){
+  const r = RECIPES.find(x => x.id === id);
+  document.getElementById("steps-"+id).innerHTML = r.steps.map((s,i) => `
+    <div class="step">
+      <div class="s-head"><h4>${i+1}. ${s.t}</h4></div>
+      <p>${s.c}</p>
+      ${s.timer ? `
+      <div class="timer" id="timer-${id}-${i}">
+        <span class="t-display" id="td-${id}-${i}">${clock(s.timer)}</span>
+        <button class="t-btn primary" id="tb-${id}-${i}" onclick="toggleTimer('${id}',${i},${s.timer})">Start</button>
+        <button class="t-btn" onclick="resetTimer('${id}',${i},${s.timer})">Reset</button>
+      </div>` : ``}
+    </div>`).join("");
+}
+
+function clock(sec){
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec/3600), m = Math.floor((sec%3600)/60), s = sec%60;
+  if(h > 0) return `${h}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  return `${m}:${String(s).padStart(2,"0")}`;
+}
+
+function toggleTimer(id, i, base){
+  const key = `${id}-${i}`;
+  if(timers[key] && timers[key].running){
+    clearInterval(timers[key].iv);
+    timers[key].running = false;
+    document.getElementById("tb-"+key).textContent = "Resume";
+    return;
+  }
+  if(!timers[key]) timers[key] = { remaining: base, running:false, iv:null };
+  timers[key].running = true;
+  document.getElementById("tb-"+key).textContent = "Pause";
+  timers[key].iv = setInterval(() => {
+    timers[key].remaining--;
+    const td = document.getElementById("td-"+key);
+    if(!td){ clearInterval(timers[key].iv); return; }
+    td.textContent = clock(timers[key].remaining);
+    if(timers[key].remaining <= 0){
+      clearInterval(timers[key].iv);
+      timers[key].running = false;
+      document.getElementById("timer-"+key).classList.add("done");
+      td.textContent = "Done";
+      document.getElementById("tb-"+key).textContent = "Start";
+      beep();
+    }
+  }, 1000);
+}
+
+function resetTimer(id, i, base){
+  const key = `${id}-${i}`;
+  if(timers[key] && timers[key].iv) clearInterval(timers[key].iv);
+  timers[key] = { remaining: base, running:false, iv:null };
+  const td = document.getElementById("td-"+key);
+  if(td) td.textContent = clock(base);
+  const el = document.getElementById("timer-"+key);
+  if(el) el.classList.remove("done");
+  const tb = document.getElementById("tb-"+key);
+  if(tb) tb.textContent = "Start";
+}
+
+function stopAllTimers(){
+  Object.values(timers).forEach(t => { if(t.iv) clearInterval(t.iv); });
+  Object.keys(timers).forEach(k => delete timers[k]);
+}
+
+function beep(){
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, .35, .7].forEach(off => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = 880; o.type = "sine";
+      g.gain.setValueAtTime(.25, ctx.currentTime + off);
+      g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + off + .3);
+      o.start(ctx.currentTime + off); o.stop(ctx.currentTime + off + .32);
+    });
+  }catch(e){}
+}
+
+function copyCronometer(id){
+  const r = RECIPES.find(x => x.id === id);
+  const k = scaleState[id] / r.servings;
+  const lines = r.ingredients.map(i => {
+    const amt = fmt(i.a * k);
+    return i.u === "g" ? `${amt}g ${i.n}` : (i.u ? `${amt} ${i.u} ${i.n}` : `${amt} ${i.n}`);
+  });
+  const text = `${r.title} (${scaleState[id]} ${r.unit})\n` + lines.join("\n");
+  navigator.clipboard.writeText(text).then(() => {
+    const b = document.getElementById("copy-"+id);
+    b.textContent = "Copied — paste into Cronometer";
+    setTimeout(() => { b.textContent = "Copy for Cronometer"; }, 2200);
+  }).catch(() => {
+    prompt("Copy this for Cronometer:", text);
+  });
+}
+
+buildIndex();
+</script>
+</body>
+</html>
