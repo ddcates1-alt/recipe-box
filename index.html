@@ -40,6 +40,12 @@
   /* ---------- index ---------- */
   #index{padding-top:22px}
   .idx-note{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+  .cat-head{
+    font-family:'Marcellus',serif;font-weight:400;font-size:22px;color:var(--ink);
+    margin:30px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--ink);
+    display:flex;align-items:baseline;justify-content:space-between;
+  }
+  .cat-head:first-child{margin-top:6px}
   .card{
     background:var(--card);border:1px solid var(--line);border-radius:10px;
     padding:18px 18px 16px;margin-bottom:12px;cursor:pointer;
@@ -136,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v3 — 10 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v4 — 20 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -155,6 +161,7 @@
 const RECIPES = [
   {
     id:"tzatziki",
+    cat:"Sauces & Dressings",
     tag:"Signature",
     title:"Signature Tzatziki",
     subtitle:"Meyer lemon · horseradish · gochugaru oil",
@@ -184,6 +191,7 @@ const RECIPES = [
   },
   {
     id:"butterscotch",
+    cat:"Desserts",
     tag:"Creami · ~69g protein",
     title:"Butterscotch Greek Yogurt & Pea Protein Pint",
     subtitle:"Ninja Creami",
@@ -210,6 +218,7 @@ const RECIPES = [
   },
   {
     id:"chocolate",
+    cat:"Desserts",
     tag:"Creami · ~69g protein",
     title:"Chocolate Greek Yogurt & Pea Protein Pint",
     subtitle:"Ninja Creami",
@@ -235,6 +244,7 @@ const RECIPES = [
   },
   {
     id:"shake-whey",
+    cat:"Evening Shakes",
     tag:"Evening shake · ~49g protein",
     title:"Evening Protein Shake — Pineapple Whey",
     subtitle:"The creamsicle",
@@ -252,6 +262,7 @@ const RECIPES = [
   },
   {
     id:"shake-pea",
+    cat:"Evening Shakes",
     tag:"Evening shake · ~47g protein",
     title:"Evening Protein Shake — Pineapple Pea",
     subtitle:"Needs flavor cover",
@@ -271,6 +282,7 @@ const RECIPES = [
   },
   {
     id:"meatballs",
+    cat:"Ground Turkey",
     tag:"Dinner slot · 50g protein",
     title:"High-Protein Turkey Meatballs",
     subtitle:"Beef variant included",
@@ -301,6 +313,7 @@ const RECIPES = [
   },
   {
     id:"vinaigrette",
+    cat:"Sauces & Dressings",
     tag:"Dressing",
     title:"Preserved Lemon Vinaigrette",
     subtitle:"For little gem greens",
@@ -327,6 +340,7 @@ const RECIPES = [
   },
   {
     id:"lemonbars",
+    cat:"Desserts",
     tag:"Dessert · reduced sugar",
     title:"Recomp Lemon Bars",
     subtitle:"Real sugar, cut to 135g",
@@ -353,71 +367,1215 @@ const RECIPES = [
     ],
     notes:"Skip the powdered sugar dusting (15–20 kcal a bar, mostly visual) — <b>fresh zest on top</b> instead. Real sugar gives normal browning and a proper firm set. Scaling above 12 bars means a bigger pan — 24 bars fits a 9×13. Fridge, 4–5 days. Cronometer: 12 servings, one tap per bar."
   },
-  {
-    id:"lavash",
-    tag:"Wrap base · 6g protein",
-    title:"Recomp Mini Lavash",
-    subtitle:"High-protein, high-fiber flatbread",
-    desc:"Homemade mini lavash matching Joseph's macros with a cleaner label: ~68 kcal, 6g protein, 8g carbs (~3g fiber), 1.5g fat per mini. Rectangular shaping is built into the method — the pre-shape decides the final shape.",
-    servings:12, unit:"minis", meta:"12 minis · ~68 kcal / 6g protein each",
-    ingredients:[
-      {a:110,u:"g",n:"whole wheat flour"},
-      {a:70,u:"g",n:"vital wheat gluten"},
-      {a:25,u:"g",n:"oat fiber (not oat bran or oat flour)"},
-      {a:15,u:"g",n:"ground flaxseed"},
-      {a:8,u:"g",n:"olive oil"},
-      {a:3,u:"g",n:"instant yeast"},
-      {a:5,u:"g",n:"fine sea salt"},
-      {a:210,u:"g",n:"warm water (105°F), plus up to 20g more as needed"}
-    ],
-    steps:[
-      {t:"Mix the dry base", c:"Whisk the flour, gluten, oat fiber, flaxseed, yeast, and salt until evenly blended — the gluten and oat fiber clump if they hit water first."},
-      {t:"Hydrate", c:"Add the oil and water and stir to a shaggy dough. Oat fiber drinks slowly; if it still looks dry after 2 minutes, add water 10g at a time. Target firm but pliable — slightly stiffer than pizza dough."},
-      {t:"Knead", c:"Knead 6–8 minutes by hand (5 in a stand mixer). This dough is gluten-heavy and will feel unusually rubbery and elastic — that's correct. Stop when smooth and springy.", timer:480},
-      {t:"Rest 45 minutes", c:"Cover the bowl and rest at room temperature. Not a full proof — you're relaxing the gluten so the sheets roll thin instead of snapping back. Skip this and rolling becomes a fight.", timer:2700},
-      {t:"Divide into logs, not balls", c:"Divide into 12 pieces of 37g each on the scale. Roll each into a 3-inch log — a ball rolls into a circle no matter what; a log flattens into a rectangle. Cover with a damp towel and rest 10 minutes.", timer:600},
-      {t:"Roll the long axis first", c:"Flatten a log with your palm, then roll center-out along the long axis only — center to far edge, back, center to near edge — until about 8 inches long. Never roll edge-to-edge across the whole piece; that thins the middle."},
-      {t:"Widen and square the corners", c:"Turn the pin 90° and widen with center-out strokes to about 6 inches, then push dough into each corner with 4–5 short diagonal strokes from the center. If a sheet springs back, set it aside, roll another, and return in 2 minutes — patience beats pressure. Roll to 6.5×8.5; it relaxes to 6×8."},
-      {t:"Trim true, keep the scraps", c:"Run a pizza cutter along a straightedge to square the edges — straight edges roll into tight wraps. Knead all trimmings into a bonus 13th piece (or into the next ball) so the batch total stays true for logging."},
-      {t:"Cook on a dry skillet", c:"Dry cast-iron or nonstick over medium-high until water droplets skitter. 60–75 seconds per side to scattered brown spots and slight puffing. No oil. Even 30 extra seconds turns wrap into cracker.", timer:75},
-      {t:"Steam-soften the stack", c:"Stack each lavash under a clean towel as it comes off — the trapped steam keeps them pliable. Rest the full stack covered 15 minutes before storing.", timer:900}
-    ],
-    notes:"<b>Wrap assembly:</b> warm the sheet 20 seconds in a dry skillet first. Short edge toward you, filling in a strip along that edge with a 1-inch margin, spotted side facing the filling, fold the long margins in, roll along the 8-inch dimension, finish seam-down. <b>Storage:</b> parchment squares between sheets; 2 days room temp (no preservatives), 1 week fridge, 3 months frozen — revive 20–30 seconds in a dry skillet. <b>Cronometer:</b> weigh the total baked output (≈390–410g) and set serving = total ÷ 12; verify the vital wheat gluten and oat fiber entries against your actual brands. Batch totals ~815 kcal / ~71g protein."
-  },
-  {
-    id:"lemonchicken",
-    tag:"Training day · fried",
-    title:"Lemon Chicken Cutlets with Salmoriglio",
-    subtitle:"Garlic-lemon-parsley sauce",
-    desc:"Crispy lemon-breaded cutlets finished with a garlic-lemon-parsley salmoriglio. Gram-converted from the volume original; the fry oil is the logging variable — see notes.",
-    servings:4, unit:"servings", meta:"4 servings · fried — training-day slot",
-    ingredients:[
-      {a:680,u:"g",n:"boneless skinless chicken breasts (about 4), halved and pounded 1/4-inch thick"},
-      {a:5,u:"g",n:"kosher salt, plus more to finish"},
-      {a:1,u:"g",n:"black pepper"},
-      {a:3,u:"",n:"large lemons"},
-      {a:100,u:"g",n:"eggs (2 large), beaten"},
-      {a:30,u:"g",n:"flat-leaf parsley, very finely chopped, divided"},
-      {a:135,u:"g",n:"bread crumbs"},
-      {a:30,u:"g",n:"all-purpose flour"},
-      {a:25,u:"g",n:"Parmigiano-Reggiano, finely grated"},
-      {a:2,u:"g",n:"dried oregano"},
-      {a:72,u:"g",n:"extra virgin olive oil (for the garlic oil)"},
-      {a:72,u:"g",n:"olive oil for frying, per batch, plus more as needed"},
-      {a:3,u:"g",n:"garlic clove, minced"}
-    ],
-    steps:[
-      {t:"Season", c:"Pat the chicken dry and season generously with the salt and pepper on both sides."},
-      {t:"Lemon-egg soak", c:"Zest one lemon and reserve the zest for the breading. Juice that lemon into a bowl, beat in the eggs, and turn the chicken to coat. Let it sit while you build the sauce and breading."},
-      {t:"Start the salmoriglio", c:"Zest and juice the remaining two lemons into a bowl and stir in half the parsley. Set aside — the garlic oil joins it later."},
-      {t:"Build the breading", c:"Combine the bread crumbs, flour, Parmesan, oregano, and remaining parsley in a shallow dish, then work the reserved zest through with a fork until even."},
-      {t:"Bread the cutlets", c:"One at a time, press each piece firmly into the crumb mixture on both sides, using your fingers to pack the coating. Stage on a sheet pan."},
-      {t:"Fry in batches", c:"Heat the frying oil over medium-high. Fry 2–3 pieces at a time with space between, about 2 minutes per side to golden. Salt each batch the moment it comes off. Add and reheat oil between batches as needed.", timer:120},
-      {t:"Make the garlic oil", c:"While the first batch fries, warm the garlic-oil portion in a small saucepan over medium. Add the garlic and let it sizzle 1–2 minutes without browning, then pull it off the heat to cool.", timer:90},
-      {t:"Finish and sauce", c:"Slowly whisk the cooled garlic oil into the lemon-parsley bowl. Spoon the salmoriglio generously over the plated cutlets."}
-    ],
-    notes:"<b>Fry-oil logging:</b> the oil is the wild card — weigh the skillet oil (or the bottle) before and after, and log the difference; ~10–15g absorbed per serving is the starting estimate, verified by your weigh-back. <b>Breading:</b> about 2/3 of the crumb mixture ends up on the chicken in practice — weigh what's left in the dish and subtract. Parsley conversion assumes finely chopped (~60g per cup). This is a fried dish, so it slots best on a <b>training day</b> with a light plate around it."
-  }
+{
+  "id": "ginger-scallion",
+  "cat": "Ground Chicken",
+  "tag": "Dinner slot · ~45g protein",
+  "title": "Ginger-Scallion Chicken Patties with Charred Bok Choy",
+  "subtitle": "Mary's 93/7",
+  "desc": "Hard-seared patties under a classic ginger-scallion sauce made with a measured 20g of oil, bok choy charred cut-side down. ~420 kcal / ~45g protein per serving on Mary's numbers.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~420 kcal / ~45g protein each",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "Mary's Free Range ground chicken 93/7"
+    },
+    {
+      "a": 40,
+      "u": "g",
+      "n": "scallions, minced (patties)"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "fresh ginger, grated (patties)"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "garlic, grated"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "panko bread crumbs"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "soy sauce (patties)"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "toasted sesame oil"
+    },
+    {
+      "a": 2,
+      "u": "g",
+      "n": "kosher salt (patties)"
+    },
+    {
+      "a": 60,
+      "u": "g",
+      "n": "scallions, minced (sauce)"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "fresh ginger, grated (sauce)"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "avocado oil (sauce)"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "kosher salt (sauce)"
+    },
+    {
+      "a": 600,
+      "u": "g",
+      "n": "baby bok choy, halved lengthwise"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "avocado oil (bok choy)"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "soy sauce (bok choy)"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Mix the patties",
+      "c": "Gently combine the chicken with the patty scallions, ginger, garlic, panko, soy, sesame oil, and salt — meatball rules, no overworking. Portion into 8 patties at ~120g."
+    },
+    {
+      "t": "Build the sauce",
+      "c": "Combine the sauce scallions, ginger, and salt in a heatproof bowl. Heat the 20g avocado oil just to shimmering and pour over — it should sizzle audibly. Stir and set aside."
+    },
+    {
+      "t": "Cook the patties",
+      "c": "Sear hard or air fry at 400°F, about 8 minutes, to 165°F internal.",
+      "timer": 480
+    },
+    {
+      "t": "Char the bok choy",
+      "c": "Toss the bok choy with its 8g oil, lay cut-side down in a screaming-hot pan until deeply charred, 2–3 minutes, then flip briefly. Finish with the 10g soy.",
+      "timer": 180
+    },
+    {
+      "t": "Plate",
+      "c": "Two patties per plate, sauce spooned over by the gram — the sauce is 44 kcal of the serving — bok choy alongside."
+    }
+  ],
+  "notes": "The ginger-scallion sauce is the whole personality — measure it, don't eyeball it. <b>Cronometer:</b> Mary's must map to the verified brand entry, not a generic ground chicken."
+},
+{
+  "id": "pad-krapow",
+  "cat": "Ground Chicken",
+  "tag": "Weeknight anchor · ~49g protein",
+  "title": "Pad Krapow-Style Basil Chicken",
+  "subtitle": "Rice logged separately",
+  "desc": "One skillet, high heat, fifteen minutes. ~450 kcal / ~49g protein per serving before rice — portion rice by day type so one recipe stays honest for both.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~450 kcal / ~49g protein (before rice)",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "Mary's Free Range ground chicken 93/7"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "avocado oil"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "garlic, roughly chopped"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "fresh Thai chilies, sliced"
+    },
+    {
+      "a": 60,
+      "u": "g",
+      "n": "shallots, sliced"
+    },
+    {
+      "a": 40,
+      "u": "g",
+      "n": "fish sauce"
+    },
+    {
+      "a": 25,
+      "u": "g",
+      "n": "oyster sauce"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "soy sauce"
+    },
+    {
+      "a": 12,
+      "u": "g",
+      "n": "granulated sugar"
+    },
+    {
+      "a": 40,
+      "u": "g",
+      "n": "Thai basil leaves"
+    },
+    {
+      "a": 200,
+      "u": "g",
+      "n": "eggs (4 large — one per serving)"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Pound the aromatics",
+      "c": "Pound the garlic and chilies rough in a mortar (or mince coarse). 10g chili is medium-warm — the chili is your dial."
+    },
+    {
+      "t": "Flash the aromatics",
+      "c": "Heat the oil in a large skillet or wok over high. Garlic-chili paste and shallots in for 30 seconds — fragrant, not browned.",
+      "timer": 30
+    },
+    {
+      "t": "Crust the chicken",
+      "c": "Chicken in hard without crowding. Let it sit and crust before breaking it up — the crust is the flavor.",
+      "timer": 240
+    },
+    {
+      "t": "Sauce and reduce",
+      "c": "Fish sauce, oyster sauce, soy, and sugar in. Toss and reduce until glossy, 1–2 minutes.",
+      "timer": 120
+    },
+    {
+      "t": "Basil off heat",
+      "c": "Kill the heat, fold in the basil just to wilt."
+    },
+    {
+      "t": "Egg per portion",
+      "c": "Top each serving with a fried or jammy egg. Rice logged separately: 150g cooked on training days (+~195 kcal), 100g on rest days (+~130)."
+    }
+  ],
+  "notes": "The 12g sugar is real sugar per the standing rule — 3g per serving, working hard against the fish sauce. <b>Cronometer:</b> fish sauce and oyster sauce need brand-verified entries; both vary a lot."
+},
+{
+  "id": "greek-burgers",
+  "cat": "Ground Chicken",
+  "tag": "Dinner slot · ~50g protein",
+  "title": "Greek Chicken Burgers, Preserved Lemon–Dill Yogurt",
+  "subtitle": "Mary's 93/7",
+  "desc": "Feta and oregano inside the patty, preserved lemon minced into the yogurt on vinaigrette rules. ~425 kcal / ~50g protein per serving over greens.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~425 kcal / ~50g protein each",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "Mary's Free Range ground chicken 93/7"
+    },
+    {
+      "a": 80,
+      "u": "g",
+      "n": "feta, crumbled fine"
+    },
+    {
+      "a": 60,
+      "u": "g",
+      "n": "red onion, grated"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "garlic, grated (patties)"
+    },
+    {
+      "a": 30,
+      "u": "g",
+      "n": "panko bread crumbs"
+    },
+    {
+      "a": 4,
+      "u": "g",
+      "n": "dried oregano"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "fresh dill (patties)"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "kosher salt"
+    },
+    {
+      "a": 1,
+      "u": "g",
+      "n": "black pepper"
+    },
+    {
+      "a": 200,
+      "u": "g",
+      "n": "plain nonfat Greek yogurt"
+    },
+    {
+      "a": 12,
+      "u": "g",
+      "n": "preserved lemon rind, rinsed and minced"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "fresh lemon juice"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "fresh dill (sauce)"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "extra virgin olive oil"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "garlic, grated (sauce)"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Gentle mix",
+      "c": "Combine the chicken, feta, grated onion, garlic, panko, oregano, dill, salt, and pepper on meatball rules — the grated onion does the moisture work again. Portion into 4 patties at ~270g."
+    },
+    {
+      "t": "Cook to temp",
+      "c": "Sear or air fry at 400°F, about 10 minutes, to 165°F internal.",
+      "timer": 600
+    },
+    {
+      "t": "Make the sauce",
+      "c": "Stir the yogurt with the preserved lemon, lemon juice, dill, olive oil, and garlic. Taste before salting — the preserved lemon and feta carry it."
+    },
+    {
+      "t": "Plate",
+      "c": "Serve over salad greens or cucumbers, sauce spooned over. Pita gets logged separately if it earns a spot that day."
+    }
+  ],
+  "notes": "The sauce is your vinaigrette discipline applied to yogurt — weigh what you actually spoon. <b>Cronometer:</b> feta needs a brand-verified entry."
+},
+{
+  "id": "larb-cups",
+  "cat": "Ground Turkey",
+  "tag": "Dinner slot · ~46g protein",
+  "title": "Gochugaru Turkey Larb Cups",
+  "subtitle": "Toasted rice powder is the trick",
+  "desc": "Hot-skillet crumbled turkey dressed with fish sauce, lime, and gochugaru in lettuce cups — the toasted rice powder makes lean turkey taste rich. ~420 kcal / ~46g protein per serving.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~420 kcal / ~46g protein each",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "93/7 lean ground turkey"
+    },
+    {
+      "a": 30,
+      "u": "g",
+      "n": "jasmine rice (to toast and grind)"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "avocado oil"
+    },
+    {
+      "a": 80,
+      "u": "g",
+      "n": "shallots, thinly sliced"
+    },
+    {
+      "a": 40,
+      "u": "g",
+      "n": "fish sauce"
+    },
+    {
+      "a": 45,
+      "u": "g",
+      "n": "lime juice (about 2 limes)"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "gochugaru"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "granulated sugar"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "scallions, sliced"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "fresh mint, torn"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "cilantro, torn"
+    },
+    {
+      "a": 400,
+      "u": "g",
+      "n": "little gem or butter lettuce cups"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Toast the rice",
+      "c": "Toast the dry rice in a skillet over medium, shaking often, until deep golden and nutty — 4 to 5 minutes. Grind coarse in a mortar or spice grinder. This is the richness.",
+      "timer": 270
+    },
+    {
+      "t": "Crust the turkey",
+      "c": "Heat the oil over high, turkey in without crowding. Let it crust before breaking up; cook through with good browned bits.",
+      "timer": 300
+    },
+    {
+      "t": "Dress off heat",
+      "c": "Kill the heat. Fish sauce, lime juice, gochugaru, and sugar in — toss. The dressing happens off heat so the lime stays bright."
+    },
+    {
+      "t": "Fold and finish",
+      "c": "Fold in the shallots, scallions, mint, cilantro, and the toasted rice powder."
+    },
+    {
+      "t": "Serve in cups",
+      "c": "Spoon into lettuce cups at the table. Weigh the batch and log by grams per plate."
+    }
+  ],
+  "notes": "Gochugaru stands in for Thai chili flake — your signature heat, slightly gentler, so 8g reads medium. <b>Cronometer:</b> fish sauce brand-verified; log the lettuce, it's not zero."
+},
+{
+  "id": "kofta",
+  "cat": "Ground Turkey",
+  "tag": "Pairs with tzatziki · ~50g protein",
+  "title": "Smashed Turkey Kofta",
+  "subtitle": "Two box recipes, one plate",
+  "desc": "Cumin-coriander patties smashed thin for crust, finished with the Signature Tzatziki already in the box. ~390 kcal / ~47g protein per serving before sauce; ~500 with tzatziki.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~390 kcal / ~47g protein (before tzatziki)",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "93/7 lean ground turkey"
+    },
+    {
+      "a": 60,
+      "u": "g",
+      "n": "onion, grated"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "garlic, grated"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "fresh parsley, chopped"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "ground cumin"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "ground coriander"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "Aleppo pepper or gochugaru"
+    },
+    {
+      "a": 4,
+      "u": "g",
+      "n": "kosher salt"
+    },
+    {
+      "a": 1,
+      "u": "g",
+      "n": "black pepper"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "olive oil, for searing"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Mix and portion",
+      "c": "Combine everything but the oil on meatball rules. Portion into 8 balls at ~125g."
+    },
+    {
+      "t": "Smash for crust",
+      "c": "Oil a ripping-hot skillet or plancha. Smash each ball thin with a spatula — the smash is the crust. About 3 minutes untouched on side one.",
+      "timer": 180
+    },
+    {
+      "t": "Flip to temp",
+      "c": "Flip and cook about 2 minutes more, to 165°F internal.",
+      "timer": 120
+    },
+    {
+      "t": "Sauce and serve",
+      "c": "Plate two per serving with Signature Tzatziki from the box — log the tzatziki as its own recipe by grams spooned (+~110 kcal per serving)."
+    }
+  ],
+  "notes": "The tzatziki is logged separately, which keeps both recipes honest at any portion. Grated onion carries the moisture, same as the meatballs."
+},
+{
+  "id": "ragu-bianco",
+  "cat": "Ground Turkey",
+  "tag": "Sunday batch · ~47g protein",
+  "title": "Turkey Ragu Bianco",
+  "subtitle": "No tomato — fennel, wine, lemon",
+  "desc": "White ragu on fennel seed, white wine, and lemon zest, finished with parm. Batch-cooks Sunday; starch portioned by day type. ~435 kcal / ~47g protein per serving before starch.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~435 kcal / ~47g protein (before starch)",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "93/7 lean ground turkey"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "olive oil"
+    },
+    {
+      "a": 100,
+      "u": "g",
+      "n": "onion, fine dice"
+    },
+    {
+      "a": 80,
+      "u": "g",
+      "n": "fennel bulb, fine dice"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "garlic, minced"
+    },
+    {
+      "a": 4,
+      "u": "g",
+      "n": "fennel seed, crushed"
+    },
+    {
+      "a": 120,
+      "u": "g",
+      "n": "dry white wine"
+    },
+    {
+      "a": 240,
+      "u": "g",
+      "n": "low-sodium chicken broth"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "parmesan, grated"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "fresh lemon juice"
+    },
+    {
+      "a": 1,
+      "u": "",
+      "n": "lemon, zested"
+    },
+    {
+      "a": 4,
+      "u": "g",
+      "n": "kosher salt"
+    },
+    {
+      "a": 1,
+      "u": "g",
+      "n": "black pepper"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Soffritto",
+      "c": "Sweat the onion and fennel bulb in the oil over medium until soft and sweet, 6–8 minutes. Garlic and crushed fennel seed in for the last minute.",
+      "timer": 420
+    },
+    {
+      "t": "Brown the turkey",
+      "c": "Push the soffritto aside, heat up, turkey in — let it crust before breaking up.",
+      "timer": 300
+    },
+    {
+      "t": "Deglaze",
+      "c": "Wine in, scrape the fond, reduce by half — about 3 minutes.",
+      "timer": 180
+    },
+    {
+      "t": "Simmer",
+      "c": "Broth in, salt and pepper, gentle simmer uncovered until it tightens into a ragu, about 20 minutes.",
+      "timer": 1200
+    },
+    {
+      "t": "Finish",
+      "c": "Off heat: parmesan, lemon zest, and juice. Portion over starch by day type — 200g potato on rest days per the trim table."
+    }
+  ],
+  "notes": "Freezes and reheats beautifully — weigh the finished batch and log portions by gram so Sunday cook covers three dinners cleanly. <b>Cronometer:</b> the wine's alcohol mostly cooks off but log it as entered; parm brand-verified."
+},
+{
+  "id": "char-siu",
+  "cat": "Chicken Breast",
+  "tag": "Air fryer · ~50g protein",
+  "title": "Char Siu-Style Air Fryer Chicken",
+  "subtitle": "Five-spice, measured glaze",
+  "desc": "Five-spice and a small measured honey-soy glaze; the air fryer calibration from the cutlets carries straight over. ~310 kcal / ~50g protein per serving before rice.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~310 kcal / ~50g protein (before rice)",
+  "ingredients": [
+    {
+      "a": 800,
+      "u": "g",
+      "n": "chicken breast, halved lengthwise into thick strips"
+    },
+    {
+      "a": 30,
+      "u": "g",
+      "n": "honey"
+    },
+    {
+      "a": 25,
+      "u": "g",
+      "n": "soy sauce"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "hoisin sauce"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "dry sherry or shaoxing wine"
+    },
+    {
+      "a": 6,
+      "u": "g",
+      "n": "five-spice powder"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "garlic, grated"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "ginger, grated"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "gochugaru"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "toasted sesame oil"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Marinate",
+      "c": "Whisk everything but the chicken into a glaze. Coat the strips; 30 minutes minimum, overnight is better. Reserve 2 tablespoons of marinade before it touches raw chicken.",
+      "timer": 1800
+    },
+    {
+      "t": "Boil the reserve",
+      "c": "Simmer the reserved marinade 1 minute so it's safe for brushing.",
+      "timer": 60
+    },
+    {
+      "t": "Air fry",
+      "c": "380°F in a single layer, flipping and brushing with the boiled glaze at 8 minutes — about 12 minutes total to 165°F internal. First batch calibrates your model.",
+      "timer": 720
+    },
+    {
+      "t": "Rest and slice",
+      "c": "Rest 3 minutes, slice on the bias. Rice logged separately by day type."
+    }
+  ],
+  "notes": "Came in leaner than pitched once gram-built — ~310 before rice, ~500 with 150g training-day rice. <b>Cronometer:</b> hoisin brand-verified; honey is 30g total, 7.5g per serving, per the real-sugar rule."
+},
+{
+  "id": "poached-chicken",
+  "cat": "Chicken Breast",
+  "tag": "Meal prep · ~53g protein",
+  "title": "Chilled Poached Chicken, Horseradish-Dill Sauce",
+  "subtitle": "Tzatziki's sharper cousin",
+  "desc": "Gentle poach, sliced cold over cucumbers under a horseradish-dill yogurt. Best meal-prep item on the menu. ~310 kcal / ~53g protein per serving.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~310 kcal / ~53g protein each",
+  "ingredients": [
+    {
+      "a": 800,
+      "u": "g",
+      "n": "chicken breast"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "kosher salt (poaching liquid)"
+    },
+    {
+      "a": 2,
+      "u": "",
+      "n": "bay leaves"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "black peppercorns"
+    },
+    {
+      "a": 1,
+      "u": "",
+      "n": "lemon, peel only (poaching liquid)"
+    },
+    {
+      "a": 250,
+      "u": "g",
+      "n": "plain nonfat Greek yogurt"
+    },
+    {
+      "a": 25,
+      "u": "g",
+      "n": "prepared horseradish"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "Dijon mustard"
+    },
+    {
+      "a": 12,
+      "u": "g",
+      "n": "fresh dill"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "fresh lemon juice"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "extra virgin olive oil"
+    },
+    {
+      "a": 2,
+      "u": "g",
+      "n": "kosher salt (sauce)"
+    },
+    {
+      "a": 300,
+      "u": "g",
+      "n": "Persian cucumbers, sliced"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Gentle poach",
+      "c": "Cover the chicken with cold water plus the salt, bay, peppercorns, and lemon peel. Bring to a bare quiver — never a boil — and hold until 165°F internal, about 15–20 minutes.",
+      "timer": 1200
+    },
+    {
+      "t": "Chill",
+      "c": "Cool in the liquid 10 minutes, then chill fully — the rest in liquid is why it stays juicy.",
+      "timer": 3600
+    },
+    {
+      "t": "Make the sauce",
+      "c": "Stir together the yogurt, horseradish, Dijon, dill, lemon juice, olive oil, and sauce salt."
+    },
+    {
+      "t": "Plate cold",
+      "c": "Slice the chilled chicken over the cucumbers, sauce spooned over by the gram."
+    }
+  ],
+  "notes": "Poaching liquid isn't logged — negligible pickup. Holds 4 days in the fridge; this is the grab-and-plate protein for nights the schedule collapses."
+},
+{
+  "id": "preserved-lemon-chicken",
+  "cat": "Chicken Breast",
+  "tag": "One pan · ~50g protein",
+  "title": "Skillet Chicken with Preserved Lemon, Olives & Braised Greens",
+  "subtitle": "Tagine-adjacent",
+  "desc": "One pan, the preserved lemon jar earning double duty, greens braised in the pan sauce. ~315 kcal / ~50g protein per serving.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~315 kcal / ~50g protein each",
+  "ingredients": [
+    {
+      "a": 800,
+      "u": "g",
+      "n": "chicken breast"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "olive oil"
+    },
+    {
+      "a": 100,
+      "u": "g",
+      "n": "onion, sliced"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "garlic, minced"
+    },
+    {
+      "a": 4,
+      "u": "g",
+      "n": "ground cumin"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "ground coriander"
+    },
+    {
+      "a": 2,
+      "u": "g",
+      "n": "turmeric"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "kosher salt"
+    },
+    {
+      "a": 1,
+      "u": "g",
+      "n": "black pepper"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "preserved lemon rind, rinsed and minced"
+    },
+    {
+      "a": 60,
+      "u": "g",
+      "n": "Castelvetrano olives, pitted and halved"
+    },
+    {
+      "a": 240,
+      "u": "g",
+      "n": "low-sodium chicken broth"
+    },
+    {
+      "a": 300,
+      "u": "g",
+      "n": "lacinato kale or chard, stemmed and torn"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "fresh lemon juice"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "cilantro or parsley"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Sear",
+      "c": "Season the chicken with the salt and pepper. Sear in the oil over medium-high, 3 minutes per side, and remove.",
+      "timer": 360
+    },
+    {
+      "t": "Build the braise",
+      "c": "Onion in the same pan until soft; garlic, cumin, coriander, and turmeric for 30 seconds until fragrant."
+    },
+    {
+      "t": "Simmer to temp",
+      "c": "Broth, preserved lemon, and olives in; chicken back in. Simmer gently to 165°F internal, about 10 minutes.",
+      "timer": 600
+    },
+    {
+      "t": "Wilt the greens",
+      "c": "Chicken out to rest; greens into the braise until just wilted, 2–3 minutes.",
+      "timer": 150
+    },
+    {
+      "t": "Finish",
+      "c": "Lemon juice and herbs off heat. Slice the chicken over the greens, pan sauce spooned over."
+    }
+  ],
+  "notes": "Taste before any added salt at the end — preserved lemon and olives carry it, same rule as the vinaigrette. Olives are 15g per serving; they're in the macro count."
+},
+{
+  "id": "reverse-sear-pork",
+  "cat": "Pork Tenderloin",
+  "tag": "Ribeye protocol · ~47g protein",
+  "title": "Reverse-Seared Pork Tenderloin, Mustard–Meyer Lemon Glaze",
+  "subtitle": "0.8% dry brine, probe to temp",
+  "desc": "Your ribeye protocol applied to the leanest cut in the case: 0.8% dry brine, low oven on the rack, probe alert, hard sear. ~325 kcal / ~47g protein per serving.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~325 kcal / ~47g protein each",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "pork tenderloin, silver skin removed"
+    },
+    {
+      "a": 7,
+      "u": "g",
+      "n": "kosher salt (0.8% dry brine)"
+    },
+    {
+      "a": 2,
+      "u": "g",
+      "n": "black pepper"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "olive oil (sear)"
+    },
+    {
+      "a": 25,
+      "u": "g",
+      "n": "Dijon mustard"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "whole grain mustard"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "honey"
+    },
+    {
+      "a": 30,
+      "u": "g",
+      "n": "Meyer lemon juice"
+    },
+    {
+      "a": 1,
+      "u": "",
+      "n": "Meyer lemon, zested"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "garlic, grated"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Dry-brine",
+      "c": "Salt at 0.8% of raw weight, pepper, and rest uncovered on the rack in the fridge — 45 minutes minimum, overnight is better.",
+      "timer": 2700
+    },
+    {
+      "t": "Low oven to 125°F",
+      "c": "250°F on the rack-over-sheet-pan setup, wireless probe alert set to 125°F internal — roughly 35–45 minutes.",
+      "timer": 2400
+    },
+    {
+      "t": "Make the glaze",
+      "c": "Simmer both mustards, honey, Meyer lemon juice and zest, and garlic for 2 minutes until it coats a spoon.",
+      "timer": 120
+    },
+    {
+      "t": "Hard sear",
+      "c": "Ripping-hot skillet with the 8g oil — 1 to 2 minutes total, all sides, to ~140°F.",
+      "timer": 120
+    },
+    {
+      "t": "Glaze and rest",
+      "c": "Brush with the glaze and rest 5 minutes — carryover lands it at 145°F. Slice thick.",
+      "timer": 300
+    }
+  ],
+  "notes": "Pork tenderloin at 145°F with the rest is safe and blush-pink — dry is the only way to ruin this cut, and the probe prevents it. Honey is 5g per serving, inside the real-sugar rule."
+},
+{
+  "id": "gochujang-pork",
+  "cat": "Pork Tenderloin",
+  "tag": "Gochugaru's big sibling · ~48g protein",
+  "title": "Gochujang-Glazed Pork Medallions, Smashed Cucumber Salad",
+  "subtitle": "Glaze in grams, cucumbers cooling",
+  "desc": "Hard-seared medallions in a measured gochujang glaze, smashed cucumbers doing the cooling work. ~345 kcal / ~48g protein per serving.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~345 kcal / ~48g protein each",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "pork tenderloin, cut into 3cm medallions"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "kosher salt"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "avocado oil"
+    },
+    {
+      "a": 35,
+      "u": "g",
+      "n": "gochujang"
+    },
+    {
+      "a": 15,
+      "u": "g",
+      "n": "soy sauce"
+    },
+    {
+      "a": 12,
+      "u": "g",
+      "n": "honey"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "rice vinegar"
+    },
+    {
+      "a": 6,
+      "u": "g",
+      "n": "garlic, grated"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "ginger, grated"
+    },
+    {
+      "a": 4,
+      "u": "g",
+      "n": "toasted sesame oil"
+    },
+    {
+      "a": 20,
+      "u": "g",
+      "n": "water"
+    },
+    {
+      "a": 400,
+      "u": "g",
+      "n": "Persian cucumbers, smashed and torn"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "rice vinegar (salad)"
+    },
+    {
+      "a": 5,
+      "u": "g",
+      "n": "soy sauce (salad)"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "granulated sugar (salad)"
+    },
+    {
+      "a": 2,
+      "u": "g",
+      "n": "gochugaru"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "toasted sesame seeds"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Smash the cucumbers",
+      "c": "Smash with the flat of a knife, tear into chunks, salt lightly, and drain 10 minutes. Dress with the salad vinegar, soy, sugar, gochugaru, and sesame seeds.",
+      "timer": 600
+    },
+    {
+      "t": "Whisk the glaze",
+      "c": "Combine the gochujang, soy, honey, rice vinegar, garlic, ginger, sesame oil, and water."
+    },
+    {
+      "t": "Sear the medallions",
+      "c": "Salt the medallions. Sear in the oil over medium-high, 2–3 minutes per side to ~140°F.",
+      "timer": 300
+    },
+    {
+      "t": "Glaze in the pan",
+      "c": "Glaze in, 1–2 minutes, turning to coat until glossy and reduced.",
+      "timer": 90
+    },
+    {
+      "t": "Rest and plate",
+      "c": "Rest 3 minutes to 145°F. Plate over or beside the smashed cucumbers."
+    }
+  ],
+  "notes": "Gochujang and honey together run ~4g sugar per serving — inside the rule, and it's doing structural work in the glaze. <b>Cronometer:</b> gochujang brand-verified; they vary widely in sugar."
+},
+{
+  "id": "porchetta-pork",
+  "cat": "Pork Tenderloin",
+  "tag": "Cold-slice protein · ~47g protein",
+  "title": "Porchetta-Spiced Roast Pork Tenderloin",
+  "subtitle": "The meatball fennel note, grown up",
+  "desc": "Fennel-garlic-lemon-herb paste on a hot-roasted tenderloin. Slices cold for next-day protein. ~300 kcal / ~47g protein per serving.",
+  "servings": 4,
+  "unit": "servings",
+  "meta": "4 servings · ~300 kcal / ~47g protein each",
+  "ingredients": [
+    {
+      "a": 900,
+      "u": "g",
+      "n": "pork tenderloin, silver skin removed"
+    },
+    {
+      "a": 7,
+      "u": "g",
+      "n": "kosher salt (0.8% dry brine)"
+    },
+    {
+      "a": 6,
+      "u": "g",
+      "n": "fennel seed, toasted and crushed"
+    },
+    {
+      "a": 3,
+      "u": "g",
+      "n": "black pepper"
+    },
+    {
+      "a": 2,
+      "u": "g",
+      "n": "chili flake or gochugaru"
+    },
+    {
+      "a": 12,
+      "u": "g",
+      "n": "garlic, grated"
+    },
+    {
+      "a": 1,
+      "u": "",
+      "n": "lemon, zested"
+    },
+    {
+      "a": 8,
+      "u": "g",
+      "n": "fresh rosemary, minced"
+    },
+    {
+      "a": 10,
+      "u": "g",
+      "n": "fresh sage, minced"
+    },
+    {
+      "a": 12,
+      "u": "g",
+      "n": "olive oil"
+    }
+  ],
+  "steps": [
+    {
+      "t": "Toast the fennel",
+      "c": "Toast the fennel seed in a dry pan until fragrant, about 2 minutes, then crush.",
+      "timer": 120
+    },
+    {
+      "t": "Build the paste",
+      "c": "Combine the salt, crushed fennel, pepper, chili flake, garlic, zest, rosemary, sage, and oil into a paste."
+    },
+    {
+      "t": "Rub and rest",
+      "c": "Coat the tenderloin all over. Rest uncovered in the fridge 1 hour minimum — overnight deepens it, same as the dry brine.",
+      "timer": 3600
+    },
+    {
+      "t": "Hot roast",
+      "c": "425°F on the rack to 140°F internal, about 18–22 minutes — probe alert set.",
+      "timer": 1200
+    },
+    {
+      "t": "Rest and slice",
+      "c": "Rest 5 minutes to 145°F. Slice thick warm — or chill and slice thin for next-day cold protein.",
+      "timer": 300
+    }
+  ],
+  "notes": "Cold slices carry two days of lunches at ~21g protein per 100g — weigh the cooked piece and log by grams. The fennel is the meatball note at roast scale."
+}
 ];
 
 const scaleState = {};
@@ -429,14 +1587,20 @@ function fmt(n){
   return String(Math.round(n));
 }
 
+const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Sauces & Dressings","Evening Shakes","Desserts"];
+
 function buildIndex(){
   const c = document.getElementById("cards");
-  c.innerHTML = RECIPES.map(r => `
+  const groups = CAT_ORDER.filter(cat => RECIPES.some(r => r.cat === cat));
+  c.innerHTML = groups.map(cat => `
+    <h3 class="cat-head">${cat}</h3>
+    ${RECIPES.filter(r => r.cat === cat).map(r => `
     <div class="card" role="button" tabindex="0" onclick="showRecipe('${r.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRecipe('${r.id}')}">
-      <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'||r.id==='lemonchicken'?'lemon':''}">${r.tag}</span>
+      <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'?'lemon':''}">${r.tag}</span>
       <h2>${r.title}</h2>
       <div class="meta">${r.meta}</div>
-    </div>`).join("");
+    </div>`).join("")}
+  `).join("");
 }
 
 function showIndex(){
@@ -451,7 +1615,7 @@ function showRecipe(id){
   if(!(id in scaleState)) scaleState[id] = r.servings;
   const body = document.getElementById("r-body");
   body.innerHTML = `
-    <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'||r.id==='lemonchicken'?'lemon':''}">${r.tag}</span>
+    <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'?'lemon':''}">${r.tag}</span>
     <h2 class="r-title">${r.title}</h2>
     <p class="r-desc">${r.desc}</p>
     <div class="stepper">
@@ -468,7 +1632,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v3</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v4</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
