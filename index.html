@@ -136,7 +136,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v2 — 8 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v3 — 10 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -352,6 +352,71 @@ const RECIPES = [
       {t:"Chill and slice", c:"Cool to room temperature, then chill fully before lifting out and slicing into 12 bars.", timer:7200}
     ],
     notes:"Skip the powdered sugar dusting (15–20 kcal a bar, mostly visual) — <b>fresh zest on top</b> instead. Real sugar gives normal browning and a proper firm set. Scaling above 12 bars means a bigger pan — 24 bars fits a 9×13. Fridge, 4–5 days. Cronometer: 12 servings, one tap per bar."
+  },
+  {
+    id:"lavash",
+    tag:"Wrap base · 6g protein",
+    title:"Recomp Mini Lavash",
+    subtitle:"High-protein, high-fiber flatbread",
+    desc:"Homemade mini lavash matching Joseph's macros with a cleaner label: ~68 kcal, 6g protein, 8g carbs (~3g fiber), 1.5g fat per mini. Rectangular shaping is built into the method — the pre-shape decides the final shape.",
+    servings:12, unit:"minis", meta:"12 minis · ~68 kcal / 6g protein each",
+    ingredients:[
+      {a:110,u:"g",n:"whole wheat flour"},
+      {a:70,u:"g",n:"vital wheat gluten"},
+      {a:25,u:"g",n:"oat fiber (not oat bran or oat flour)"},
+      {a:15,u:"g",n:"ground flaxseed"},
+      {a:8,u:"g",n:"olive oil"},
+      {a:3,u:"g",n:"instant yeast"},
+      {a:5,u:"g",n:"fine sea salt"},
+      {a:210,u:"g",n:"warm water (105°F), plus up to 20g more as needed"}
+    ],
+    steps:[
+      {t:"Mix the dry base", c:"Whisk the flour, gluten, oat fiber, flaxseed, yeast, and salt until evenly blended — the gluten and oat fiber clump if they hit water first."},
+      {t:"Hydrate", c:"Add the oil and water and stir to a shaggy dough. Oat fiber drinks slowly; if it still looks dry after 2 minutes, add water 10g at a time. Target firm but pliable — slightly stiffer than pizza dough."},
+      {t:"Knead", c:"Knead 6–8 minutes by hand (5 in a stand mixer). This dough is gluten-heavy and will feel unusually rubbery and elastic — that's correct. Stop when smooth and springy.", timer:480},
+      {t:"Rest 45 minutes", c:"Cover the bowl and rest at room temperature. Not a full proof — you're relaxing the gluten so the sheets roll thin instead of snapping back. Skip this and rolling becomes a fight.", timer:2700},
+      {t:"Divide into logs, not balls", c:"Divide into 12 pieces of 37g each on the scale. Roll each into a 3-inch log — a ball rolls into a circle no matter what; a log flattens into a rectangle. Cover with a damp towel and rest 10 minutes.", timer:600},
+      {t:"Roll the long axis first", c:"Flatten a log with your palm, then roll center-out along the long axis only — center to far edge, back, center to near edge — until about 8 inches long. Never roll edge-to-edge across the whole piece; that thins the middle."},
+      {t:"Widen and square the corners", c:"Turn the pin 90° and widen with center-out strokes to about 6 inches, then push dough into each corner with 4–5 short diagonal strokes from the center. If a sheet springs back, set it aside, roll another, and return in 2 minutes — patience beats pressure. Roll to 6.5×8.5; it relaxes to 6×8."},
+      {t:"Trim true, keep the scraps", c:"Run a pizza cutter along a straightedge to square the edges — straight edges roll into tight wraps. Knead all trimmings into a bonus 13th piece (or into the next ball) so the batch total stays true for logging."},
+      {t:"Cook on a dry skillet", c:"Dry cast-iron or nonstick over medium-high until water droplets skitter. 60–75 seconds per side to scattered brown spots and slight puffing. No oil. Even 30 extra seconds turns wrap into cracker.", timer:75},
+      {t:"Steam-soften the stack", c:"Stack each lavash under a clean towel as it comes off — the trapped steam keeps them pliable. Rest the full stack covered 15 minutes before storing.", timer:900}
+    ],
+    notes:"<b>Wrap assembly:</b> warm the sheet 20 seconds in a dry skillet first. Short edge toward you, filling in a strip along that edge with a 1-inch margin, spotted side facing the filling, fold the long margins in, roll along the 8-inch dimension, finish seam-down. <b>Storage:</b> parchment squares between sheets; 2 days room temp (no preservatives), 1 week fridge, 3 months frozen — revive 20–30 seconds in a dry skillet. <b>Cronometer:</b> weigh the total baked output (≈390–410g) and set serving = total ÷ 12; verify the vital wheat gluten and oat fiber entries against your actual brands. Batch totals ~815 kcal / ~71g protein."
+  },
+  {
+    id:"lemonchicken",
+    tag:"Training day · fried",
+    title:"Lemon Chicken Cutlets with Salmoriglio",
+    subtitle:"Garlic-lemon-parsley sauce",
+    desc:"Crispy lemon-breaded cutlets finished with a garlic-lemon-parsley salmoriglio. Gram-converted from the volume original; the fry oil is the logging variable — see notes.",
+    servings:4, unit:"servings", meta:"4 servings · fried — training-day slot",
+    ingredients:[
+      {a:680,u:"g",n:"boneless skinless chicken breasts (about 4), halved and pounded 1/4-inch thick"},
+      {a:5,u:"g",n:"kosher salt, plus more to finish"},
+      {a:1,u:"g",n:"black pepper"},
+      {a:3,u:"",n:"large lemons"},
+      {a:100,u:"g",n:"eggs (2 large), beaten"},
+      {a:30,u:"g",n:"flat-leaf parsley, very finely chopped, divided"},
+      {a:135,u:"g",n:"bread crumbs"},
+      {a:30,u:"g",n:"all-purpose flour"},
+      {a:25,u:"g",n:"Parmigiano-Reggiano, finely grated"},
+      {a:2,u:"g",n:"dried oregano"},
+      {a:72,u:"g",n:"extra virgin olive oil (for the garlic oil)"},
+      {a:72,u:"g",n:"olive oil for frying, per batch, plus more as needed"},
+      {a:3,u:"g",n:"garlic clove, minced"}
+    ],
+    steps:[
+      {t:"Season", c:"Pat the chicken dry and season generously with the salt and pepper on both sides."},
+      {t:"Lemon-egg soak", c:"Zest one lemon and reserve the zest for the breading. Juice that lemon into a bowl, beat in the eggs, and turn the chicken to coat. Let it sit while you build the sauce and breading."},
+      {t:"Start the salmoriglio", c:"Zest and juice the remaining two lemons into a bowl and stir in half the parsley. Set aside — the garlic oil joins it later."},
+      {t:"Build the breading", c:"Combine the bread crumbs, flour, Parmesan, oregano, and remaining parsley in a shallow dish, then work the reserved zest through with a fork until even."},
+      {t:"Bread the cutlets", c:"One at a time, press each piece firmly into the crumb mixture on both sides, using your fingers to pack the coating. Stage on a sheet pan."},
+      {t:"Fry in batches", c:"Heat the frying oil over medium-high. Fry 2–3 pieces at a time with space between, about 2 minutes per side to golden. Salt each batch the moment it comes off. Add and reheat oil between batches as needed.", timer:120},
+      {t:"Make the garlic oil", c:"While the first batch fries, warm the garlic-oil portion in a small saucepan over medium. Add the garlic and let it sizzle 1–2 minutes without browning, then pull it off the heat to cool.", timer:90},
+      {t:"Finish and sauce", c:"Slowly whisk the cooled garlic oil into the lemon-parsley bowl. Spoon the salmoriglio generously over the plated cutlets."}
+    ],
+    notes:"<b>Fry-oil logging:</b> the oil is the wild card — weigh the skillet oil (or the bottle) before and after, and log the difference; ~10–15g absorbed per serving is the starting estimate, verified by your weigh-back. <b>Breading:</b> about 2/3 of the crumb mixture ends up on the chicken in practice — weigh what's left in the dish and subtract. Parsley conversion assumes finely chopped (~60g per cup). This is a fried dish, so it slots best on a <b>training day</b> with a light plate around it."
   }
 ];
 
@@ -368,7 +433,7 @@ function buildIndex(){
   const c = document.getElementById("cards");
   c.innerHTML = RECIPES.map(r => `
     <div class="card" role="button" tabindex="0" onclick="showRecipe('${r.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showRecipe('${r.id}')}">
-      <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'?'lemon':''}">${r.tag}</span>
+      <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'||r.id==='lemonchicken'?'lemon':''}">${r.tag}</span>
       <h2>${r.title}</h2>
       <div class="meta">${r.meta}</div>
     </div>`).join("");
@@ -386,7 +451,7 @@ function showRecipe(id){
   if(!(id in scaleState)) scaleState[id] = r.servings;
   const body = document.getElementById("r-body");
   body.innerHTML = `
-    <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'?'lemon':''}">${r.tag}</span>
+    <span class="tag ${r.id==='lemonbars'||r.id==='vinaigrette'||r.id==='lemonchicken'?'lemon':''}">${r.tag}</span>
     <h2 class="r-title">${r.title}</h2>
     <p class="r-desc">${r.desc}</p>
     <div class="stepper">
@@ -403,7 +468,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v2</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v3</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
