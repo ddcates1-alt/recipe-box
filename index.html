@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v4 — 20 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v6 — 20 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -286,13 +286,12 @@ const RECIPES = [
     tag:"Dinner slot · 50g protein",
     title:"High-Protein Turkey Meatballs",
     subtitle:"Beef variant included",
-    desc:"~561 kcal / 50g protein per serving with verified real-brand marinara — sized for the dinner feeding. Grated onion is the anti-dryness secret.",
-    servings:4, unit:"servings", meta:"4 servings · ~561 kcal / 50g protein each",
+    desc:"~530 kcal / ~48g protein per serving, Cronometer-verified — sized for the dinner feeding. No parm; grated onion is the anti-dryness secret.",
+    servings:4, unit:"servings", meta:"4 servings · ~530 kcal / ~48g protein each",
     ingredients:[
       {a:900,u:"g",n:"93/7 lean ground turkey"},
       {a:1,u:"",n:"large egg"},
       {a:45,u:"g",n:"plain breadcrumbs or panko"},
-      {a:30,u:"g",n:"grated parmesan"},
       {a:60,u:"g",n:"onion, grated"},
       {a:9,u:"g",n:"garlic, minced (about 3 cloves)"},
       {a:4,u:"g",n:"salt"},
@@ -303,13 +302,13 @@ const RECIPES = [
       {a:680,u:"g",n:"marinara sauce, no sugar added"}
     ],
     steps:[
-      {t:"Build the binder", c:"Combine the egg, breadcrumbs, parmesan, grated onion, garlic, salt, oregano, pepper, and fennel in a large bowl and mix into a paste."},
+      {t:"Build the binder", c:"Combine the egg, breadcrumbs, grated onion, garlic, salt, oregano, pepper, and fennel in a large bowl and mix into a paste."},
       {t:"Gentle mix", c:"Add the turkey and mix gently just until combined — overworking makes them dense."},
       {t:"Portion at 65g", c:"Portion into 65g meatballs (the scale beats eyeballing), place on an oiled sheet pan."},
       {t:"Bake to temp", c:"Bake at 400°F until 165°F internal in the largest meatball — start checking at 18 minutes (15–16 for beef).", timer:1080},
       {t:"Simmer in marinara", c:"Simmer the baked meatballs in the marinara for 10 minutes to finish and glaze.", timer:600}
     ],
-    notes:"<b>Beef variant:</b> 90/10 ground beef, drop the fennel, optional 5g Worcestershire in the binder; check temp at 15–16 min (~590–600 kcal/serving). <b>Doubled 130g meatballs:</b> 375°F for 30–32 min (turkey) or 29–31 min (beef), pull at 160–162°F, rest 5 min. <b>Cronometer:</b> scan the marinara barcode — sauces vary most between brands. Sodium runs ~1,520mg/serving; no-salt-added marinara cuts ~500mg if labs ever call for it."
+    notes:"<b>Beef variant:</b> 90/10 ground beef, drop the fennel, optional 5g Worcestershire in the binder; check temp at 15–16 min (~590–600 kcal/serving). <b>Doubled 130g meatballs:</b> 375°F for 30–32 min (turkey) or 29–31 min (beef), pull at 160–162°F, rest 5 min. <b>Cronometer:</b> scan the marinara barcode — sauces vary most between brands. Sodium runs ~1,385mg/serving (Cronometer-verified); no-salt-added marinara cuts ~500mg if labs ever call for it. <b>Half batch</b> (scale to 2) is the standard cook — save the Cronometer entry at 2 servings and leave the divisor alone."
   },
   {
     id:"vinaigrette",
@@ -1274,10 +1273,10 @@ const RECIPES = [
 {
   "id": "reverse-sear-pork",
   "cat": "Pork Tenderloin",
-  "tag": "Ribeye protocol · ~47g protein",
-  "title": "Reverse-Seared Pork Tenderloin, Mustard–Meyer Lemon Glaze",
-  "subtitle": "0.8% dry brine, probe to temp",
-  "desc": "Your ribeye protocol applied to the leanest cut in the case: 0.8% dry brine, low oven on the rack, probe alert, hard sear. ~325 kcal / ~47g protein per serving.",
+  "tag": "Air fryer · ~47g protein",
+  "title": "Air Fryer Pork Tenderloin, Mustard–Meyer Lemon Glaze",
+  "subtitle": "One-pass cook, two-hit glaze",
+  "desc": "~325 kcal / ~47g protein per serving. One-pass air fryer cook — no reverse sear, no separate skillet. The glaze goes on in two hits: halfway through and right off the basket.",
   "servings": 4,
   "unit": "servings",
   "meta": "4 servings · ~325 kcal / ~47g protein each",
@@ -1300,7 +1299,7 @@ const RECIPES = [
     {
       "a": 8,
       "u": "g",
-      "n": "olive oil (sear)"
+      "n": "olive oil"
     },
     {
       "a": 25,
@@ -1335,32 +1334,31 @@ const RECIPES = [
   ],
   "steps": [
     {
-      "t": "Dry-brine",
-      "c": "Salt at 0.8% of raw weight, pepper, and rest uncovered on the rack in the fridge — 45 minutes minimum, overnight is better.",
+      "t": "Dry brine",
+      "c": "Salt at 0.8% of trimmed weight, add pepper, rest uncovered in the fridge — 45 minutes minimum, overnight deepens it.",
       "timer": 2700
     },
     {
-      "t": "Low oven to 125°F",
-      "c": "250°F on the rack-over-sheet-pan setup, wireless probe alert set to 125°F internal — roughly 35–45 minutes.",
-      "timer": 2400
-    },
-    {
       "t": "Make the glaze",
-      "c": "Simmer both mustards, honey, Meyer lemon juice and zest, and garlic for 2 minutes until it coats a spoon.",
-      "timer": 120
+      "c": "Whisk together both mustards, honey, Meyer lemon juice and zest, and garlic. Set aside — it goes on in two hits."
     },
     {
-      "t": "Hard sear",
-      "c": "Ripping-hot skillet with the 8g oil — 1 to 2 minutes total, all sides, to ~140°F.",
-      "timer": 120
+      "t": "Oil and air fry — first pass",
+      "c": "Rub the tenderloin with the olive oil. Air fry at 400°F for 10 minutes, turning once at 5 minutes.",
+      "timer": 600
     },
     {
-      "t": "Glaze and rest",
-      "c": "Brush with the glaze and rest 5 minutes — carryover lands it at 145°F. Slice thick.",
+      "t": "Glaze and finish",
+      "c": "Pull the basket, brush generously with half the glaze, flip, brush the other side. Air fry another 5–8 minutes to 140°F internal — probe alert set. First cook calibrates your model.",
+      "timer": 480
+    },
+    {
+      "t": "Rest, glaze again, slice",
+      "c": "Rest 5 minutes — carryover lands at 145°F. Brush with the remaining glaze while it rests, then slice thick.",
       "timer": 300
     }
   ],
-  "notes": "Pork tenderloin at 145°F with the rest is safe and blush-pink — dry is the only way to ruin this cut, and the probe prevents it. Honey is 5g per serving, inside the real-sugar rule."
+  "notes": "145°F with the rest is safe and blush-pink — dry is the only way to ruin this cut, and the probe prevents it. Honey is 5g per serving inside the real-sugar rule. <b>Cronometer:</b> both mustard entries need brand verification — Dijon brands vary in sodium. Glaze is logged as part of the recipe; weigh the tenderloin after removing silver skin so the 900g is trimmed weight. Your freezer bags are ~450g — one bag = one cook = scale this to 2 servings."
 },
 {
   "id": "gochujang-pork",
@@ -1632,7 +1630,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v4</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v6</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
