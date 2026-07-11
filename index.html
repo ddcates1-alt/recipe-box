@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v6 — 20 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v7 — 21 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1573,6 +1573,38 @@ const RECIPES = [
     }
   ],
   "notes": "Cold slices carry two days of lunches at ~21g protein per 100g — weigh the cooked piece and log by grams. The fennel is the meatball note at roast scale."
+},
+{
+  id:"cornmealcake",
+  cat:"Desserts",
+  tag:"Dessert · reduced sugar",
+  title:"Meyer Lemon Cornmeal Olive Oil Cake",
+  subtitle:"Chobani yogurt base · not-too-sweet",
+  desc:"Lightly sweet, citrus-forward cornmeal cake built on Greek yogurt instead of butter. Cronometer-verified: ~193 kcal / 5.3g protein / 7.8g sugar per slice. Makes one 9-inch cake, 12 slices.",
+  servings:12, unit:"slices", meta:"12 slices · ~193 kcal / 5.3g protein each · 9-inch cake",
+  ingredients:[
+    {a:120,u:"g",n:"fine or medium cornmeal (not masa or polenta)"},
+    {a:80,u:"g",n:"all-purpose flour"},
+    {a:75,u:"g",n:"granulated sugar"},
+    {a:6,u:"g",n:"baking powder"},
+    {a:3,u:"g",n:"fine sea salt"},
+    {a:3,u:"",n:"large eggs"},
+    {a:300,u:"g",n:"full-fat Greek yogurt (5% Chobani)"},
+    {a:80,u:"g",n:"extra virgin olive oil, fruity not peppery"},
+    {a:60,u:"g",n:"fresh Meyer lemon juice (about 2 lemons)"},
+    {a:10,u:"g",n:"Meyer lemon zest (about 3 lemons, zested before juicing)"},
+    {a:5,u:"g",n:"vanilla extract"}
+  ],
+  steps:[
+    {t:"Prep and zest first", c:"Heat oven to 350°F. Grease a 9-inch round cake pan and line the bottom with parchment. Zest all lemons before juicing — the zest is doing most of the flavor work and is far easier to get before the lemon is cut."},
+    {t:"Whisk dry ingredients", c:"Whisk together the cornmeal, flour, sugar, baking powder, and salt in a large bowl until evenly combined. Cornmeal and flour don't blend themselves — take 30 seconds on this."},
+    {t:"Build the wet mix", c:"In a separate bowl, whisk the eggs until lightly beaten, then whisk in the yogurt, olive oil, lemon juice, lemon zest, and vanilla extract. The olive oil will emulsify into the yogurt-egg base — whisk until smooth with no oil streaks remaining."},
+    {t:"Combine gently", c:"Pour the wet mix into the dry and fold with a rubber spatula until just combined. A few streaks of flour are fine — overmixing toughens the crumb. The batter will be thick, thicker than a typical cake batter. That's correct."},
+    {t:"Bake", c:"Pour into the prepared pan and smooth the top. Bake until deep golden, edges pull slightly from the pan, and a skewer in the center comes out clean. Start checking at 30 minutes — the yogurt keeps it moist so underbaking is the main risk. Aim for 32–38 minutes total.", timer:1980},
+    {t:"Cool before cutting", c:"Cool in the pan 15 minutes, then turn out onto a wire rack. Do not cut while warm — the cornmeal crumb sets as it cools. Full 45-minute cool for clean slices.", timer:2700},
+    {t:"Slice and weigh", c:"Slice into 12 equal wedges and weigh one slice for your Cronometer entry. A 12th of a 9-inch cake lands around 70–75g per slice. Log as a custom recipe using the gram weights above, and scan barcodes for your specific brands."}
+  ],
+  notes:"<b>Cronometer-verified macros per slice (~72g):</b> 193 kcal · 5.3g protein · 21g carbs · 0.8g fiber · 7.8g sugar · 9.6g fat — based on Chobani 5% (barcode scanned), AP flour, and Meyer lemon juice. Scan the Chobani barcode to confirm your entry matches. <b>Flavor:</b> lightly sweet and citrus-forward — the Meyer lemon zest carries the sweetness so the sugar can stay low. If you want more sweetness on the plate, a drizzle of raw honey is better than adding sugar to the batter. <b>Olive oil:</b> use a mild fruity EVOO — peppery oils turn bitter at baking temperature. <b>Recomp fit:</b> works standalone as a dessert on any day, or pair a slice with 100g cottage cheese at the 3:30pm slot for ~230 kcal / 18g protein total. <b>Storage:</b> covered at room temp 2 days, fridge 5 days, individual slices frozen up to 3 months. Sweetener rule in force: no allulose, real sugar only."
 }
 ];
 
@@ -1630,7 +1662,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v6</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v7</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
