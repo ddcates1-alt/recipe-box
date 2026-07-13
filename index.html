@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v8 — 21 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v10 — 23 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -245,40 +245,57 @@ const RECIPES = [
   {
     id:"shake-whey",
     cat:"Evening Shakes",
-    tag:"Evening shake · ~49g protein",
-    title:"Evening Protein Shake — Pineapple Whey",
-    subtitle:"The creamsicle",
-    desc:"~335 kcal, ~49g protein. No added flavoring needed — pineapple plus vanilla whey carries it. Closes the ~50g evening gap inside ~340 kcal; creatine-compatible in the blender.",
-    servings:1, unit:"shake", meta:"1 shake · ~335 kcal / ~49g protein",
+    tag:"Evening shake · ~52g protein",
+    title:"Daily Protein Shake — Blueberry Whey",
+    subtitle:"Nancy's cottage cheese base",
+    desc:"Creamy, fruit-forward daily shake. The cottage cheese blends silky with whey — no chalkiness, no foam if you blend short. ~380 kcal / ~52g protein.",
+    servings:1, unit:"shake", meta:"1 shake · ~380 kcal / ~52g protein",
     ingredients:[
-      {a:200,u:"g",n:"Fairlife fat-free milk"},
-      {a:150,u:"g",n:"pineapple cottage cheese"},
-      {a:30,u:"g",n:"NOW Sports whey protein isolate, vanilla"}
+      {a:150,u:"g",n:"Nancy's low-fat probiotic cottage cheese"},
+      {a:180,u:"g",n:"Fairlife reduced-fat milk"},
+      {a:30,u:"g",n:"NOW Sports whey isolate, vanilla"},
+      {a:80,u:"g",n:"frozen blueberries"},
+      {a:10,u:"g",n:"chia seeds"},
+      {a:10,u:"g",n:"honey"},
+      {a:5,u:"g",n:"creatine monohydrate"},
+      {a:3,u:"g",n:"fresh lemon juice"},
+      {a:2,u:"g",n:"vanilla extract"},
+      {a:1,u:"pinch",n:"kosher salt"}
     ],
     steps:[
-      {t:"Blend", c:"Blend 15–20 seconds until smooth.", timer:20}
+      {t:"Liquid base first", c:"Add the Fairlife and cottage cheese to the blender first — liquid base prevents the cottage cheese from packing under the blades."},
+      {t:"Add remaining ingredients", c:"Add the blueberries, chia seeds, whey, lemon juice, honey, vanilla, and salt."},
+      {t:"Short blend", c:"Blend 10–12 seconds on medium — whey foams if you overblend. Stop when smooth.", timer:12},
+      {t:"Serve", c:"Drink immediately or let stand 3 minutes if any foam forms — it collapses on its own."}
     ],
-    notes:"<b>Cronometer audit:</b> verify two matches after pasting — your cottage cheese brand (scan the tub's barcode if the parser grabs a generic) and the correct protein powder entry. <b>Which to reach for:</b> whey when it's in the container; it tastes better in this particular combo. Table 1 evening rotation."
+    notes:"The lemon juice brightens the blueberry and cuts dairy flatness without reading as lemon. Honey at 10g adds real sweetness — increase to 15g max if it still reads flat. <b>Foam fix:</b> medium speed, 10–12 seconds only. <b>Cronometer:</b> Nancy's to brand-verified barcode entry; NOW Sports whey to barcode entry. Chia logs as its own line."
   },
   {
     id:"shake-pea",
     cat:"Evening Shakes",
-    tag:"Evening shake · ~47g protein",
-    title:"Evening Protein Shake — Pineapple Pea",
-    subtitle:"Needs flavor cover",
-    desc:"~340 kcal, ~47g protein. Pea runs slightly lower in protein per gram and noticeably earthier — the cinnamon and extra vanilla are doing real work here.",
-    servings:1, unit:"shake", meta:"1 shake · ~340 kcal / ~47g protein",
+    tag:"Evening shake · ~51g protein",
+    title:"Daily Protein Shake — Vanilla Cinnamon Whey",
+    subtitle:"Nancy's cottage cheese base",
+    desc:"Clean, creamy vanilla shake with warmth from cinnamon. Tastes closer to melted vanilla soft-serve than a protein drink. ~355 kcal / ~51g protein.",
+    servings:1, unit:"shake", meta:"1 shake · ~355 kcal / ~51g protein",
     ingredients:[
-      {a:200,u:"g",n:"Fairlife fat-free milk"},
-      {a:150,u:"g",n:"pineapple cottage cheese"},
-      {a:30,u:"g",n:"Naked pea protein isolate, vanilla"},
+      {a:150,u:"g",n:"Nancy's low-fat probiotic cottage cheese"},
+      {a:180,u:"g",n:"Fairlife reduced-fat milk"},
+      {a:30,u:"g",n:"NOW Sports whey isolate, vanilla"},
+      {a:10,u:"g",n:"chia seeds"},
+      {a:8,u:"g",n:"honey"},
+      {a:5,u:"g",n:"creatine monohydrate"},
+      {a:3,u:"g",n:"vanilla extract"},
       {a:2,u:"g",n:"ground cinnamon"},
-      {a:3,u:"g",n:"vanilla extract"}
+      {a:1,u:"pinch",n:"kosher salt"}
     ],
     steps:[
-      {t:"Blend", c:"Blend 20–30 seconds — blending time matters more with pea, or the chalkiness you've fought before comes back.", timer:30}
+      {t:"Liquid base first", c:"Add the Fairlife and cottage cheese to the blender first."},
+      {t:"Add remaining ingredients", c:"Add the chia seeds, whey, honey, vanilla, cinnamon, and salt."},
+      {t:"Short blend", c:"Blend 10–12 seconds on medium. Stop when smooth — don't chase a perfect texture or the whey foams.", timer:12},
+      {t:"Serve", c:"Drink immediately. Thickens as it sits from the chia — add 20g more milk if you want it thinner."}
     ],
-    notes:"The dairy completes pea's amino profile, so the two versions are <b>nutritionally equivalent for muscle retention</b> — whey just tastes better in this combo. Reach for pea when the whey runs out or you want the slower-drinking, thicker result. Same Cronometer audit: verify the cottage cheese and powder matches. Table 1 evening rotation."
+    notes:"Honey at 8g is doing real work against the dairy — add 2g more vanilla extract before adding honey if it still reads flat. <b>Cronometer:</b> same audit — Nancy's barcode, NOW Sports barcode. Chia logs as its own line. If you want it sweeter without more calories, vanilla extract up to 4g before touching the honey."
   },
   {
     id:"meatballs",
@@ -575,7 +592,7 @@ const RECIPES = [
       "c": "Top each serving with a fried or jammy egg. Rice logged separately: 150g cooked on training days (+~195 kcal), 100g on rest days (+~130)."
     }
   ],
-  "notes": "The 12g sugar is real sugar per the standing rule — 3g per serving, working hard against the fish sauce. <b>Cronometer:</b> fish sauce and oyster sauce need brand-verified entries; both vary a lot."
+  "notes": "The 12g sugar is real sugar per the standing rule — 3g per serving, working hard against the fish sauce. <b>Cronometer:</b> fish sauce and oyster sauce need brand-verified entries; both vary a lot. <b>Rest-day swap:</b> 2 Mission Zero Carb tortillas instead of rice saves ~130–195 kcal. <b>Mission Zero Carb street taco tortillas:</b> 2 tortillas per plate is a clean swap — scan the barcode, log as a separate line alongside this recipe (~30 kcal, ~0g net carbs)."
 },
 {
   "id": "greek-burgers",
@@ -683,7 +700,7 @@ const RECIPES = [
       "c": "Serve over salad greens or cucumbers, sauce spooned over. Pita gets logged separately if it earns a spot that day."
     }
   ],
-  "notes": "The sauce is your vinaigrette discipline applied to yogurt — weigh what you actually spoon. <b>Cronometer:</b> feta needs a brand-verified entry."
+  "notes": "The sauce is your vinaigrette discipline applied to yogurt — weigh what you actually spoon. <b>Cronometer:</b> feta needs a brand-verified entry. <b>Tortilla option:</b> 2 Mission Zero Carb street taco tortillas as a slider-style alternative — slice the patty and divide across both. <b>Mission Zero Carb street taco tortillas:</b> 2 tortillas per plate is a clean swap — scan the barcode, log as a separate line alongside this recipe (~30 kcal, ~0g net carbs)."
 },
 {
   "id": "larb-cups",
@@ -781,7 +798,7 @@ const RECIPES = [
       "c": "Spoon into lettuce cups at the table. Weigh the batch and log by grams per plate."
     }
   ],
-  "notes": "Gochugaru stands in for Thai chili flake — your signature heat, slightly gentler, so 8g reads medium. <b>Cronometer:</b> fish sauce brand-verified; log the lettuce, it's not zero."
+  "notes": "Gochugaru stands in for Thai chili flake — your signature heat, slightly gentler, so 8g reads medium. <b>Cronometer:</b> fish sauce brand-verified; log the lettuce, it's not zero. <b>Tortilla option:</b> 2 Mission Zero Carb street taco tortillas swap in for lettuce cups on nights the lettuce is soft or you want a sturdier vessel. Scan the barcode, log as a separate line (~30 kcal, ~0g net carbs)."
 },
 {
   "id": "kofta",
@@ -865,7 +882,7 @@ const RECIPES = [
       "c": "Plate two per serving with Signature Tzatziki from the box — log the tzatziki as its own recipe by grams spooned (+~110 kcal per serving)."
     }
   ],
-  "notes": "The tzatziki is logged separately, which keeps both recipes honest at any portion. Grated onion carries the moisture, same as the meatballs."
+  "notes": "The tzatziki is logged separately, which keeps both recipes honest at any portion. Grated onion carries the moisture, same as the meatballs. <b>Tortilla option:</b> 2 Mission Zero Carb street taco tortillas per plate instead of pita — one smashed kofta per tortilla. <b>Mission Zero Carb street taco tortillas:</b> 2 tortillas per plate is a clean swap — scan the barcode, log as a separate line alongside this recipe (~30 kcal, ~0g net carbs)."
 },
 {
   "id": "ragu-bianco",
@@ -1574,39 +1591,116 @@ const RECIPES = [
   ],
   "notes": "Cold slices carry two days of lunches at ~21g protein per 100g — weigh the cooked piece and log by grams. The fennel is the meatball note at roast scale."
 },
-{
-  id:"cornmealcake",
-  cat:"Desserts",
-  tag:"Dessert · reduced sugar",
-  title:"Meyer Lemon Cornmeal Olive Oil Cake",
-  subtitle:"Chobani yogurt base · not-too-sweet",
-  desc:"Lightly sweet, citrus-forward cornmeal cake built on Greek yogurt instead of butter. Cronometer-verified: ~193 kcal / 5.3g protein / 7.8g sugar per slice. Makes one 9-inch cake, 12 slices.",
-  servings:12, unit:"slices", meta:"12 slices · ~193 kcal / 5.3g protein each · 9-inch cake",
-  ingredients:[
-    {a:120,u:"g",n:"fine or medium cornmeal (not masa or polenta)"},
-    {a:80,u:"g",n:"all-purpose flour"},
-    {a:75,u:"g",n:"granulated sugar"},
-    {a:6,u:"g",n:"baking powder"},
-    {a:3,u:"g",n:"fine sea salt"},
-    {a:3,u:"",n:"large eggs"},
-    {a:300,u:"g",n:"plain Greek yogurt (2% Chobani or Nancy's)"},
-    {a:150,u:"g",n:"plain cottage cheese, blended smooth"},
-    {a:80,u:"g",n:"extra virgin olive oil, fruity not peppery"},
-    {a:60,u:"g",n:"fresh Meyer lemon juice (about 2 lemons)"},
-    {a:10,u:"g",n:"Meyer lemon zest (about 3 lemons, zested before juicing)"},
-    {a:5,u:"g",n:"vanilla extract"}
-  ],
-  steps:[
-    {t:"Prep and zest first", c:"Heat oven to 350°F. Grease a 9-inch round cake pan and line the bottom with parchment. Zest all lemons before juicing — the zest is doing most of the flavor work and is far easier to get before the lemon is cut."},
-    {t:"Whisk dry ingredients", c:"Whisk together the cornmeal, flour, sugar, baking powder, and salt in a large bowl until evenly combined. Cornmeal and flour don't blend themselves — take 30 seconds on this."},
-    {t:"Build the wet mix", c:"In a separate bowl, blend the cottage cheese smooth first, then whisk in the eggs, yogurt, olive oil, lemon juice, lemon zest, and vanilla extract. The olive oil will emulsify into the base — whisk until smooth with no oil streaks remaining."},
-    {t:"Combine gently", c:"Pour the wet mix into the dry and fold with a rubber spatula until just combined. A few streaks of flour are fine — overmixing toughens the crumb. The batter will be thick, thicker than a typical cake batter. That's correct."},
-    {t:"Bake", c:"Pour into the prepared pan and smooth the top. Bake until deep golden, edges pull slightly from the pan, and a skewer in the center comes out clean. Start checking at 30 minutes — the yogurt keeps it moist so underbaking is the main risk. Aim for 32–38 minutes total.", timer:1980},
-    {t:"Cool before cutting", c:"Cool in the pan 15 minutes, then turn out onto a wire rack. Do not cut while warm — the cornmeal crumb sets as it cools. Full 45-minute cool for clean slices.", timer:2700},
-    {t:"Slice and weigh", c:"Slice into 12 equal wedges and weigh one slice for your Cronometer entry. A 12th of a 9-inch cake lands around 70–75g per slice. Log as a custom recipe using the gram weights above, and scan barcodes for your specific brands."}
-  ],
-  notes:"<b>Re-run Cronometer paste after first bake</b> — macros updated from original: recipe now includes 150g plain cottage cheese in the wet mix, boosting protein by ~1.5g per slice (~7g total) and adding ~10 kcal. Scan barcodes for your specific Greek yogurt and cottage cheese brands. <b>Wet mix tip:</b> blend the cottage cheese smooth before adding the other wet ingredients — a stick blender or 20 seconds in the blender eliminates any curds. <b>Flavor:</b> lightly sweet and citrus-forward — the Meyer lemon zest carries the sweetness so the sugar can stay low. A drizzle of raw honey on the plate is better than adding sugar to the batter. <b>Olive oil:</b> use a mild fruity EVOO — peppery oils turn bitter at baking temperature. <b>Storage:</b> covered at room temp 2 days, fridge 5 days, individual slices frozen up to 3 months. Sweetener rule in force: no allulose, real sugar only."
-}
+  {
+    id:"farro-lentil-bowl",
+    cat:"Vegetarian",
+    tag:"Batch cook · ~46g protein",
+    title:"Farro & French Lentil Bowl with Jammy Eggs & Preserved Lemon Vinaigrette",
+    subtitle:"Cold yogurt base, warm grains",
+    desc:"Warm farro-lentil base over cold Greek yogurt, two jammy eggs, preserved lemon vinaigrette, gochugaru oil. ~510 kcal / ~46g protein per serving. Both grains batch Sunday.",
+    servings:4, unit:"servings", meta:"4 servings · ~510 kcal / ~46g protein each",
+    ingredients:[
+      {a:200,u:"g",n:"French (Puy) lentils, dry"},
+      {a:180,u:"g",n:"farro, dry"},
+      {a:1000,u:"g",n:"water or low-sodium broth (lentil cooking liquid)"},
+      {a:600,u:"g",n:"water or low-sodium broth (farro cooking liquid)"},
+      {a:2,u:"",n:"bay leaves"},
+      {a:5,u:"",n:"garlic cloves, smashed"},
+      {a:5,u:"g",n:"kosher salt"},
+      {a:400,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:8,u:"",n:"large eggs (2 per serving)"},
+      {a:200,u:"g",n:"Persian cucumbers, sliced"},
+      {a:60,u:"g",n:"preserved lemon vinaigrette (from the box)"},
+      {a:15,u:"g",n:"extra virgin olive oil (gochugaru oil)"},
+      {a:2,u:"g",n:"gochugaru"},
+      {a:20,u:"g",n:"fresh flat-leaf parsley, torn"},
+      {a:10,u:"g",n:"fresh mint, torn"}
+    ],
+    steps:[
+      {t:"Cook the lentils", c:"Rinse the lentils and cook in the lentil liquid with bay leaves and half the garlic — gentle simmer 20 to 25 minutes until tender but holding shape. Drain, discard aromatics, season.", timer:1500},
+      {t:"Cook the farro", c:"Rinse the farro and cook in the farro liquid with remaining garlic — bring to boil, reduce to simmer, 25 to 30 minutes until tender and chewy. Drain, season. Farro can share the pot after the lentils.", timer:1800},
+      {t:"Combine", c:"Toss the warm lentils and farro together — roughly 55% lentil, 45% farro by cooked weight."},
+      {t:"Jammy eggs — 7 minutes", c:"Lower eggs into boiling water, cook exactly 7 minutes, ice bath 2 minutes. Yolk should be jammy at center, set at the edge.", timer:420},
+      {t:"Bloom the gochugaru oil", c:"Warm the olive oil gently, stir in gochugaru off heat, steep while you plate."},
+      {t:"Cold yogurt base", c:"Spoon 100g cold Greek yogurt into each bowl and spread to the edges."},
+      {t:"Build the bowl", c:"Warm the farro-lentil mix briefly if batch-cooked. Spoon over the yogurt. Add cucumbers, halved jammy eggs, and spoon the vinaigrette over by the gram."},
+      {t:"Finish and serve", c:"Drizzle gochugaru oil over, finish with torn parsley and mint."}
+    ],
+    notes:"Farro roughly doubles in weight when cooked (180g dry → ~380g cooked); lentils cook to ~2.2× dry weight. Weigh the combined portion per plate for honest logging. <b>Cronometer:</b> log farro and lentils as separate cooked-weight lines; Chobani 5% barcode; 2 large eggs per serving. Vinaigrette logged separately by grams poured. Pearled farro cooks fastest; semi-pearled fine; whole farro adds 10 minutes."
+  },
+  {
+    id:"cashew-lentil-curry",
+    cat:"Vegetarian",
+    tag:"One pan · ~38g protein",
+    title:"Cashew & French Lentil Curry with Greek Yogurt",
+    subtitle:"Gochugaru tomato braise",
+    desc:"French lentils and whole toasted cashews in a ginger-garlic-gochugaru tomato braise, Greek yogurt swirled in off heat. ~490 kcal / ~38g protein per serving.",
+    servings:4, unit:"servings", meta:"4 servings · ~490 kcal / ~38g protein each",
+    ingredients:[
+      {a:300,u:"g",n:"French (Puy) lentils, dry"},
+      {a:120,u:"g",n:"raw cashews, whole"},
+      {a:15,u:"g",n:"avocado oil"},
+      {a:120,u:"g",n:"onion, fine dice"},
+      {a:12,u:"g",n:"garlic, grated"},
+      {a:15,u:"g",n:"fresh ginger, grated"},
+      {a:8,u:"g",n:"gochugaru"},
+      {a:4,u:"g",n:"ground cumin"},
+      {a:3,u:"g",n:"ground coriander"},
+      {a:2,u:"g",n:"turmeric"},
+      {a:400,u:"g",n:"crushed tomatoes, no sugar added"},
+      {a:300,u:"g",n:"low-sodium vegetable broth"},
+      {a:4,u:"g",n:"kosher salt"},
+      {a:200,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:15,u:"g",n:"fresh lemon juice"},
+      {a:15,u:"g",n:"fresh cilantro or parsley, torn"}
+    ],
+    steps:[
+      {t:"Toast the cashews", c:"Toast the cashews in a dry skillet over medium, shaking often, until golden and fragrant — 3 minutes. Set aside.", timer:180},
+      {t:"Cook the lentils", c:"Rinse the lentils and cook in 1,200g water with a bay leaf until just tender, 20–25 minutes. Drain and set aside.", timer:1500},
+      {t:"Build the base", c:"Heat the oil in a wide pan over medium. Soften the onion until translucent, 5 minutes. Add garlic and ginger for 1 minute until fragrant.", timer:360},
+      {t:"Bloom spices and simmer", c:"Add the gochugaru, cumin, coriander, and turmeric — stir 30 seconds. Pour in the crushed tomatoes and broth, season with salt, simmer 10 minutes.", timer:600},
+      {t:"Add lentils and cashews", c:"Fold in the cooked lentils and toasted cashews. Simmer 5 minutes — cashews warm through without going soft.", timer:300},
+      {t:"Finish with yogurt off heat", c:"Kill the heat. Stir in the Greek yogurt and lemon juice off heat — yogurt breaks if you boil it. Taste and adjust salt."},
+      {t:"Serve", c:"Torn cilantro or parsley over the top. Lavash or 100g cooked basmati logged separately by day type."}
+    ],
+    notes:"Cashews go in the last 5 minutes only — early addition makes them soft. Toast first; 3 minutes pays back in flavor. <b>Cronometer:</b> log cashews at 30g per serving; crushed tomatoes brand-verified. Greek yogurt off heat keeps cultures intact."
+  },
+  {
+    id:"shakshuka",
+    cat:"Vegetarian",
+    tag:"One skillet · ~36g protein",
+    title:"Shakshuka with White Beans, Roasted Peppers & Lacinato Kale",
+    subtitle:"Preserved lemon · gochugaru · eggs poached in sauce",
+    desc:"Spiced tomato-pepper sauce with preserved lemon, gochugaru, white beans, and lacinato kale — eggs poached directly in the sauce. One skillet, twenty minutes. ~460 kcal / ~36g protein per serving.",
+    servings:4, unit:"servings", meta:"4 servings · ~460 kcal / ~36g protein each",
+    ingredients:[
+      {a:15,u:"g",n:"extra virgin olive oil"},
+      {a:150,u:"g",n:"onion, sliced"},
+      {a:200,u:"g",n:"red bell pepper, sliced"},
+      {a:10,u:"g",n:"garlic, minced"},
+      {a:8,u:"g",n:"gochugaru"},
+      {a:4,u:"g",n:"ground cumin"},
+      {a:2,u:"g",n:"smoked paprika"},
+      {a:15,u:"g",n:"preserved lemon rind, rinsed and minced"},
+      {a:800,u:"g",n:"crushed tomatoes, no sugar added"},
+      {a:480,u:"g",n:"white beans (2 cans), drained and rinsed"},
+      {a:200,u:"g",n:"lacinato kale, stemmed and torn"},
+      {a:3,u:"g",n:"kosher salt"},
+      {a:300,u:"g",n:"eggs (6 large — 1.5 per serving)"},
+      {a:200,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:20,u:"g",n:"fresh flat-leaf parsley, torn"},
+      {a:10,u:"g",n:"fresh mint, torn"}
+    ],
+    steps:[
+      {t:"Soften the aromatics", c:"Heat the oil over medium in a wide skillet with a lid. Soften the onion and bell pepper until tender, about 6 minutes.", timer:360},
+      {t:"Bloom the spices", c:"Add the garlic, gochugaru, cumin, and smoked paprika — stir 30 seconds. Add the preserved lemon and stir through."},
+      {t:"Build the sauce", c:"Pour in the crushed tomatoes, add the white beans, season with salt. Simmer 8 minutes until slightly thickened.", timer:480},
+      {t:"Wilt the kale", c:"Fold the kale into the sauce and cook 2 minutes until wilted.", timer:120},
+      {t:"Poach the eggs in the sauce", c:"Make 6 wells in the sauce. Crack one egg per well. Cover and cook over medium-low until whites are just set and yolks still runny — 6 to 8 minutes. Check at 6.", timer:420},
+      {t:"Plate with yogurt and herbs", c:"Swirl Greek yogurt onto each plate, spoon the shakshuka over. Finish with torn parsley and mint."}
+    ],
+    notes:"Preserved lemon carries the salt — taste before adding any. White beans brand-verified; no-salt-added cans keep sodium clean. Yogurt swirled at the table, not stirred in — keeps it cool against the hot sauce. Lavash logged separately. 2 Mission Zero Carb tortillas are a natural swap for the lavash — scoop the egg and bean sauce right in. <b>Mission Zero Carb street taco tortillas:</b> 2 tortillas per plate is a clean swap — scan the barcode, log as a separate line alongside this recipe (~30 kcal, ~0g net carbs)."
+  }
 ];
 
 const scaleState = {};
@@ -1618,7 +1712,7 @@ function fmt(n){
   return String(Math.round(n));
 }
 
-const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Sauces & Dressings","Evening Shakes","Desserts"];
+const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Sauces & Dressings","Evening Shakes","Desserts"];
 
 function buildIndex(){
   const c = document.getElementById("cards");
@@ -1663,7 +1757,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v8</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v10</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
