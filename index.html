@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v10 — 23 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v11 — 24 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1700,6 +1700,38 @@ const RECIPES = [
       {t:"Plate with yogurt and herbs", c:"Swirl Greek yogurt onto each plate, spoon the shakshuka over. Finish with torn parsley and mint."}
     ],
     notes:"Preserved lemon carries the salt — taste before adding any. White beans brand-verified; no-salt-added cans keep sodium clean. Yogurt swirled at the table, not stirred in — keeps it cool against the hot sauce. Lavash logged separately. 2 Mission Zero Carb tortillas are a natural swap for the lavash — scoop the egg and bean sauce right in. <b>Mission Zero Carb street taco tortillas:</b> 2 tortillas per plate is a clean swap — scan the barcode, log as a separate line alongside this recipe (~30 kcal, ~0g net carbs)."
+  },
+  {
+    id:"lavash",
+    cat:"Breads & Wraps",
+    tag:"Wrap base · 6g protein",
+    title:"Recomp Mini Lavash",
+    subtitle:"High-protein, high-fiber flatbread",
+    desc:"Homemade mini lavash matching Joseph's macros with a cleaner label: ~68 kcal / 6g protein / ~5g net carbs per mini. Rectangular shaping is built into the method — the pre-shape decides the final shape. Makes 12 minis.",
+    servings:12, unit:"minis", meta:"12 minis · ~68 kcal / 6g protein each",
+    ingredients:[
+      {a:110,u:"g",n:"whole wheat flour"},
+      {a:70,u:"g",n:"vital wheat gluten"},
+      {a:25,u:"g",n:"oat fiber (not oat bran or oat flour)"},
+      {a:15,u:"g",n:"ground flaxseed meal"},
+      {a:8,u:"g",n:"extra virgin olive oil"},
+      {a:3,u:"g",n:"instant yeast"},
+      {a:5,u:"g",n:"fine sea salt"},
+      {a:210,u:"g",n:"warm water (105°F), plus up to 20g more as needed"}
+    ],
+    steps:[
+      {t:"Mix the dry base", c:"Whisk together the flour, gluten, oat fiber, flaxseed, yeast, and salt until evenly blended. The gluten and oat fiber clump if they hit water first — dry-blending first matters."},
+      {t:"Hydrate", c:"Add the olive oil and water. Stir until a shaggy dough forms. Oat fiber drinks water slowly — if still dry after 2 minutes, add water 10g at a time. Target firm but pliable, slightly stiffer than pizza dough."},
+      {t:"Knead", c:"Knead 6–8 minutes by hand or 5 minutes in a stand mixer with the dough hook. This dough is gluten-heavy and will feel unusually rubbery and elastic — that's correct. Stop when smooth and springy.", timer:480},
+      {t:"Rest 45 minutes", c:"Cover the bowl and rest at room temperature. Not a full proof — you're relaxing the gluten so the sheets roll thin instead of snapping back. Skip this and rolling becomes a fight.", timer:2700},
+      {t:"Divide into logs, not balls", c:"Divide into 12 pieces of 37g each on the scale. Roll each into a 3-inch log — a ball rolls into a circle no matter what; a log flattens into a rectangle. Cover with a damp towel and bench rest 10 minutes.", timer:600},
+      {t:"Roll the long axis first", c:"Flatten a log with your palm, then roll center-out along the long axis only — center to far edge, back, center to near edge — until about 8 inches long. Never roll edge-to-edge across the whole piece; that thins the middle and leaves fat ends."},
+      {t:"Widen and square the corners", c:"Turn the pin 90° and widen with center-out strokes to about 6 inches. Finish with 4–5 short diagonal strokes from the center pushing dough into each corner to square off the oval. If a sheet springs back, set it aside, roll another, and return in 2 minutes. Roll to 6.5×8.5 inches — it relaxes to 6×8 by the time it hits the pan."},
+      {t:"Trim and keep the scraps", c:"Run a pizza cutter along a straightedge to true up the rectangle. Straight edges roll into tight wraps; ragged edges let filling escape. Knead all trimmings back into a bonus 13th piece or into the next dough ball — keeps the batch total intact for accurate logging."},
+      {t:"Cook on a dry skillet", c:"Heat a dry cast-iron or nonstick skillet over medium-high until water droplets skitter. Cook each sheet 60–75 seconds per side — scattered brown spots and slight puffing. No oil. Even 30 extra seconds turns wrap into cracker.", timer:75},
+      {t:"Steam-soften the stack", c:"Stack each lavash under a clean kitchen towel as it comes off the skillet. The trapped steam keeps the sheets pliable. Rest the full stack covered 15 minutes before storing.", timer:900}
+    ],
+    notes:"<b>Macros per mini (~33g baked):</b> ~68 kcal · 6g protein · 8g total carbs · ~3g fiber (~5g net carbs) · 1.5g fat. Whole batch ~815 kcal / ~71g protein. Verify vital wheat gluten (Bob's Red Mill) and oat fiber (Anthony's Organic) against your actual brand labels in Cronometer — don't use a generic entry. Weigh total baked output and set serving = total ÷ 12. <b>Wrap assembly:</b> warm the sheet 20 sec in a dry skillet first. Short 6-inch edge toward you, filling in a strip with a 1-inch margin on three sides. Spotted side faces the filling, smooth side out. Fold long-side margins in slightly, roll along the 8-inch dimension, finish seam-down 30 sec to seal. <b>Storage:</b> parchment squares between sheets; room temp 2 days, fridge 1 week, freezer 3 months. Revive from frozen 20–30 sec dry skillet or 15 sec microwave under a damp paper towel. <b>Do not substitute</b> oat bran or oat flour for oat fiber — roughly doubles the calories."
   }
 ];
 
@@ -1712,7 +1744,7 @@ function fmt(n){
   return String(Math.round(n));
 }
 
-const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Sauces & Dressings","Evening Shakes","Desserts"];
+const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Breads & Wraps","Sauces & Dressings","Evening Shakes","Desserts"];
 
 function buildIndex(){
   const c = document.getElementById("cards");
@@ -1757,7 +1789,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v10</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v11</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
