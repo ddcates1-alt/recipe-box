@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v11 — 24 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v12 — 25 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1736,6 +1736,32 @@ const RECIPES = [
       {t:"Plate with yogurt and herbs", c:"Swirl Greek yogurt onto each plate, spoon the shakshuka over. Finish with torn parsley and mint."}
     ],
     notes:"Preserved lemon carries the salt — taste before adding any. White beans brand-verified; no-salt-added cans keep sodium clean. Yogurt swirled at the table, not stirred in — keeps it cool against the hot sauce. Lavash logged separately. 2 Mission Zero Carb tortillas are a natural swap for the lavash — scoop the egg and bean sauce right in. <b>Mission Zero Carb street taco tortillas:</b> 2 tortillas per plate is a clean swap — scan the barcode, log as a separate line alongside this recipe (~30 kcal, ~0g net carbs)."
+  },
+  {
+    id:"lentil-side",
+    cat:"Sides",
+    tag:"Side · ~14g protein",
+    title:"French Lentil Side with Preserved Lemon Vinaigrette",
+    subtitle:"Bridges any protein dish",
+    desc:"A clean, fast lentil side that bridges any protein dish — meatballs, chicken, pork. Preserved lemon vinaigrette dresses them warm. ~220 kcal / ~14g protein per serving. Batch Sunday, plates in 3 minutes any night.",
+    servings:4, unit:"servings", meta:"4 servings · ~220 kcal / ~14g protein each",
+    ingredients:[
+      {a:300,u:"g",n:"French (Puy) lentils, dry"},
+      {a:1200,u:"g",n:"water or low-sodium broth"},
+      {a:4,u:"g",n:"kosher salt"},
+      {a:2,u:"",n:"bay leaves"},
+      {a:4,u:"",n:"garlic cloves, smashed"},
+      {a:40,u:"g",n:"preserved lemon vinaigrette (from the box)"},
+      {a:200,u:"g",n:"Persian cucumbers, sliced"},
+      {a:20,u:"g",n:"fresh flat-leaf parsley, torn"},
+      {a:10,u:"g",n:"fresh mint, torn"}
+    ],
+    steps:[
+      {t:"Cook the lentils", c:"Rinse the lentils and combine with the water, bay leaves, and garlic. Bring to a gentle boil, reduce to a simmer, cook until tender but still holding shape — 20 to 25 minutes. Drain, discard bay and garlic, season with salt.", timer:1500},
+      {t:"Dress warm", c:"While still warm, toss the lentils with the preserved lemon vinaigrette — warm lentils absorb the dressing better than cold."},
+      {t:"Plate and finish", c:"Plate alongside the protein, top with sliced cucumbers, torn parsley and mint."}
+    ],
+    notes:"Dress the lentils while warm — they absorb the vinaigrette better than cold. The preserved lemon bridges naturally to the meatballs, pork tenderloin, or any chicken dish in the box. <b>Cronometer:</b> log the vinaigrette as a separate recipe by actual grams poured — 10g per serving is the base portion. Lentils cook to ~2.2× dry weight; weigh the cooked portion per plate for honest logging. Batch cooks Sunday, holds 4 days in the fridge."
   }
 ];
 
@@ -1748,7 +1774,7 @@ function fmt(n){
   return String(Math.round(n));
 }
 
-const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Sauces & Dressings","Evening Shakes","Desserts"];
+const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Sides","Sauces & Dressings","Evening Shakes","Desserts"];
 
 function buildIndex(){
   const c = document.getElementById("cards");
@@ -1793,7 +1819,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v11</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v12</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
