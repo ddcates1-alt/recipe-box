@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v13 — 26 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v14 — 27 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1796,6 +1796,39 @@ const RECIPES = [
       {t:"Settle and slice", c:"Let the blueberry layer settle for 5 minutes before slicing into 12 pieces.", timer:300}
     ],
     notes:"The three moves that earn the deficit: sugar cut from 266g to 180g total, oil cut from 148g to 80g with 120g Greek yogurt replacing the difference, and orange juice bumped slightly to compensate for reduced fat. <b>No allulose</b> — real sugar throughout per the standing rule. <b>Cronometer:</b> log as 12 servings; one slice is one tap. Holds 3 days at room temp, 5 days in the fridge."
+  },
+  {
+    id:"lentil-dijon-side",
+    cat:"Sides",
+    tag:"Side · ~22g protein",
+    title:"French Lentil Side with Mirepoix & Dijon",
+    subtitle:"Bistro build — not a soup",
+    desc:"French lentils braised with mirepoix and finished with Dijon and Greek yogurt. Plates as a side, not a soup — spoonable, not pourable. ~285 kcal / ~22g protein per serving.",
+    servings:4, unit:"servings", meta:"4 servings · ~285 kcal / ~22g protein each",
+    ingredients:[
+      {a:15,u:"g",n:"extra virgin olive oil"},
+      {a:80,u:"g",n:"onion, finely chopped"},
+      {a:40,u:"g",n:"carrot, finely chopped"},
+      {a:40,u:"g",n:"celery, finely chopped"},
+      {a:3,u:"g",n:"kosher salt"},
+      {a:480,u:"g",n:"low-sodium chicken broth"},
+      {a:200,u:"g",n:"French (Puy) lentils, dry, picked over and rinsed"},
+      {a:120,u:"g",n:"hot water, as needed to prevent sticking (not to make it brothy)"},
+      {a:60,u:"g",n:"baby spinach"},
+      {a:30,u:"g",n:"Dijon mustard"},
+      {a:100,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:10,u:"g",n:"fresh lemon juice"},
+      {a:8,u:"g",n:"preserved lemon rind, rinsed and minced (optional)"},
+      {a:1,u:"g",n:"black pepper"}
+    ],
+    steps:[
+      {t:"Sweat the mirepoix", c:"Heat the olive oil in a medium saucepan over medium. Add the onion, carrot, celery, and salt. Cook until softened and slightly sweet, 5–7 minutes.", timer:420},
+      {t:"Add lentils and broth", c:"Add the lentils and broth. Bring to a boil, reduce to a gentle simmer."},
+      {t:"Braise to tender", c:"Simmer until the lentils are fully tender and the liquid is mostly absorbed, 25–30 minutes. Add hot water in small amounts only if needed to prevent sticking — the goal is spoonable, not pourable.", timer:1800},
+      {t:"Wilt the spinach", c:"Stir in the spinach and cook 1 minute until wilted.", timer:60},
+      {t:"Finish off heat", c:"Kill the heat. Stir in the Dijon, Greek yogurt, lemon juice, and preserved lemon if using. Taste before adding any salt — the Dijon carries it. Finish with black pepper."}
+    ],
+    notes:"This is a braise, not a soup — keep the water additions minimal, just enough to prevent sticking. Greek yogurt swap saves ~160 kcal vs crème fraîche and adds protein; stir in off heat so it doesn’t break. Preserved lemon is optional but bridges naturally to the other lentil side in the box. <b>Cronometer:</b> Chobani 5% to barcode entry; broth brand-verified. Holds 4 days in the fridge; thickens on standing, loosen with a splash of hot water when reheating."
   }
 ];
 
@@ -1853,7 +1886,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v13</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v14</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
