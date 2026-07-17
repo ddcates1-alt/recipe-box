@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v12 — 25 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v13 — 26 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1762,6 +1762,40 @@ const RECIPES = [
       {t:"Plate and finish", c:"Plate alongside the protein, top with sliced cucumbers, torn parsley and mint."}
     ],
     notes:"Dress the lentils while warm — they absorb the vinaigrette better than cold. The preserved lemon bridges naturally to the meatballs, pork tenderloin, or any chicken dish in the box. <b>Cronometer:</b> log the vinaigrette as a separate recipe by actual grams poured — 10g per serving is the base portion. Lentils cook to ~2.2× dry weight; weigh the cooked portion per plate for honest logging. Batch cooks Sunday, holds 4 days in the fridge."
+  },
+  {
+    id:"blueberry-polenta-cake",
+    cat:"Desserts",
+    tag:"Dessert · ~195 kcal",
+    title:"Recomp Blueberry Polenta Upside-Down Cake",
+    subtitle:"Sugar cut 40%, Greek yogurt swap",
+    desc:"Recomp build of the blueberry polenta upside-down cake. Sugar cut by 40%, oil reduced and partially replaced with Greek yogurt for protein and moisture. ~195 kcal / ~4g protein per slice vs the original ~280 kcal / ~2g. Real sugar throughout.",
+    servings:12, unit:"slices", meta:"12 slices · ~195 kcal / ~4g protein each",
+    ingredients:[
+      {a:300,u:"g",n:"blueberries, fresh or frozen"},
+      {a:80,u:"g",n:"granulated sugar (blueberry layer)"},
+      {a:100,u:"g",n:"granulated sugar (batter)"},
+      {a:2,u:"",n:"large eggs"},
+      {a:8,u:"g",n:"orange zest (1 large orange)"},
+      {a:150,u:"g",n:"fresh orange juice"},
+      {a:80,u:"g",n:"olive oil (not extra virgin)"},
+      {a:120,u:"g",n:"plain nonfat Greek yogurt"},
+      {a:70,u:"g",n:"polenta, regular or instant"},
+      {a:150,u:"g",n:"all-purpose flour"},
+      {a:8,u:"g",n:"baking powder"},
+      {a:3,u:"g",n:"kosher salt"}
+    ],
+    steps:[
+      {t:"Prep the blueberry layer", c:"Heat oven to 350°F. Oil a 9-inch square pan. Scatter the blueberries evenly across the bottom and dust with the blueberry-layer sugar. Set aside — the sugar dissolves into the berries and caramelizes during baking."},
+      {t:"Whisk eggs and sugar", c:"Whisk the eggs, batter sugar, and orange zest together until slightly thickened and pale — about 2 minutes."},
+      {t:"Add wet ingredients", c:"Whisk in the orange juice, olive oil, and Greek yogurt until smooth."},
+      {t:"Fold in dry ingredients", c:"Fold in the polenta, flour, baking powder, and salt until just combined — don’t overmix or the polenta can’t hydrate properly."},
+      {t:"Pour over blueberries", c:"Pour the batter gently over the blueberry layer — don’t disturb the berries."},
+      {t:"Bake", c:"Bake until a toothpick inserted in the center comes out clean and the edges are pulling away from the pan — start checking at 35 minutes.", timer:2100},
+      {t:"Cool and flip", c:"Cool in the pan 10 minutes only — too long and the blueberry layer sticks. Run a knife around the edges, place a plate or board over the pan, and flip in one confident move.", timer:600},
+      {t:"Settle and slice", c:"Let the blueberry layer settle for 5 minutes before slicing into 12 pieces.", timer:300}
+    ],
+    notes:"The three moves that earn the deficit: sugar cut from 266g to 180g total, oil cut from 148g to 80g with 120g Greek yogurt replacing the difference, and orange juice bumped slightly to compensate for reduced fat. <b>No allulose</b> — real sugar throughout per the standing rule. <b>Cronometer:</b> log as 12 servings; one slice is one tap. Holds 3 days at room temp, 5 days in the fridge."
   }
 ];
 
@@ -1819,7 +1853,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v12</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v13</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
