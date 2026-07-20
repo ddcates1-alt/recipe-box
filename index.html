@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v15 — 28 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v17 — 29 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1831,36 +1831,71 @@ const RECIPES = [
     notes:"This is a braise, not a soup — keep the water additions minimal, just enough to prevent sticking. Greek yogurt swap saves ~160 kcal vs crème fraîche and adds protein; stir in off heat so it doesn’t break. Preserved lemon is optional but bridges naturally to the other lentil side in the box. <b>Cronometer:</b> Chobani 5% to barcode entry; broth brand-verified. Holds 4 days in the fridge; thickens on standing, loosen with a splash of hot water when reheating."
   },
   {
-    id:"lavash",
-    cat:"Breads & Wraps",
-    tag:"Wrap base · 6g protein",
-    title:"Recomp Mini Lavash",
-    subtitle:"High-protein, high-fiber flatbread",
-    desc:"Homemade mini lavash matching Joseph’s macros with a cleaner label: ~68 kcal / 6g protein / ~5g net carbs per mini. Rectangular shaping is built into the method — the pre-shape decides the final shape. Makes 12 minis.",
-    servings:12, unit:"minis", meta:"12 minis · ~68 kcal / 6g protein each",
+    id:"tonkatsu",
+    cat:"Chicken Breast",
+    tag:"Air fryer · ~52g protein",
+    title:"Air Fryer Chicken Katsu with Greek Yogurt Slaw",
+    subtitle:"Pork tenderloin variant in notes",
+    desc:"Air-fryer chicken katsu — leaner cut, measured oil spray, same crispy panko crust. Tonkatsu sauce sugar halved, mayo slaw swapped for Greek yogurt slaw. ~390 kcal / ~52g protein per serving before rice.",
+    servings:4, unit:"servings", meta:"4 servings · ~390 kcal / ~52g protein each (before rice)",
     ingredients:[
-      {a:110,u:"g",n:"whole wheat flour"},
-      {a:70,u:"g",n:"vital wheat gluten"},
-      {a:25,u:"g",n:"oat fiber (not oat bran or oat flour)"},
+      {a:700,u:"g",n:"chicken breast, halved lengthwise and pounded to 1.5cm even thickness"},
+      {a:3,u:"g",n:"kosher salt"},
+      {a:1,u:"g",n:"black pepper"},
+      {a:30,u:"g",n:"all-purpose flour"},
+      {a:100,u:"g",n:"eggs (2 large), beaten"},
+      {a:80,u:"g",n:"panko bread crumbs"},
+      {a:8,u:"g",n:"olive oil spray or brush-on"},
+      {a:80,u:"g",n:"ketchup, no sugar added"},
+      {a:60,u:"g",n:"Worcestershire sauce"},
+      {a:15,u:"g",n:"granulated sugar (sauce)"},
+      {a:15,u:"g",n:"oyster sauce"},
+      {a:200,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:20,u:"g",n:"rice vinegar"},
+      {a:10,u:"g",n:"soy sauce"},
+      {a:4,u:"g",n:"toasted sesame oil"},
+      {a:300,u:"g",n:"green cabbage, finely shredded"}
+    ],
+    steps:[
+      {t:"Make the tonkatsu sauce", c:"Whisk together the ketchup, Worcestershire, sugar, and oyster sauce in a small saucepan. Simmer 2 minutes until slightly thickened. Cool and set aside — makes the whole batch, ~30g per serving.", timer:120},
+      {t:"Make the Greek yogurt slaw", c:"Whisk the Greek yogurt, rice vinegar, soy sauce, and sesame oil together. Toss with the shredded cabbage and let sit 10 minutes so the cabbage softens slightly.", timer:600},
+      {t:"Season the cutlets", c:"Pound the chicken cutlets to even 1.5cm thickness. Season both sides with salt and pepper."},
+      {t:"Bread the cutlets", c:"Three stations: flour in one shallow dish, beaten eggs in the second, panko in the third. Dredge each cutlet: flour → egg → panko, pressing the crumbs on firmly."},
+      {t:"Air fry at 400°F", c:"Mist or brush both sides with oil spray — weigh the bottle before and after. Air fry at 400°F in a single layer, 10–12 minutes, flipping at 6 minutes, to 165°F internal. First batch calibrates your model.", timer:720},
+      {t:"Rest, slice, and plate", c:"Rest 3 minutes. Slice on the bias. Plate over the slaw, tonkatsu sauce spooned over by the gram. Rice logged separately.", timer:180}
+    ],
+    notes:"<b>Pork tenderloin variant:</b> swap 700g chicken for 700g pork tenderloin cutlets, air fry 8–10 minutes to 145°F internal (+~30 kcal, −4g protein per serving). Everything else identical. <b>Recomp moves:</b> 8g measured spray vs 7 cups frying oil; Greek yogurt vs Kewpie mayo saves ~200 kcal per batch; sauce sugar halved. <b>Sodium note:</b> Worcestershire and soy together run ~900mg per serving — no-sugar-added ketchup helps offset. <b>Cronometer:</b> ketchup and oyster sauce brand-verified; both vary on sugar. Rice logged separately: 150g cooked training days (+~195 kcal), 100g rest days (+~130 kcal)."
+  },
+  {
+    id:"mini-lavash",
+    cat:"Breads & Wraps",
+    tag:"Breads & Wraps · ~7.5g protein each",
+    title:"Recomp Mini Lavash",
+    subtitle:"Nutritional yeast default — Joseph’s macros, more protein",
+    desc:"Homemade mini lavash with nutritional yeast built in: ~72 kcal / ~7.5g protein / ~5g net carbs per flatbread. Liquid options: cashew milk or almond milk for additional protein and flavor over water.",
+    servings:12, unit:"minis", meta:"12 mini lavash · ~72 kcal / ~7.5g protein / ~5g net carbs each",
+    ingredients:[
+      {a:95,u:"g",n:"whole wheat flour"},
+      {a:70,u:"g",n:"vital wheat gluten (Bob’s Red Mill)"},
+      {a:25,u:"g",n:"oat fiber (Anthony’s Organic) — NOT oat bran or oat flour"},
       {a:15,u:"g",n:"ground flaxseed meal"},
+      {a:15,u:"g",n:"nutritional yeast"},
       {a:8,u:"g",n:"extra virgin olive oil"},
       {a:3,u:"g",n:"instant yeast"},
       {a:5,u:"g",n:"fine sea salt"},
-      {a:210,u:"g",n:"warm water (105°F), plus up to 20g more as needed"}
+      {a:210,u:"g",n:"liquid: water, cashew milk, or unsweetened almond milk (see notes)"}
     ],
     steps:[
-      {t:"Mix the dry base", c:"Whisk together the flour, gluten, oat fiber, flaxseed, yeast, and salt until evenly blended. The gluten and oat fiber clump if they hit water first — dry-blending first matters."},
-      {t:"Hydrate", c:"Add the olive oil and water. Stir until a shaggy dough forms. Oat fiber drinks water slowly — if still dry after 2 minutes, add water 10g at a time. Target firm but pliable, slightly stiffer than pizza dough."},
-      {t:"Knead", c:"Knead 6–8 minutes by hand or 5 minutes in a stand mixer with the dough hook. This dough is gluten-heavy and will feel unusually rubbery and elastic — that’s correct. Stop when smooth and springy.", timer:480},
-      {t:"Rest 45 minutes", c:"Cover the bowl and rest at room temperature. Not a full proof — you’re relaxing the gluten so the sheets roll thin instead of snapping back. Skip this and rolling becomes a fight.", timer:2700},
-      {t:"Divide into logs, not balls", c:"Divide into 12 pieces of 37g each on the scale. Roll each into a 3-inch log — a ball rolls into a circle no matter what; a log flattens into a rectangle. Cover with a damp towel and bench rest 10 minutes.", timer:600},
-      {t:"Roll the long axis first", c:"Flatten a log with your palm, then roll center-out along the long axis only — center to far edge, back, center to near edge — until about 8 inches long. Never roll edge-to-edge across the whole piece; that thins the middle and leaves fat ends."},
-      {t:"Widen and square the corners", c:"Turn the pin 90° and widen with center-out strokes to about 6 inches. Finish with 4–5 short diagonal strokes from the center pushing dough into each corner to square off the oval. If a sheet springs back, set it aside, roll another, and return in 2 minutes. Roll to 6.5×8.5 inches — it relaxes to 6×8 by the time it hits the pan."},
-      {t:"Trim and keep the scraps", c:"Run a pizza cutter along a straightedge to true up the rectangle. Straight edges roll into tight wraps; ragged edges let filling escape. Knead all trimmings back into a bonus 13th piece or into the next dough ball — keeps the batch total intact for accurate logging."},
-      {t:"Cook on a dry skillet", c:"Heat a dry cast-iron or nonstick skillet over medium-high until water droplets skitter. Cook each sheet 60–75 seconds per side — scattered brown spots and slight puffing. No oil. Even 30 extra seconds turns wrap into cracker.", timer:75},
+      {t:"Choose your liquid", c:"Water: neutral baseline. Cashew milk: blend 25g raw cashews + 210g water smooth — adds ~2g protein and richness to the batch. Unsweetened almond milk: 210g straight from the carton — ~1g protein added, lightest flavor. All three are 1:1 swaps, no other changes needed."},
+      {t:"Mix the dough", c:"Combine all dry ingredients including the nutritional yeast. Add the olive oil and liquid. Mix until a shaggy dough forms, then knead 8 minutes until smooth and elastic — the vital wheat gluten needs the full knead to develop.", timer:480},
+      {t:"Rest the dough", c:"Cover and rest 45 minutes at room temperature.", timer:2700},
+      {t:"Divide", c:"Divide into 12 equal pieces at ~38g each — weigh every piece. Roll each into a ball."},
+      {t:"Bench rest", c:"Cover the balls and rest 10 minutes — the gluten relaxes and rolling becomes much easier.", timer:600},
+      {t:"Roll thin", c:"Roll each ball into a rough rectangle, about 15×20cm and 1–2mm thick. Thin is the goal — thicker lavash bakes stiff."},
+      {t:"Dry skillet, no oil", c:"Heat a dry skillet over medium-high. Cook each lavash 75 seconds per side — no oil, ever. Spotted and puffed on side one is right. Pull it before it crisps.", timer:75},
       {t:"Steam-soften the stack", c:"Stack each lavash under a clean kitchen towel as it comes off the skillet. The trapped steam keeps the sheets pliable. Rest the full stack covered 15 minutes before storing.", timer:900}
     ],
-    notes:"<b>Macros per mini (~33g baked):</b> ~68 kcal · 6g protein · 8g total carbs · ~3g fiber (~5g net carbs) · 1.5g fat. Whole batch ~815 kcal / ~71g protein. Verify vital wheat gluten (Bob’s Red Mill) and oat fiber (Anthony’s Organic) against your actual brand labels in Cronometer — don’t use a generic entry. Weigh total baked output and set serving = total ÷ 12. <b>Wrap assembly:</b> warm the sheet 20 sec in a dry skillet first. Short 6-inch edge toward you, filling in a strip with a 1-inch margin on three sides. Spotted side faces the filling, smooth side out. Fold long-side margins in slightly, roll along the 8-inch dimension, finish seam-down 30 sec to seal. <b>Storage:</b> parchment squares between sheets; room temp 2 days, fridge 1 week, freezer 3 months. Revive from frozen 20–30 sec dry skillet or 15 sec microwave under a damp paper towel. <b>Do not substitute</b> oat bran or oat flour for oat fiber — roughly doubles the calories."
+    notes:"<b>Nutritional yeast:</b> replaces 15g of whole wheat flour — adds ~1.5g protein per mini, savory depth, no detectable cheesy flavor in the finished wrap. Stack it with cashew milk liquid for maximum protein upgrade. <b>Liquid options:</b> Cashew milk (25g cashews blended into 210g water) adds ~2g protein to the whole batch plus richness. Unsweetened almond milk adds ~1g protein, most convenient. Water is the neutral baseline. All three produce identical texture. <b>Critical:</b> oat fiber is NOT oat bran or oat flour — substituting roughly doubles the calories. <b>Cronometer:</b> verify vital wheat gluten (Bob’s Red Mill), oat fiber (Anthony’s Organic), and nutritional yeast against your actual brand barcodes — do not use generic entries. Weigh total baked output and set serving = total ÷ 12. <b>Storage:</b> parchment squares between sheets. Room temp 2 days, fridge 1 week, freezer 3 months. Revive from frozen: 20–30 seconds in a dry skillet or 15 seconds microwave under a damp paper towel. <b>Wrap assembly:</b> warm 20 seconds in a dry skillet first. Short 6-inch edge toward you, filling along that edge with 1-inch margin on three sides. Spotted side faces the filling, smooth side faces out. Fold margins in, roll away, finish seam-side down 30 seconds to seal."
   }
 ];
 
@@ -1873,7 +1908,7 @@ function fmt(n){
   return String(Math.round(n));
 }
 
-const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Sides","Breads & Wraps","Sauces & Dressings","Evening Shakes","Desserts"];
+const CAT_ORDER = ["Ground Turkey","Ground Chicken","Chicken Breast","Pork Tenderloin","Vegetarian","Sides","Sauces & Dressings","Breads & Wraps","Evening Shakes","Desserts"];
 
 function buildIndex(){
   const c = document.getElementById("cards");
@@ -1918,7 +1953,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v15</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v17</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
