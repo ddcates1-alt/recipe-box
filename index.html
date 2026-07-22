@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v19 — 30 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v20 — 31 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1931,6 +1931,37 @@ const RECIPES = [
       {t:"Plate and finish", c:"Divide into four 260g portions. Top each with the tofu crumbles and cilantro."}
     ],
     notes:"<b>Cronometer-verified:</b> 598 kcal / 39g protein / 260g per serving at 60g peanut butter. Peanut butter audit: 85g = 622 kcal, 60g = 598 kcal, 40g = 568 kcal — 60g is the sweet spot for flavor and calories. The sauce looks like a thick paste before the pasta water goes in — that’s correct. <b>Brami barcode scan mandatory</b> — generic pasta entries over-report calories significantly. Chobani 5% barcode; peanut butter brand-verified."
+  },
+  {
+    id:"cottage-queso",
+    cat:"Sauces & Dressings",
+    tag:"Dip · ~12g protein",
+    title:"High-Protein Cottage Cheese Chili Con Queso",
+    subtitle:"Blended cottage cheese base · pickled jalapeño · scratch seasoning",
+    desc:"High-protein queso built on blended cottage cheese instead of processed cheese — smooth, creamy, spiked with pickled jalapeño and scratch seasoning. ~95 kcal / ~12g protein per serving. Dip, topping, or taco sauce.",
+    servings:6, unit:"servings", meta:"6 servings · ~95 kcal / ~12g protein each",
+    ingredients:[
+      {a:400,u:"g",n:"Nancy’s low-fat probiotic cottage cheese"},
+      {a:100,u:"g",n:"sharp cheddar, finely grated"},
+      {a:60,u:"g",n:"pickled jalapeños, sliced, plus 15g brine"},
+      {a:8,u:"g",n:"garlic, grated"},
+      {a:4,u:"g",n:"ground cumin"},
+      {a:3,u:"g",n:"smoked paprika"},
+      {a:2,u:"g",n:"gochugaru"},
+      {a:2,u:"g",n:"onion powder"},
+      {a:2,u:"g",n:"kosher salt"},
+      {a:1,u:"g",n:"black pepper"},
+      {a:10,u:"g",n:"fresh lime juice"},
+      {a:15,u:"g",n:"fresh cilantro, chopped (optional finish)"}
+    ],
+    steps:[
+      {t:"Blend the cottage cheese smooth", c:"Blend the cottage cheese completely smooth in a blender or with an immersion blender — 1–2 minutes until no curds remain. This is the base; don’t skip the full blend.", timer:120},
+      {t:"Add seasoning and jalapeños", c:"Add the jalapeños plus 15g brine, garlic, cumin, smoked paprika, gochugaru, onion powder, salt, pepper, and lime juice to the blender. Pulse until the jalapeños are roughly incorporated — a few visible flecks is right."},
+      {t:"Warm gently — no boil", c:"Pour the blended base into a small saucepan over medium-low heat. Warm gently, stirring constantly, until it just begins to steam — do not boil or the cottage cheese can break.", timer:180},
+      {t:"Melt in the cheddar off heat", c:"Off heat, stir in the cheddar in two additions until fully melted and glossy. The residual heat does the work."},
+      {t:"Taste, adjust, and serve", c:"Taste and adjust — more brine for acid, more gochugaru for heat, more lime for brightness. Top with cilantro if using. Serve immediately or keep warm on the lowest setting."}
+    ],
+    notes:"The brine from the jalapeño jar is the secret weapon — 15g goes into the blend and adds acid, heat, and complexity that straight jalapeños don’t. Cottage cheese must be blended smooth before any heat; lumpy queso can’t be fixed after the fact. Serve warm — thickens as it cools, loosen with a splash of brine or water. Mission Zero Carb tortillas are the natural vehicle — 2 tortillas per serving is ~30 kcal. <b>Cronometer:</b> Nancy’s to barcode entry; cheddar brand-verified."
   }
 ];
 
@@ -1988,7 +2019,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v19</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v20</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
