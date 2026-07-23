@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v20 — 31 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v21 — 31 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1870,10 +1870,10 @@ const RECIPES = [
     id:"mini-lavash",
     cat:"Breads & Wraps",
     tag:"Breads & Wraps · ~7.5g protein each",
-    title:"Recomp Mini Lavash",
-    subtitle:"Nutritional yeast default — Joseph’s macros, more protein",
-    desc:"Homemade mini lavash with nutritional yeast built in: ~72 kcal / ~7.5g protein / ~5g net carbs per flatbread. Liquid options: cashew milk or almond milk for additional protein and flavor over water.",
-    servings:12, unit:"minis", meta:"12 mini lavash · ~72 kcal / ~7.5g protein / ~5g net carbs each",
+    title:"Recomp Sheet Lavash (Oven Method)",
+    subtitle:"One dough, two sheets, cut to size",
+    desc:"Same dough as the mini lavash — baked on a rimmed sheet pan instead of rolled into 12 individual balls. One or two large sheets, docked, baked at high heat, cut into portions after. ~72 kcal / ~7.5g protein per portion.",
+    servings:12, unit:"portions", meta:"12 portions · ~72 kcal / ~7.5g protein each",
     ingredients:[
       {a:95,u:"g",n:"whole wheat flour"},
       {a:70,u:"g",n:"vital wheat gluten (Bob’s Red Mill)"},
@@ -1886,17 +1886,15 @@ const RECIPES = [
       {a:210,u:"g",n:"liquid: water, cashew milk, or unsweetened almond milk (see notes)"}
     ],
     steps:[
-      {t:"Choose your liquid", c:"Water: neutral baseline. Cashew milk: blend 25g raw cashews + 210g water smooth — adds ~2g protein and richness to the batch. Unsweetened almond milk: 210g straight from the carton — ~1g protein added, lightest flavor. All three are 1:1 swaps, no other changes needed."},
-      {t:"Mix the dough", c:"Combine all dry ingredients including the nutritional yeast. Add the olive oil and liquid. Mix until a shaggy dough forms, then knead 8 minutes until smooth and elastic — the vital wheat gluten needs the full knead to develop.", timer:480},
+      {t:"Mix and knead the dough", c:"Combine all dry ingredients. Add the olive oil and liquid. Mix until a shaggy dough forms, then knead 8 minutes until smooth and elastic — the vital wheat gluten needs the full knead.", timer:480},
       {t:"Rest the dough", c:"Cover and rest 45 minutes at room temperature.", timer:2700},
-      {t:"Divide", c:"Divide into 12 equal pieces at ~38g each — weigh every piece. Roll each into a ball."},
-      {t:"Bench rest", c:"Cover the balls and rest 10 minutes — the gluten relaxes and rolling becomes much easier.", timer:600},
-      {t:"Roll thin", c:"Roll each ball into a rough rectangle, about 15×20cm and 1–2mm thick. Thin is the goal — thicker lavash bakes stiff."},
-      {t:"Dock the dough", c:"Before it hits the skillet, dock the rolled dough all over with a fork, a docker, or the tip of a knife — holes every 2cm or so. This releases steam during cooking and keeps the flatbread flat rather than puffing into bubbles."},
-      {t:"Dry skillet, no oil", c:"Heat a dry skillet over medium-high. Cook each lavash 75 seconds per side — no oil, ever. Spotted and puffed on side one is right. Pull it before it crisps.", timer:75},
-      {t:"Steam-soften the stack", c:"Stack each lavash under a clean kitchen towel as it comes off the skillet. The trapped steam keeps the sheets pliable. Rest the full stack covered 15 minutes before storing.", timer:900}
+      {t:"Preheat oven and pan to 450°F", c:"Heat oven to 450°F with the rimmed baking sheet inside — a hot pan is the key to a crisp bottom."},
+      {t:"Divide and roll thin", c:"Divide the dough into 2 equal pieces. On a lightly floured surface roll each piece as thin as possible — 1–2mm, roughly the size of your sheet pan. It doesn’t need to be perfect."},
+      {t:"Dock the dough", c:"Dock the rolled dough all over with a fork or docker — holes every 2cm. This keeps it flat and prevents large bubbles."},
+      {t:"Bake at 450°F", c:"Carefully transfer each sheet onto the hot pan using parchment to slide it on safely. Bake one sheet at a time, 6–8 minutes, until lightly golden with dark spots. Check at 6 minutes — pull early for pliable wraps, leave to 8 for crisp chips.", timer:420},
+      {t:"Steam-soften or crisp, then cut", c:"Stack under a clean kitchen towel immediately if you want wrap texture. Leave uncovered on a rack if you want crisp. Cut into 12 equal portions once cool enough to handle."}
     ],
-    notes:"<b>Nutritional yeast:</b> replaces 15g of whole wheat flour — adds ~1.5g protein per mini, savory depth, no detectable cheesy flavor in the finished wrap. Stack it with cashew milk liquid for maximum protein upgrade. <b>Liquid options:</b> Cashew milk (25g cashews blended into 210g water) adds ~2g protein to the whole batch plus richness. Unsweetened almond milk adds ~1g protein, most convenient. Water is the neutral baseline. All three produce identical texture. <b>Critical:</b> oat fiber is NOT oat bran or oat flour — substituting roughly doubles the calories. <b>Cronometer:</b> verify vital wheat gluten (Bob’s Red Mill), oat fiber (Anthony’s Organic), and nutritional yeast against your actual brand barcodes — do not use generic entries. Weigh total baked output and set serving = total ÷ 12. <b>Storage:</b> parchment squares between sheets. Room temp 2 days, fridge 1 week, freezer 3 months. Revive from frozen: 20–30 seconds in a dry skillet or 15 seconds microwave under a damp paper towel. <b>Wrap assembly:</b> warm 20 seconds in a dry skillet first. Short 6-inch edge toward you, filling along that edge with 1-inch margin on three sides. Spotted side faces the filling, smooth side faces out. Fold margins in, roll away, finish seam-side down 30 seconds to seal."
+    notes:"Same dough, same macros — only the format changed. Baking produces a slightly crispier result; pull at 6 minutes for pliable wraps, 8 minutes for cracker-crisp chips. Cover with a towel immediately if you want wrap texture — the steam softens it back. <b>Liquid options:</b> cashew milk (25g cashews blended into 210g water) adds ~2g protein and richness; almond milk adds ~1g; water is the neutral baseline. <b>Cronometer:</b> verify vital wheat gluten (Bob’s Red Mill), oat fiber (Anthony’s Organic), and nutritional yeast against your actual brand barcodes. Weigh the total baked sheet and divide by 12 for the per-portion gram weight. Air fryer at 400°F for 3–4 minutes turns any portions into chips — tajín optional."
   },
   {
     id:"peanut-noodles",
@@ -1930,7 +1928,7 @@ const RECIPES = [
       {t:"Sauce the pasta in the pot", c:"Add the peanut sauce and about 180g of the reserved pasta water to the pot of drained pasta. Turn heat to low and stir until the sauce melts and emulsifies, coating every noodle. Add more pasta water in splashes if too thick."},
       {t:"Plate and finish", c:"Divide into four 260g portions. Top each with the tofu crumbles and cilantro."}
     ],
-    notes:"<b>Cronometer-verified:</b> 598 kcal / 39g protein / 260g per serving at 60g peanut butter. Peanut butter audit: 85g = 622 kcal, 60g = 598 kcal, 40g = 568 kcal — 60g is the sweet spot for flavor and calories. The sauce looks like a thick paste before the pasta water goes in — that’s correct. <b>Brami barcode scan mandatory</b> — generic pasta entries over-report calories significantly. Chobani 5% barcode; peanut butter brand-verified."
+    notes:"<b>Cronometer-verified:</b> 598 kcal / 39g protein / 260g per serving at 60g peanut butter. Peanut butter audit: 85g = 622 kcal, 60g = 598 kcal, 40g = 568 kcal — 60g is the sweet spot. The sauce looks like a thick paste before the pasta water goes in — that’s correct. <b>Brami barcode scan mandatory.</b> Chobani 5% barcode; peanut butter brand-verified."
   },
   {
     id:"cottage-queso",
@@ -1955,13 +1953,13 @@ const RECIPES = [
       {a:15,u:"g",n:"fresh cilantro, chopped (optional finish)"}
     ],
     steps:[
-      {t:"Blend the cottage cheese smooth", c:"Blend the cottage cheese completely smooth in a blender or with an immersion blender — 1–2 minutes until no curds remain. This is the base; don’t skip the full blend.", timer:120},
-      {t:"Add seasoning and jalapeños", c:"Add the jalapeños plus 15g brine, garlic, cumin, smoked paprika, gochugaru, onion powder, salt, pepper, and lime juice to the blender. Pulse until the jalapeños are roughly incorporated — a few visible flecks is right."},
+      {t:"Blend the cottage cheese smooth", c:"Blend the cottage cheese completely smooth — 1–2 minutes until no curds remain. Don’t skip the full blend.", timer:120},
+      {t:"Add seasoning and jalapeños", c:"Add the jalapeños plus 15g brine, garlic, cumin, smoked paprika, gochugaru, onion powder, salt, pepper, and lime juice. Pulse until jalapeños are roughly incorporated — a few visible flecks is right."},
       {t:"Warm gently — no boil", c:"Pour the blended base into a small saucepan over medium-low heat. Warm gently, stirring constantly, until it just begins to steam — do not boil or the cottage cheese can break.", timer:180},
-      {t:"Melt in the cheddar off heat", c:"Off heat, stir in the cheddar in two additions until fully melted and glossy. The residual heat does the work."},
-      {t:"Taste, adjust, and serve", c:"Taste and adjust — more brine for acid, more gochugaru for heat, more lime for brightness. Top with cilantro if using. Serve immediately or keep warm on the lowest setting."}
+      {t:"Melt in the cheddar off heat", c:"Off heat, stir in the cheddar in two additions until fully melted and glossy."},
+      {t:"Taste, adjust, and serve", c:"More brine for acid, more gochugaru for heat, more lime for brightness. Top with cilantro if using. Serve immediately or keep warm on the lowest setting."}
     ],
-    notes:"The brine from the jalapeño jar is the secret weapon — 15g goes into the blend and adds acid, heat, and complexity that straight jalapeños don’t. Cottage cheese must be blended smooth before any heat; lumpy queso can’t be fixed after the fact. Serve warm — thickens as it cools, loosen with a splash of brine or water. Mission Zero Carb tortillas are the natural vehicle — 2 tortillas per serving is ~30 kcal. <b>Cronometer:</b> Nancy’s to barcode entry; cheddar brand-verified."
+    notes:"The brine from the jalapeño jar is the secret weapon — 15g goes into the blend. Cottage cheese must be blended smooth before any heat. Serve warm — thickens as it cools, loosen with a splash of brine or water. Mission Zero Carb tortillas are the natural vehicle — 2 tortillas per serving is ~30 kcal. <b>Cronometer:</b> Nancy’s to barcode entry; cheddar brand-verified."
   }
 ];
 
@@ -2019,7 +2017,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v20</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v21</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
