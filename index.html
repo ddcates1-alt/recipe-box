@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v21 — 31 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v23 — 32 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1931,35 +1931,66 @@ const RECIPES = [
     notes:"<b>Cronometer-verified:</b> 598 kcal / 39g protein / 260g per serving at 60g peanut butter. Peanut butter audit: 85g = 622 kcal, 60g = 598 kcal, 40g = 568 kcal — 60g is the sweet spot. The sauce looks like a thick paste before the pasta water goes in — that’s correct. <b>Brami barcode scan mandatory.</b> Chobani 5% barcode; peanut butter brand-verified."
   },
   {
-    id:"cottage-queso",
+    id:"real-queso",
     cat:"Sauces & Dressings",
-    tag:"Dip · ~12g protein",
-    title:"High-Protein Cottage Cheese Chili Con Queso",
-    subtitle:"Blended cottage cheese base · pickled jalapeño · scratch seasoning",
-    desc:"High-protein queso built on blended cottage cheese instead of processed cheese — smooth, creamy, spiked with pickled jalapeño and scratch seasoning. ~95 kcal / ~12g protein per serving. Dip, topping, or taco sauce.",
-    servings:6, unit:"servings", meta:"6 servings · ~95 kcal / ~12g protein each",
+    tag:"Dip · ~8g protein",
+    title:"Real Cheese Queso (Sodium Citrate Method)",
+    subtitle:"Sharp cheddar + pepper jack — actually smooth",
+    desc:"Real cheese queso that actually melts smooth — sodium citrate is the emulsifier that makes sharp cheddar and pepper jack behave like Velveeta without being Velveeta. Greek yogurt boosts protein. ~110 kcal / ~8g protein per serving.",
+    servings:6, unit:"servings", meta:"6 servings · ~110 kcal / ~8g protein each",
     ingredients:[
-      {a:400,u:"g",n:"Nancy’s low-fat probiotic cottage cheese"},
-      {a:100,u:"g",n:"sharp cheddar, finely grated"},
-      {a:60,u:"g",n:"pickled jalapeños, sliced, plus 15g brine"},
+      {a:150,u:"g",n:"sharp cheddar, finely grated"},
+      {a:100,u:"g",n:"pepper jack, finely grated"},
+      {a:80,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:180,u:"g",n:"Fairlife reduced-fat milk"},
+      {a:8,u:"g",n:"sodium citrate"},
+      {a:60,u:"g",n:"pickled jalapeños, minced, plus 20g brine"},
       {a:8,u:"g",n:"garlic, grated"},
       {a:4,u:"g",n:"ground cumin"},
       {a:3,u:"g",n:"smoked paprika"},
       {a:2,u:"g",n:"gochugaru"},
-      {a:2,u:"g",n:"onion powder"},
-      {a:2,u:"g",n:"kosher salt"},
-      {a:1,u:"g",n:"black pepper"},
       {a:10,u:"g",n:"fresh lime juice"},
       {a:15,u:"g",n:"fresh cilantro, chopped (optional finish)"}
     ],
     steps:[
-      {t:"Blend the cottage cheese smooth", c:"Blend the cottage cheese completely smooth — 1–2 minutes until no curds remain. Don’t skip the full blend.", timer:120},
-      {t:"Add seasoning and jalapeños", c:"Add the jalapeños plus 15g brine, garlic, cumin, smoked paprika, gochugaru, onion powder, salt, pepper, and lime juice. Pulse until jalapeños are roughly incorporated — a few visible flecks is right."},
-      {t:"Warm gently — no boil", c:"Pour the blended base into a small saucepan over medium-low heat. Warm gently, stirring constantly, until it just begins to steam — do not boil or the cottage cheese can break.", timer:180},
-      {t:"Melt in the cheddar off heat", c:"Off heat, stir in the cheddar in two additions until fully melted and glossy."},
-      {t:"Taste, adjust, and serve", c:"More brine for acid, more gochugaru for heat, more lime for brightness. Top with cilantro if using. Serve immediately or keep warm on the lowest setting."}
+      {t:"Dissolve the sodium citrate", c:"Combine the milk, Greek yogurt, and sodium citrate in a small saucepan over medium heat. Whisk until the sodium citrate is completely dissolved and the liquid is steaming — about 2 minutes. Don’t boil.", timer:120},
+      {t:"Add aromatics", c:"Add the garlic, cumin, smoked paprika, gochugaru, and 20g jalapeño brine. Whisk to combine."},
+      {t:"Melt in the cheese gradually", c:"Reduce heat to low. Add the cheddar and pepper jack in three additions, whisking each until completely smooth before adding the next. The sodium citrate prevents any breaking or graininess."},
+      {t:"Add jalapeños and lime", c:"Stir in the minced jalapeños and lime juice. Taste and adjust — more brine for acid, more gochugaru for heat."},
+      {t:"Serve and keep warm", c:"Serve immediately with tajín-dusted air fryer tortilla chips. Keep warm on the lowest heat setting, stirring occasionally. Reheat with a splash of milk if it thickens."}
     ],
-    notes:"The brine from the jalapeño jar is the secret weapon — 15g goes into the blend. Cottage cheese must be blended smooth before any heat. Serve warm — thickens as it cools, loosen with a splash of brine or water. Mission Zero Carb tortillas are the natural vehicle — 2 tortillas per serving is ~30 kcal. <b>Cronometer:</b> Nancy’s to barcode entry; cheddar brand-verified."
+    notes:"Sodium citrate is the whole game — a food-safe emulsifying salt that lets real cheese melt completely smooth without breaking or going grainy. Available on Amazon for ~$8, enough to last a year. Without it you get greasy broken queso; with it you get silky. Greek yogurt adds protein while keeping it pourable. <b>Cronometer:</b> sodium citrate is zero calories; cheddar and pepper jack brand-verified. Mission Zero Carb tortillas cut into chips are the natural vehicle — tajín optional."
+  },
+  {
+    id:"cold-peanut-noodles",
+    cat:"Vegetarian",
+    tag:"Vegetarian · ~32g protein",
+    title:"Cold Peanut-Chile Crisp Noodles (Miracle Noodle Egg White)",
+    subtitle:"No cooking beyond the noodles",
+    desc:"Cold peanut-chile crisp noodles with cucumber and scallions — crystallized ginger swapped for fresh, peanut butter pulled to 60g, Miracle Noodle egg white spaghetti for the protein upgrade. ~420 kcal / ~32g protein per serving.",
+    servings:4, unit:"servings", meta:"4 servings · ~420 kcal / ~32g protein each",
+    ingredients:[
+      {a:396,u:"g",n:"Miracle Noodle Egg White Spaghetti (4 x 3.5oz packs) — barcode scan only"},
+      {a:60,u:"g",n:"natural crunchy peanut butter"},
+      {a:40,u:"g",n:"soy sauce, divided, plus more to taste"},
+      {a:30,u:"g",n:"chile crisp (Lao Gan Ma or similar), plus more to taste"},
+      {a:8,u:"g",n:"toasted sesame oil"},
+      {a:10,u:"g",n:"fresh ginger, finely grated"},
+      {a:200,u:"g",n:"Persian cucumbers, thinly sliced"},
+      {a:60,u:"g",n:"scallions, thinly sliced"},
+      {a:15,u:"g",n:"fresh lime juice, plus more to taste"},
+      {a:10,u:"g",n:"honey"},
+      {a:15,u:"g",n:"fresh cilantro or basil, torn"},
+      {a:2,u:"g",n:"gochugaru (optional finish)"}
+    ],
+    steps:[
+      {t:"Cook the noodles", c:"Cook the Miracle Noodle egg white spaghetti according to package instructions. Drain, reserving about 160g of starchy pasta water.", timer:600},
+      {t:"Build the dressing", c:"While the pasta cooks, whisk together the peanut butter, 30g soy sauce, chile crisp, sesame oil, ginger, honey, and lime juice in a large bowl. Whisk in enough reserved pasta water to make a loose, smooth dressing — start with 80g and add more as needed."},
+      {t:"Add cucumber on top — don’t mix yet", c:"Add the cucumbers to the bowl on top of the dressing but don’t mix in yet. Drizzle lightly with the remaining 10g soy sauce."},
+      {t:"Toss everything together", c:"Add the drained noodles and scallions to the bowl and toss everything together until the dressing is glossy and coats every strand. Add more pasta water in splashes if needed."},
+      {t:"Taste, adjust, and finish", c:"More chile crisp for heat, more lime for brightness, more soy for salt. Top with torn cilantro or basil and a pinch of gochugaru if using."}
+    ],
+    notes:"Crystallized ginger swapped for fresh ginger + 10g honey — same sweet-heat effect, less sugar. Peanut butter pulled from 258g to 60g — same sweet spot as the Brami peanut noodles. Almond butter is a clean 1:1 swap if preferred — slightly milder flavor, essentially same macros. <b>Miracle Noodle sourcing:</b> Walmart ~$4.92 per 3.5oz pack, need 4 packs. Also on Amazon. <b>Barcode scan mandatory</b> — generic shirataki or konjac entries log near-zero protein and will destroy the macro picture. Chile crisp brand-verified; peanut butter brand-verified. Reserve pasta water before draining — it’s the dressing loosener."
   }
 ];
 
@@ -2017,7 +2048,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v21</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v23</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
