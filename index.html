@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v23 — 32 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v24 — 33 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -1991,6 +1991,38 @@ const RECIPES = [
       {t:"Taste, adjust, and finish", c:"More chile crisp for heat, more lime for brightness, more soy for salt. Top with torn cilantro or basil and a pinch of gochugaru if using."}
     ],
     notes:"Crystallized ginger swapped for fresh ginger + 10g honey — same sweet-heat effect, less sugar. Peanut butter pulled from 258g to 60g — same sweet spot as the Brami peanut noodles. Almond butter is a clean 1:1 swap if preferred — slightly milder flavor, essentially same macros. <b>Miracle Noodle sourcing:</b> Walmart ~$4.92 per 3.5oz pack, need 4 packs. Also on Amazon. <b>Barcode scan mandatory</b> — generic shirataki or konjac entries log near-zero protein and will destroy the macro picture. Chile crisp brand-verified; peanut butter brand-verified. Reserve pasta water before draining — it’s the dressing loosener."
+  },
+  {
+    id:"artisan-loaf",
+    cat:"Breads & Wraps",
+    tag:"Breads & Wraps · ~8g protein per slice",
+    title:"High-Protein Artisan Loaf (No-Knead Cold Ferment)",
+    subtitle:"Dutch oven — crusty outside, chewy inside",
+    desc:"High-protein artisan loaf — crusty outside, chewy open crumb inside. No-knead overnight cold ferment. Vital wheat gluten and nutritional yeast from the lavash build, scaled to a Dutch oven loaf. ~105 kcal / ~8g protein per slice.",
+    servings:12, unit:"slices", meta:"12 slices · ~105 kcal / ~8g protein each",
+    ingredients:[
+      {a:280,u:"g",n:"bread flour or whole wheat flour"},
+      {a:60,u:"g",n:"vital wheat gluten (Bob’s Red Mill)"},
+      {a:30,u:"g",n:"oat fiber (Anthony’s Organic)"},
+      {a:20,u:"g",n:"ground flaxseed meal"},
+      {a:25,u:"g",n:"nutritional yeast"},
+      {a:8,u:"g",n:"fine sea salt"},
+      {a:2,u:"g",n:"instant yeast"},
+      {a:320,u:"g",n:"liquid: cashew milk or unsweetened almond milk, lukewarm (top up with water if short)"}
+    ],
+    steps:[
+      {t:"Combine dry ingredients", c:"Whisk together the flour, vital wheat gluten, oat fiber, flaxseed meal, nutritional yeast, salt, and yeast in a large bowl."},
+      {t:"Add liquid and mix to shaggy dough", c:"Pour in the liquid and mix with a fork or wooden spoon until no dry flour remains — the dough will be shaggy and sticky. That’s correct. Cover the bowl with plastic wrap or a plate."},
+      {t:"Rest 1 hour then cold ferment overnight", c:"Rest at room temperature 1 hour, then refrigerate overnight or up to 18 hours. The cold ferment develops flavor and structure without kneading.", timer:3600},
+      {t:"Shape the loaf", c:"Remove from fridge. Turn the dough onto a lightly floured surface. Fold it onto itself 4–6 times to build surface tension — you’re not kneading, just shaping it into a rough ball. Place seam-side down on a piece of parchment paper."},
+      {t:"Second rise — 45 to 60 minutes", c:"Cover loosely and rest at room temperature 45–60 minutes while the oven heats. Lean toward the full 60 minutes for cold-fermented dough coming straight from the fridge. Check at 45 — if it’s noticeably puffed and jiggles slightly, it’s ready.", timer:3600},
+      {t:"Preheat Dutch oven to 475°F", c:"Place the Dutch oven with its lid in the oven and heat to 475°F — the pot must be screaming hot before the dough goes in.", timer:2700},
+      {t:"Score the loaf", c:"Score the top of the loaf with a sharp knife or lame — one slash down the center, about 1cm deep. This controls where the bread opens."},
+      {t:"Bake covered 20 minutes", c:"Using the parchment as a sling, carefully lower the dough into the screaming-hot Dutch oven. Cover with the lid and bake 20 minutes — the trapped steam creates the crust.", timer:1200},
+      {t:"Bake uncovered 20–25 minutes", c:"Remove the lid and bake another 20–25 minutes until deep golden brown and the internal temperature reads 200–210°F.", timer:1350},
+      {t:"Cool fully before slicing", c:"Transfer to a wire rack and cool at least 1 hour before slicing — the crumb is still setting inside. Cutting too early gives you gummy bread.", timer:3600}
+    ],
+    notes:"No-knead cold ferment — mix tonight, bake tomorrow. Dutch oven is non-negotiable for the crust; a Lodge 5-quart or any heavy lidded pot works. <b>Liquid shortcut:</b> top up almond or cashew milk with water to hit 320g — 218g almond milk + 102g water works perfectly. Cashew milk (25g cashews blended into 320g water) is the richest upgrade. <b>Cronometer:</b> weigh the cooled loaf and divide by 12 for exact per-slice gram weight. Vital wheat gluten and oat fiber barcode-verified. <b>Storage:</b> cut side down on a board, room temp 2 days, fridge 5 days wrapped, freezer 3 months sliced with parchment between slices."
   }
 ];
 
@@ -2048,7 +2080,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v23</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v24</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
