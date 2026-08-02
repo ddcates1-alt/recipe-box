@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v25 — 33 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v26 — 34 recipes — July 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -2023,6 +2023,31 @@ const RECIPES = [
       {t:"Cool fully before slicing", c:"Transfer to a wire rack and cool at least 1 hour before slicing — the crumb is still setting inside. Cutting too early gives you gummy bread.", timer:3600}
     ],
     notes:"<b>v2 revisions from first bake:</b> vital wheat gluten reduced 60g → 30g (was fighting the rise and making it dense), yeast bumped 2g → 4g (more lift for a heavy flour mix), second rise extended to 75–90 minutes. Protein drops slightly from ~8g to ~6.5g per slice but the loaf will actually rise and be worth eating. <b>Liquid shortcut:</b> top up almond or cashew milk with water to hit 320g. <b>Cronometer:</b> weigh the cooled loaf and divide by 12 for exact per-slice gram weight. Vital wheat gluten and oat fiber barcode-verified. <b>Storage:</b> cut side down on a board, room temp 2 days, fridge 5 days wrapped, freezer 3 months sliced with parchment between slices."
+  },
+  {
+    id:"vanilla-honey-froyo",
+    cat:"Desserts",
+    tag:"Dessert · ~48g protein",
+    title:"Vanilla Honey Frozen Yogurt Pint (Ninja Creami)",
+    subtitle:"Tastes like actual froyo",
+    desc:"Vanilla honey frozen yogurt in the Ninja Creami — Greek yogurt base with whey protein, real honey, and a vanilla finish. ~320 kcal / ~48g protein per pint. The lemon juice is the move that makes it taste like froyo.",
+    servings:1, unit:"pint", meta:"1 pint · ~320 kcal / ~48g protein",
+    ingredients:[
+      {a:340,u:"g",n:"plain Greek yogurt 5% Chobani"},
+      {a:180,u:"g",n:"Fairlife reduced-fat milk"},
+      {a:30,u:"g",n:"NOW Sports whey isolate, vanilla"},
+      {a:25,u:"g",n:"honey"},
+      {a:3,u:"g",n:"vanilla extract"},
+      {a:5,u:"g",n:"fresh lemon juice"},
+      {a:1,u:"pinch",n:"kosher salt"}
+    ],
+    steps:[
+      {t:"Whisk the base smooth", c:"Whisk together all ingredients until completely smooth — no dry pockets of whey powder. The honey needs to fully dissolve."},
+      {t:"Freeze 24 hours", c:"Pour into the Creami pint to the max-fill line. Freeze flat for 24 hours. If it fills slightly over the line, pull back the milk to 160g.", timer:86400},
+      {t:"Spin on Lite Ice Cream", c:"Spin on Lite Ice Cream — not Full Fat Ice Cream, not Sorbet. If crumbly, add a 15g splash of milk and respin once."},
+      {t:"Serve or add mix-in", c:"Eat straight from the pint or core and add a mix-in of your choice. Fresh berries, a drizzle of honey, or granola all work well — log whatever you add."}
+    ],
+    notes:"The honey is doing two jobs: sweetness and anti-crystallization — don’t reduce below 20g or you’ll get icy texture. The lemon juice sharpens the yogurt tang so it tastes like actual froyo rather than a protein shake — don’t skip it. <b>Full pint is one serving:</b> ~320 kcal / ~48g protein / ~30g carbs / ~7g fat. Pull honey to 15g on rest days if 320 kcal is tight (~285 kcal, loses a little creaminess). <b>Cronometer:</b> Chobani 5% barcode; NOW Sports whey barcode; honey at 25g real sugar per the standing rule."
   }
 ];
 
@@ -2080,7 +2105,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v25</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v26</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
