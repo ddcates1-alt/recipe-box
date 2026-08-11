@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v26 — 34 recipes — July 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v27 — 35 recipes — August 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -2048,6 +2048,37 @@ const RECIPES = [
       {t:"Serve or add mix-in", c:"Eat straight from the pint or core and add a mix-in of your choice. Fresh berries, a drizzle of honey, or granola all work well — log whatever you add."}
     ],
     notes:"The honey is doing two jobs: sweetness and anti-crystallization — don’t reduce below 20g or you’ll get icy texture. The lemon juice sharpens the yogurt tang so it tastes like actual froyo rather than a protein shake — don’t skip it. <b>Full pint is one serving:</b> ~320 kcal / ~48g protein / ~30g carbs / ~7g fat. Pull honey to 15g on rest days if 320 kcal is tight (~285 kcal, loses a little creaminess). <b>Cronometer:</b> Chobani 5% barcode; NOW Sports whey barcode; honey at 25g real sugar per the standing rule."
+  },
+  {
+    cat:"Vegetarian",
+    tag:"Vegetarian · ~18g protein",
+    title:"Gochujang-Glazed Crispy Tofu",
+    subtitle:"Spicy-sweet lacquered crust, Korean-inspired",
+    desc:"Firm tofu pressed dry, seared hard, then coated in a sticky gochujang-honey glaze that caramelizes in 90 seconds. Bold, spicy-sweet, and high protein. ~280 kcal / ~18g protein per serving. Serve over 100g steamed rice.",
+    servings:2, unit:"serving", meta:"2 servings · ~280 kcal / ~18g protein",
+    ingredients:[
+      {a:400,u:"g",n:"firm tofu block"},
+      {a:25,u:"g",n:"gochujang (Korean chili paste)"},
+      {a:20,u:"g",n:"low-sodium soy sauce"},
+      {a:15,u:"g",n:"honey"},
+      {a:10,u:"g",n:"rice vinegar"},
+      {a:8,u:"g",n:"toasted sesame oil"},
+      {a:8,u:"g",n:"fresh ginger, grated"},
+      {a:2,u:"cloves",n:"garlic, grated"},
+      {a:15,u:"g",n:"neutral oil (avocado or light olive)"},
+      {a:30,u:"g",n:"scallions, thinly sliced"},
+      {a:8,u:"g",n:"toasted sesame seeds"},
+      {a:10,u:"g",n:"cornstarch"}
+    ],
+    steps:[
+      {t:"Press the tofu", c:"Slice tofu into 8 equal slabs. Lay flat on a clean kitchen towel or paper towels, fold over the top, and press firmly with a heavy pan or cutting board for 15 minutes. The drier the tofu, the better the crust — don't skip this.", timer:900},
+      {t:"Make the glaze", c:"Whisk together gochujang, soy sauce, honey, rice vinegar, sesame oil, ginger, and garlic until smooth. Taste — it should be spicy, tangy, and slightly sweet. Set aside."},
+      {t:"Coat in cornstarch", c:"Dust each tofu slab lightly on both sides with cornstarch — just a thin even coating. This is what gives you the lacquered crust when the glaze hits the pan."},
+      {t:"Sear the tofu", c:"Heat neutral oil in a wide non-stick or cast iron skillet over medium-high heat until shimmering. Add tofu slabs in a single layer — don't crowd. Sear undisturbed for 3–4 minutes until deep golden and releasing cleanly. Flip and sear the other side another 3 minutes.", timer:420},
+      {t:"Glaze and caramelize", c:"Pour the glaze evenly over the tofu. It will bubble aggressively — that's correct. Spoon the glaze over each piece continuously for 90 seconds until it thickens, darkens, and coats every surface in a sticky lacquer. Pull off heat the moment it looks glossy — another 30 seconds and it burns.", timer:90},
+      {t:"Finish and serve", c:"Plate immediately. Top with scallions and sesame seeds. Serve over 100g steamed white rice or alongside a vegetable side. The glaze sets further as it cools slightly."}
+    ],
+    notes:"<b>Gochujang note:</b> CJ Haechandle (red lid) is the benchmark — medium heat, slightly sweet. Taste the glaze before it hits the pan and adjust honey up if yours runs very hot. <b>Press hard:</b> 15 minutes minimum — the press is the difference between a crust and steaming in its own moisture. <b>Cronometer:</b> Log tofu as 'tofu, firm, raw' at 400g total divided by 2. Log each sauce ingredient by gram weight. Gochujang logs as 'gochujang' in Cronometer or use the CJ brand barcode."
   }
 ];
 
@@ -2105,7 +2136,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v26</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v27</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
