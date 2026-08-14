@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v27 — 35 recipes — August 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v28 — 36 recipes — August 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -2080,6 +2080,34 @@ const RECIPES = [
       {t:"Finish and serve", c:"Plate immediately. Top with scallions and sesame seeds. Serve over 100g steamed white rice or alongside a vegetable side. The glaze sets further as it cools slightly."}
     ],
     notes:"<b>Gochujang note:</b> CJ Haechandle (red lid) is the benchmark — medium heat, slightly sweet. Taste the glaze before it hits the pan and adjust honey up if yours runs very hot. <b>Press hard:</b> 15 minutes minimum — the press is the difference between a crust and steaming in its own moisture. <b>Cronometer:</b> Log tofu as 'tofu, firm, raw' at 400g total divided by 2. Log each sauce ingredient by gram weight. Gochujang logs as 'gochujang' in Cronometer or use the CJ brand barcode."
+  }  ,{
+    id:"recomp-pizza-dough",
+    cat:"Breads & Wraps",
+    tag:"Breads & Wraps · ~33g protein per ball",
+    title:"Recomp Pizza Dough (Cold Ferment)",
+    subtitle:"High-protein thin crust dough — makes 2 dough balls",
+    desc:"Cold-ferment pizza dough with vital wheat gluten, toasted chickpea flour, and nutritional yeast. Makes two ~245g dough balls, each stretching to a 10–12 inch thin crust. Start 24–48 hours before pizza night. ~570 kcal / ~33g protein per dough ball (dough only — plan toppings within your day's budget).",
+    servings:2, unit:"dough ball", meta:"2 dough balls · ~570 kcal / ~33g protein each",
+    ingredients:[
+      {a:200,u:"g",n:"bread flour"},
+      {a:30,u:"g",n:"vital wheat gluten"},
+      {a:20,u:"g",n:"chickpea flour, toasted"},
+      {a:15,u:"g",n:"nutritional yeast"},
+      {a:6,u:"g",n:"instant yeast"},
+      {a:6,u:"g",n:"fine sea salt"},
+      {a:15,u:"g",n:"extra virgin olive oil"},
+      {a:175,u:"g",n:"warm water (38°C / 100°F)"},
+      {a:30,u:"g",n:"plain Greek yogurt 2% or 5%"}
+    ],
+    steps:[
+      {t:"Toast the chickpea flour", c:"In a dry skillet over medium heat, toast the chickpea flour 3–4 minutes, stirring constantly, until it smells nutty and turns a shade darker. Remove immediately and cool completely. Raw chickpea flour has a beany aftertaste that bakes into the crust — don't skip this.", timer:240},
+      {t:"Bloom the yeast", c:"Combine warm water, olive oil, Greek yogurt, and instant yeast in a bowl. Stir until the yogurt dissolves, then let sit 5 minutes until slightly foamy. If nothing happens your yeast is dead — replace it before wasting a 48-hour ferment.", timer:300},
+      {t:"Mix the dough", c:"Whisk bread flour, vital wheat gluten, toasted chickpea flour, nutritional yeast, and salt in a large bowl. Pour in the bloomed yeast mixture and mix with a fork until shaggy, then turn out onto a clean surface."},
+      {t:"Knead", c:"Knead by hand 8–10 minutes until smooth, elastic, and it springs back when poked. The dough will feel slightly tacky at this hydration — wet your hands rather than adding flour if it sticks. If it tears instead of stretching, keep kneading 2 more minutes.", timer:600},
+      {t:"Cold ferment 24–48 hours", c:"Divide into 2 equal balls (~245g each). Place each in a lightly oiled container or zip bag with room to double. Seal and refrigerate 24–48 hours — 48 is noticeably better for flavor and stretch. Don't exceed 72 hours."},
+      {t:"Rest before stretching", c:"Pull dough from the fridge 1 full hour before baking. Cold dough tears rather than stretches. While it rests, preheat your stone at 500°F for 45 minutes minimum. Stretch by draping over your knuckles and rotating — no rolling pin, it degasses the crust. Aim for 10–12 inches, thin center, slightly thicker rim.", timer:3600}
+    ],
+    notes:"<b>Per dough ball (dough only):</b> ~570 kcal / ~33g protein / ~8g fat / ~85g net carbs. Plan toppings within your day's budget — 80g crushed tomato sauce, 100g cooked chicken, and 50g part-skim mozzarella adds ~330 kcal / ~44g protein for a ~900 kcal complete pizza. <b>Freezing:</b> Dough balls freeze well after the cold ferment — wrap tight, freeze up to 2 months, thaw overnight in the fridge. <b>Stretch tip:</b> The 48-hour ferment is what makes this VWG-heavy dough extensible. Same-day it will fight you. <b>Cronometer:</b> Log dough ingredients by gram weight divided by 2 per ball, or log a finished pizza as its own recipe with toppings included."
   }
 ];
 
@@ -2137,7 +2165,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v27</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v28</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
