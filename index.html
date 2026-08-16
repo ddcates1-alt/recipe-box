@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v28 — 36 recipes — August 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v29 — 37 recipes — August 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -2108,6 +2108,40 @@ const RECIPES = [
       {t:"Rest before stretching", c:"Pull dough from the fridge 1 full hour before baking. Cold dough tears rather than stretches. While it rests, preheat your stone at 500°F for 45 minutes minimum. Stretch by draping over your knuckles and rotating — no rolling pin, it degasses the crust. Aim for 10–12 inches, thin center, slightly thicker rim.", timer:3600}
     ],
     notes:"<b>Per dough ball (dough only):</b> ~570 kcal / ~33g protein / ~8g fat / ~85g net carbs. Plan toppings within your day's budget — 80g crushed tomato sauce, 100g cooked chicken, and 50g part-skim mozzarella adds ~330 kcal / ~44g protein for a ~900 kcal complete pizza. <b>Freezing:</b> Dough balls freeze well after the cold ferment — wrap tight, freeze up to 2 months, thaw overnight in the fridge. <b>Stretch tip:</b> The 48-hour ferment is what makes this VWG-heavy dough extensible. Same-day it will fight you. <b>Cronometer:</b> Log dough ingredients by gram weight divided by 2 per ball, or log a finished pizza as its own recipe with toppings included."
+  }  ,{
+    id:"chickpea-chocolate-chip-cookies",
+    cat:"Desserts",
+    tag:"Desserts · ~6g protein per cookie",
+    title:"High-Protein Chocolate Chip Cookies (Chickpea Flour)",
+    subtitle:"Toasted chickpea flour, wheat germ, chewy not cakey",
+    desc:"Chickpea flour and almond flour base with wheat germ, Greek yogurt replacing most of the butter, and real dark chocolate. ~115 kcal / ~5.8g protein per cookie. Field-tested: toast the chickpea flour, chill the dough, use a dough scoop.",
+    servings:16, unit:"cookie", meta:"16 cookies · ~115 kcal / ~5.8g protein each",
+    ingredients:[
+      {a:120,u:"g",n:"chickpea flour, toasted"},
+      {a:80,u:"g",n:"almond flour"},
+      {a:48,u:"g",n:"wheat germ"},
+      {a:20,u:"g",n:"ground flaxseed meal"},
+      {a:5,u:"g",n:"baking soda"},
+      {a:3,u:"g",n:"fine sea salt"},
+      {a:100,u:"g",n:"plain Greek yogurt 5% (Chobani)"},
+      {a:30,u:"g",n:"butter, melted (brown it for extra depth)"},
+      {a:80,u:"g",n:"granulated sugar"},
+      {a:1,u:"",n:"large egg"},
+      {a:8,u:"g",n:"vanilla extract"},
+      {a:100,u:"g",n:"dark chocolate chips (60% or higher)"}
+    ],
+    steps:[
+      {t:"Toast the chickpea flour", c:"In a dry skillet over medium heat, toast the chickpea flour 3–4 minutes, stirring constantly, until it smells nutty and darkens a shade. Cool completely before using — warm flour melts the butter unevenly and can start cooking the egg. The wheat germ pairs beautifully with this toasted note.", timer:240},
+      {t:"Preheat and prep", c:"Heat oven to 375°F. Line two sheet pans with parchment."},
+      {t:"Combine dry ingredients", c:"Whisk together the cooled toasted chickpea flour, almond flour, wheat germ, flaxseed meal, baking soda, and salt in a large bowl."},
+      {t:"Whisk wet ingredients", c:"In a separate bowl whisk together the Greek yogurt, melted butter, sugar, egg, and vanilla until smooth. For extra depth, brown the butter first — melt it a few minutes longer until it smells nutty. Zero macro change, significant flavor upgrade."},
+      {t:"Combine and fold in chips", c:"Pour the wet into the dry and mix until just combined — the dough will be thicker than regular cookie dough. Fold in the chocolate chips."},
+      {t:"Chill the dough 20 minutes", c:"Refrigerate the dough for 20 minutes. The yogurt and melted butter make this dough soft at room temp — chilling firms it for clean scooping and helps the cookies hold their shape in the oven.", timer:1200},
+      {t:"Scoop and flatten", c:"Using a dough scoop, portion 16 cookies at ~37g each onto the prepared pans, leaving 5cm between them. Flatten slightly with your palm — chickpea flour cookies don't spread on their own."},
+      {t:"Bake 10–12 minutes", c:"Bake until the edges are set and lightly golden. The center should still look slightly underdone — they firm up as they cool.", timer:660},
+      {t:"Cool before eating", c:"Cool on the pan 5 minutes then transfer to a rack. Don't eat hot — they're fragile until fully cool.", timer:300}
+    ],
+    notes:"<b>Per cookie (16 cookies):</b> ~115 kcal / ~5.8g protein / ~5g fat / ~13g carbs. <b>Field notes baked in:</b> wheat germ (48g) added for nutty depth alongside the toasted chickpea flour — it also dries the dough to the right consistency. Chill 20 minutes before scooping; use a dough scoop. <b>Toasting is non-negotiable:</b> raw chickpea flour tastes beany in a cookie. <b>Sugar check:</b> if a batch tastes flat, bump to 90g (+2 kcal per cookie). Real sugar per the standing rule. <b>Cronometer:</b> log as 16 servings, one cookie per tap. Chobani 5% barcode; Bob's Red Mill barcode for the chickpea flour if that's your brand. <b>Storage:</b> 4 days room temp; freeze individually, flat-stacked in a zip bag on the freezer shelf."
   }
 ];
 
@@ -2165,7 +2199,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v28</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v29</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
