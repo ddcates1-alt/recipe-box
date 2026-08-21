@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v29 — 37 recipes — August 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v31 — 38 recipes — August 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -2111,11 +2111,11 @@ const RECIPES = [
   }  ,{
     id:"chickpea-chocolate-chip-cookies",
     cat:"Desserts",
-    tag:"Desserts · ~6g protein per cookie",
+    tag:"Desserts · ~5g protein per cookie",
     title:"High-Protein Chocolate Chip Cookies (Chickpea Flour)",
     subtitle:"Toasted chickpea flour, wheat germ, chewy not cakey",
-    desc:"Chickpea flour and almond flour base with wheat germ, Greek yogurt replacing most of the butter, and real dark chocolate. ~115 kcal / ~5.8g protein per cookie. Field-tested: toast the chickpea flour, chill the dough, use a dough scoop.",
-    servings:16, unit:"cookie", meta:"16 cookies · ~115 kcal / ~5.8g protein each",
+    desc:"Chickpea flour and almond flour base with wheat germ, Greek yogurt replacing most of the butter, and real dark chocolate. ~150 kcal / ~5g protein per cookie at 16 cookies (real-world yield runs ~17–18 with a standard scoop → ~140 kcal / ~4.7g). Field-tested: toast the chickpea flour, chill the dough, use a dough scoop.",
+    servings:16, unit:"cookie", meta:"16 cookies · ~150 kcal / ~5g protein each",
     ingredients:[
       {a:120,u:"g",n:"chickpea flour, toasted"},
       {a:80,u:"g",n:"almond flour"},
@@ -2141,7 +2141,39 @@ const RECIPES = [
       {t:"Bake 10–12 minutes", c:"Bake until the edges are set and lightly golden. The center should still look slightly underdone — they firm up as they cool.", timer:660},
       {t:"Cool before eating", c:"Cool on the pan 5 minutes then transfer to a rack. Don't eat hot — they're fragile until fully cool.", timer:300}
     ],
-    notes:"<b>Per cookie (16 cookies):</b> ~115 kcal / ~5.8g protein / ~5g fat / ~13g carbs. <b>Field notes baked in:</b> wheat germ (48g) added for nutty depth alongside the toasted chickpea flour — it also dries the dough to the right consistency. Chill 20 minutes before scooping; use a dough scoop. <b>Toasting is non-negotiable:</b> raw chickpea flour tastes beany in a cookie. <b>Sugar check:</b> if a batch tastes flat, bump to 90g (+2 kcal per cookie). Real sugar per the standing rule. <b>Cronometer:</b> log as 16 servings, one cookie per tap. Chobani 5% barcode; Bob's Red Mill barcode for the chickpea flour if that's your brand. <b>Storage:</b> 4 days room temp; freeze individually, flat-stacked in a zip bag on the freezer shelf."
+    notes:"<b>Per cookie (16 cookies):</b> ~150 kcal / ~4.9g protein / ~8g fat / ~16g carbs. Real-world yield with a standard dough scoop runs ~17–18 cookies (~140 kcal / ~4.7g each) — set your Cronometer serving count to your actual cookie count, not the recipe default. <b>Field notes baked in:</b> wheat germ (48g) added for nutty depth alongside the toasted chickpea flour — it also dries the dough to the right consistency. Chill 20 minutes before scooping; use a dough scoop. <b>Toasting is non-negotiable:</b> raw chickpea flour tastes beany in a cookie. <b>Sugar check:</b> if a batch tastes flat, bump to 90g (+2 kcal per cookie). Real sugar per the standing rule. <b>Cronometer:</b> log as 16 servings, one cookie per tap. Chobani 5% barcode; Bob's Red Mill barcode for the chickpea flour if that's your brand. <b>Storage:</b> 4 days room temp; freeze individually, flat-stacked in a zip bag on the freezer shelf."
+  }  ,{
+    id:"halloumi-chicken-blistered-corn",
+    cat:"Chicken Breast",
+    tag:"Chicken Breast · ~37g protein",
+    title:"Halloumi & Chicken Skillet with Blistered Corn",
+    subtitle:"Burst tomatoes, cumin, lime, basil — halloumi dialed back",
+    desc:"A recomp rebuild of the classic crispy-halloumi skillet. The halloumi is still there for the squeaky, salty sear — there's just less of it, with chicken carrying the protein load. ~388 kcal / ~37g protein per serving vs ~514 kcal / ~27g protein for the original.",
+    servings:4, unit:"serving", meta:"4 servings · ~388 kcal / ~37g protein",
+    ingredients:[
+      {a:400,u:"g",n:"chicken breast, boneless skinless, 2cm dice"},
+      {a:170,u:"g",n:"halloumi, 2cm cubes, patted very dry"},
+      {a:20,u:"g",n:"extra virgin olive oil"},
+      {a:250,u:"g",n:"corn kernels, fresh or thawed"},
+      {a:400,u:"g",n:"cherry tomatoes, halved"},
+      {a:25,u:"g",n:"jalapeño, thinly sliced (seeds in for more heat)"},
+      {a:85,u:"g",n:"red onion, thinly sliced"},
+      {a:3,u:"g",n:"cumin seeds"},
+      {a:3,u:"g",n:"garlic powder"},
+      {a:25,u:"g",n:"fresh basil, chopped, plus more to garnish"},
+      {a:1,u:"",n:"lime, cut into wedges"},
+      {a:1,u:"g",n:"black pepper, freshly ground"}
+    ],
+    steps:[
+      {t:"Dry the halloumi, season the chicken", c:"Pat the halloumi completely dry with paper towels — press, wait a minute, press again. Wet halloumi steams instead of searing. Toss the chicken with garlic powder and black pepper. Have everything else prepped and within reach; this cooks fast once it starts."},
+      {t:"Sear the halloumi", c:"Heat 10g of the olive oil in a large cast iron or nonstick skillet over medium-high until shimmering. Add the halloumi in a single layer and leave it alone 2–3 minutes until deeply golden. Flip and sear the second side 2 minutes. Transfer to a plate — it keeps crisping as it sits.", timer:300},
+      {t:"Sear the chicken", c:"Add the remaining 10g olive oil to the same pan. Add the chicken in a single layer and sear undisturbed 3 minutes, then stir and cook another 3–4 minutes until just cooked through. Don't crowd the pan — work in two batches if needed. Transfer to the halloumi plate.", timer:420},
+      {t:"Blister the corn", c:"Return the pan to high heat. Add the cumin seeds and toast 30 seconds until fragrant. Add the corn in an even layer and leave it undisturbed 2–3 minutes to blister and char in spots. Stir once and cook 1 minute more.", timer:240},
+      {t:"Burst the tomatoes", c:"Add the cherry tomatoes, jalapeño, and red onion. Cook 3–4 minutes, tossing occasionally, until the tomatoes start to burst and release their juice. Scrape up any browned bits from the pan — that's where the flavor is.", timer:240},
+      {t:"Combine off heat", c:"Kill the heat. Return the chicken and halloumi to the pan and toss just to combine and warm through — don't cook further or the halloumi softens. Fold in the basil."},
+      {t:"Taste, then lime and serve", c:"Taste before adding anything. Between the halloumi and the pan juices it is probably already seasoned. Squeeze the lime generously over the top, garnish with more basil, and serve. Weigh the finished skillet and divide by 4 for logging."}
+    ],
+    notes:"<b>Per serving (4 servings):</b> ~388 kcal / ~37g protein / ~20g fat / ~591mg sodium. The original recipe ran ~514 kcal / ~27g protein / ~1,133mg sodium. <b>Do not salt this dish.</b> 170g of halloumi brings roughly 2,000mg sodium on its own — taste at the end and it will almost certainly need none. This is the single biggest change from the original. <b>Why less halloumi is more:</b> at 170g you still get the squeak and salt in every few bites, but the batch drops ~660 kcal and ~2,400mg sodium. Chicken picks up the protein slack and then some. Olive oil also cut from 54g to 20g — halloumi renders plenty of its own fat. <b>Flavor upgrades:</b> a spoonful of Greek yogurt under each portion turns it into a bowl and adds protein; preserved lemon rind minced in with the onions in place of some lime; gochugaru for half the jalapeño for smokier heat. <b>Cronometer:</b> log by gram weight as listed. Halloumi varies a lot between brands — barcode-scan yours. Weigh the finished skillet and divide by 4."
   }
 ];
 
@@ -2199,7 +2231,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v29</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v31</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
