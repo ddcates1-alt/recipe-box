@@ -142,7 +142,7 @@
   <header>
     <div class="eyebrow">Final versions only</div>
     <h1>The Cates Recipe Box</h1>
-    <div class="sub">All weights in grams · scaled live · <span class="mono">v31 — 38 recipes — August 2026</span></div>
+    <div class="sub">All weights in grams · scaled live · <span class="mono">v32 — 39 recipes — August 2026</span></div>
   </header>
 
   <div id="index" class="view active">
@@ -2174,6 +2174,40 @@ const RECIPES = [
       {t:"Taste, then lime and serve", c:"Taste before adding anything. Between the halloumi and the pan juices it is probably already seasoned. Squeeze the lime generously over the top, garnish with more basil, and serve. Weigh the finished skillet and divide by 4 for logging."}
     ],
     notes:"<b>Per serving (4 servings):</b> ~388 kcal / ~37g protein / ~20g fat / ~591mg sodium. The original recipe ran ~514 kcal / ~27g protein / ~1,133mg sodium. <b>Do not salt this dish.</b> 170g of halloumi brings roughly 2,000mg sodium on its own — taste at the end and it will almost certainly need none. This is the single biggest change from the original. <b>Why less halloumi is more:</b> at 170g you still get the squeak and salt in every few bites, but the batch drops ~660 kcal and ~2,400mg sodium. Chicken picks up the protein slack and then some. Olive oil also cut from 54g to 20g — halloumi renders plenty of its own fat. <b>Flavor upgrades:</b> a spoonful of Greek yogurt under each portion turns it into a bowl and adds protein; preserved lemon rind minced in with the onions in place of some lime; gochugaru for half the jalapeño for smokier heat. <b>Cronometer:</b> log by gram weight as listed. Halloumi varies a lot between brands — barcode-scan yours. Weigh the finished skillet and divide by 4."
+  }  ,{
+    id:"savory-cheddar-jalapeno-zucchini-bread",
+    cat:"Breads & Wraps",
+    tag:"Breads & Wraps · ~7.7g protein per slice",
+    title:"Savory Cheddar-Jalapeño Zucchini Bread (Lightened)",
+    subtitle:"Greek yogurt and less oil replace most of the fat",
+    desc:"Savory cheddar, pickled jalapeño, and scallion zucchini quick bread — not a sweet bread. Greek yogurt and less oil replace most of the fat; nutritional yeast adds savory depth and protein without adding more cheese. ~143 kcal / ~7.7g protein per slice vs ~219 kcal / ~6.7g protein for the original.",
+    servings:12, unit:"slice", meta:"12 slices · ~143 kcal / ~7.7g protein",
+    ingredients:[
+      {a:200,u:"g",n:"all-purpose flour"},
+      {a:15,u:"g",n:"nutritional yeast"},
+      {a:4,u:"g",n:"baking powder"},
+      {a:5,u:"g",n:"baking soda"},
+      {a:8,u:"g",n:"granulated sugar"},
+      {a:4,u:"g",n:"fine sea salt"},
+      {a:100,u:"g",n:"reduced-fat sharp cheddar, grated, plus 20g for topping"},
+      {a:25,u:"g",n:"canned pickled jalapeños, finely chopped, plus 1 whole sliced for topping"},
+      {a:2,u:"",n:"scallions, thinly sliced"},
+      {a:150,u:"g",n:"plain nonfat Greek yogurt"},
+      {a:30,u:"g",n:"extra virgin olive oil"},
+      {a:2,u:"",n:"large eggs"},
+      {a:227,u:"g",n:"zucchini, coarsely grated, moisture squeezed out"}
+    ],
+    steps:[
+      {t:"Preheat and prep the pan", c:"Preheat oven to 350°F. Grease a 9x5 inch loaf pan with cooking spray, or line with parchment for easy removal."},
+      {t:"Squeeze the zucchini", c:"Grate the zucchini and pile onto a clean kitchen towel. Gather the towel and wring hard over the sink until no more liquid comes out. This step is essential — skipping it leads to a gummy, dense loaf."},
+      {t:"Combine dry ingredients", c:"Whisk together the flour, nutritional yeast, baking powder, baking soda, sugar, and salt in a large bowl."},
+      {t:"Whisk wet ingredients", c:"In a separate bowl whisk the Greek yogurt, olive oil, and eggs until smooth and fully combined."},
+      {t:"Fold everything together", c:"Pour the wet ingredients into the dry and fold until just combined — a few streaks of flour are fine. Fold in the squeezed zucchini, 100g of the cheddar, the chopped jalapeños, and the scallions. Don't overmix."},
+      {t:"Top the loaf", c:"Pour batter into the prepared pan and smooth the top. Scatter the remaining 20g cheddar over the top along with the reserved sliced jalapeño."},
+      {t:"Bake 55–65 minutes", c:"Bake until a toothpick inserted in the center comes out clean and the top is deep golden. Tent loosely with foil after 40 minutes if the top is browning too quickly.", timer:3600},
+      {t:"Cool before slicing", c:"Cool in the pan 15 minutes, then turn out onto a rack and cool at least 30 minutes more before slicing — it firms up significantly as it cools. Weigh the finished loaf and divide by 12 for Cronometer logging.", timer:1800}
+    ],
+    notes:"<b>Per slice (12 slices):</b> ~143 kcal / ~7.7g protein / ~5.6g fat / ~16g carbs. Original recipe ran ~219 kcal / ~6.7g protein / ~13.3g fat per slice (55% of calories from fat). <b>Squeeze the zucchini — don't skip this.</b> You'll pull out a surprising amount of liquid; skipping this step is the #1 reason zucchini breads turn gummy or dense. <b>What changed and why:</b> olive oil cut from 73g to 30g and full-fat sour cream replaced with nonfat Greek yogurt — biggest fat and calorie savings, yogurt adds protein where sour cream added none. Cheddar switched to reduced-fat and trimmed from 170g to 120g total. Added nutritional yeast (15g) for savory depth, following the standing bread principle — reads as extra cheesiness, not a flavor of its own. Second egg added for protein. <b>Reduced-fat cheddar:</b> Cabot 50% reduced-fat or Sargento both shred and melt well here; full-fat sharp cheddar works too, just add back ~40 kcal and 3g fat per slice. <b>Cronometer:</b> log by gram weight as listed. Barcode-scan the cheddar — reduced-fat brands vary. Weigh the finished loaf and divide by 12 for the true per-slice number."
   }
 ];
 
@@ -2231,7 +2265,7 @@ function showRecipe(id){
     <div id="steps-${id}"></div>
     <div class="notes">${r.notes}</div>
     <div class="copybar"><button class="copy-btn" id="copy-${id}" onclick="copyCronometer('${id}')">Copy for Cronometer</button></div>
-    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v31</footer>
+    <footer>Base recipe: ${r.servings} ${r.unit} · The Cates Recipe Box v32</footer>
   `;
   renderIngredients(id);
   renderSteps(id);
